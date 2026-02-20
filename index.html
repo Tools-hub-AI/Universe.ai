@@ -3,104 +3,1074 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Oceans of AI - HATIM_BOSS</title>
+<title>AI Universe 🌌</title>
 <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;900&display=swap" rel="stylesheet">
 <style>
-  :root { --bg: #061e31; --card-bg: #ffffff; --text: #061e31; --accent: #007bff; --gold: #ffc107; }
+  :root {
+    --bg: #061e31;
+    --header-bg: #0a3d62;
+    --card-bg: #ffffff;
+    --primary: #007bff;
+    --gold: #ffc107;
+    --green: #00c853;
+    --purple: #7c3aed;
+    --text-dark: #061e31;
+  }
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { font-family: 'Tajawal', sans-serif; background-color: var(--bg); color: white; padding-bottom: 50px; }
-  header { text-align: center; padding: 40px 20px; background: linear-gradient(to bottom, #0a3d62, var(--bg)); }
-  header h1 { font-size: 28px; font-weight: 900; margin-bottom: 10px; color: #a5d8ff; }
-  .search-container { padding: 10px 20px; sticky: top; }
-  .search-bar { width: 100%; padding: 15px; border-radius: 30px; border: none; font-size: 16px; outline: none; }
-  
-  .container { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 15px; padding: 20px; }
-  
-  .ai-card { background: var(--card-bg); border-radius: 15px; padding: 15px; text-align: center; position: relative; color: var(--text); transition: 0.3s; text-decoration: none; display: block; }
-  .ai-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.3); }
-  .ai-card img { width: 50px; height: 50px; margin-bottom: 10px; border-radius: 10px; }
-  .ai-card h3 { font-size: 16px; font-weight: 800; margin-bottom: 5px; color: #061e31; }
-  .ai-card p { font-size: 11px; color: #555; line-height: 1.4; height: 45px; overflow: hidden; }
-  .star { position: absolute; top: 10px; left: 10px; color: #ccc; font-size: 18px; }
-  .star.active { color: var(--gold); }
+  body { font-family: 'Tajawal', sans-serif; background: var(--bg); color: white; padding-bottom: 90px; overflow-x: hidden; }
 
-  .category-tabs { display: flex; overflow-x: auto; padding: 10px 20px; gap: 10px; scrollbar-width: none; }
-  .tab { background: rgba(255,255,255,0.1); padding: 8px 20px; border-radius: 20px; white-space: nowrap; cursor: pointer; font-size: 14px; }
-  .tab.active { background: var(--accent); }
+  /* ===== HEADER ===== */
+  header {
+    padding: 45px 20px 55px;
+    text-align: center;
+    background: linear-gradient(180deg, #0d2f4f 0%, var(--bg) 100%);
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    position: relative;
+    overflow: hidden;
+  }
+  header::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+    background: radial-gradient(ellipse at 50% 0%, rgba(0,123,255,0.15) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  header h1 { font-size: 40px; font-weight: 900; letter-spacing: -1px; margin-bottom: 10px; text-shadow: 0 0 40px rgba(0,123,255,0.5); }
+  header p { color: #a5d8ff; font-size: 15px; opacity: 0.9; }
 
-  footer { position: fixed; bottom: 0; width: 100%; background: #0a3d62; display: flex; justify-content: space-around; padding: 12px; border-top: 1px solid rgba(255,255,255,0.1); }
-  .footer-item { text-align: center; font-size: 11px; color: #a5d8ff; text-decoration: none; }
+  /* ===== SEARCH ===== */
+  .search-container { padding: 0 20px; position: sticky; top: 15px; z-index: 1000; margin-top: -25px; }
+  .search-bar { width: 100%; padding: 20px 30px; border-radius: 50px; border: none; font-size: 16px; box-shadow: 0 15px 35px rgba(0,0,0,0.4); outline: none; font-family: 'Tajawal'; background: white; color: #061e31; }
+
+  /* ===== CATEGORY TABS ===== */
+  .tabs-wrapper { padding: 25px 20px 10px; overflow-x: auto; display: flex; gap: 10px; scrollbar-width: none; }
+  .tabs-wrapper::-webkit-scrollbar { display: none; }
+  .tab { background: rgba(255,255,255,0.08); padding: 11px 22px; border-radius: 30px; white-space: nowrap; cursor: pointer; transition: 0.3s; font-size: 13px; border: 1px solid rgba(255,255,255,0.1); font-weight: 700; }
+  .tab.active { background: var(--primary); border-color: var(--primary); box-shadow: 0 5px 15px rgba(0,123,255,0.4); }
+
+  /* ===== TOOLS GRID ===== */
+  #page-tools { display: block; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 18px; padding: 18px; }
+  .card { background: var(--card-bg); border-radius: 22px; padding: 18px; text-align: center; text-decoration: none; transition: 0.4s; position: relative; display: flex; flex-direction: column; align-items: center; }
+  .card:hover { transform: translateY(-8px); box-shadow: 0 15px 30px rgba(0,0,0,0.5); }
+  .card img { width: 60px; height: 60px; border-radius: 16px; margin-bottom: 12px; object-fit: cover; border: 1px solid #eee; }
+  .card h3 { color: var(--text-dark); font-size: 15px; font-weight: 900; margin-bottom: 6px; }
+  .card p { color: #555; font-size: 11px; line-height: 1.5; height: 33px; overflow: hidden; }
+  .fav-star { position: absolute; top: 13px; left: 13px; color: #ddd; font-size: 18px; cursor: pointer; }
+  .fav-star.active { color: #ffc107; }
+  .no-results { text-align: center; padding: 60px 20px; color: #a5d8ff; font-size: 18px; }
+
+  /* ===== DEV BOX ===== */
+  .dev-box { margin: 30px 20px; padding: 25px; background: rgba(255,255,255,0.03); border: 2px dashed var(--primary); border-radius: 25px; text-align: center; }
+  .dev-box h2 { color: var(--gold); font-size: 20px; margin-bottom: 10px; font-weight: 900; }
+  .dev-box p { font-size: 13px; color: #a5d8ff; line-height: 1.6; }
+  .coming-soon { background: var(--primary); color: white; padding: 6px 18px; border-radius: 20px; font-size: 12px; margin-top: 12px; display: inline-block; font-weight: 700; }
+
+  /* ===== PAGE SECTIONS (hidden by default) ===== */
+  .page-section { display: none; padding: 20px; }
+  .page-section.active { display: block; }
+
+  /* ===== SECTION HEADER ===== */
+  .section-hero {
+    background: linear-gradient(135deg, rgba(0,123,255,0.15), rgba(124,58,237,0.1));
+    border: 1px solid rgba(0,123,255,0.2);
+    border-radius: 24px;
+    padding: 30px;
+    text-align: center;
+    margin-bottom: 25px;
+  }
+  .section-hero h2 { font-size: 26px; font-weight: 900; margin-bottom: 8px; }
+  .section-hero p { color: #a5d8ff; font-size: 14px; }
+
+  /* ===== PROMPTS SECTION ===== */
+  .prompt-card {
+    background: linear-gradient(135deg, #0d2f4f, #0a3d62);
+    border: 1px solid rgba(0,123,255,0.25);
+    border-radius: 20px;
+    padding: 20px;
+    margin-bottom: 16px;
+    position: relative;
+    transition: 0.3s;
+  }
+  .prompt-card:hover { border-color: rgba(0,123,255,0.6); transform: translateX(-4px); }
+  .prompt-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
+  .prompt-tool-badge {
+    background: rgba(0,123,255,0.2);
+    border: 1px solid rgba(0,123,255,0.4);
+    color: #7ec8ff;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 700;
+  }
+  .prompt-cat-badge {
+    background: rgba(255,193,7,0.15);
+    border: 1px solid rgba(255,193,7,0.3);
+    color: var(--gold);
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 700;
+  }
+  .prompt-title { font-size: 16px; font-weight: 900; margin-bottom: 10px; color: white; }
+  .prompt-text {
+    background: rgba(0,0,0,0.3);
+    border-radius: 12px;
+    padding: 14px 16px;
+    font-size: 13px;
+    color: #c8e6ff;
+    line-height: 1.7;
+    direction: rtl;
+    text-align: right;
+  }
+  .copy-btn {
+    margin-top: 12px;
+    background: var(--primary);
+    color: white;
+    border: none;
+    padding: 10px 22px;
+    border-radius: 25px;
+    font-size: 13px;
+    font-family: 'Tajawal';
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .copy-btn:hover { background: #0056b3; transform: scale(1.03); }
+  .copy-btn.copied { background: var(--green); }
+
+  /* ===== COURSES SECTION ===== */
+  .courses-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 18px; }
+  .course-card {
+    background: linear-gradient(135deg, #0d2f4f, #0a3d62);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 22px;
+    padding: 22px;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    transition: 0.3s;
+    position: relative;
+    overflow: hidden;
+  }
+  .course-card::before {
+    content: '';
+    position: absolute; top: 0; right: 0;
+    width: 80px; height: 80px;
+    border-radius: 50%;
+    background: rgba(0,123,255,0.08);
+    transform: translate(20px, -20px);
+  }
+  .course-card:hover { transform: translateY(-6px); box-shadow: 0 15px 35px rgba(0,0,0,0.4); border-color: rgba(0,123,255,0.4); }
+  .course-provider {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .course-provider img { width: 36px; height: 36px; border-radius: 10px; object-fit: contain; background: white; padding: 4px; }
+  .course-provider span { font-weight: 900; font-size: 14px; color: #a5d8ff; }
+  .course-title { font-size: 16px; font-weight: 900; color: white; line-height: 1.4; }
+  .course-meta { display: flex; gap: 10px; flex-wrap: wrap; }
+  .badge {
+    padding: 4px 12px;
+    border-radius: 15px;
+    font-size: 11px;
+    font-weight: 700;
+  }
+  .badge-free { background: rgba(0,200,83,0.15); color: #69f0ae; border: 1px solid rgba(0,200,83,0.3); }
+  .badge-level { background: rgba(124,58,237,0.15); color: #c4b5fd; border: 1px solid rgba(124,58,237,0.3); }
+  .badge-duration { background: rgba(255,193,7,0.12); color: var(--gold); border: 1px solid rgba(255,193,7,0.25); }
+  .course-desc { font-size: 12px; color: #7fb3d3; line-height: 1.6; }
+  .course-btn {
+    background: rgba(0,123,255,0.15);
+    border: 1px solid rgba(0,123,255,0.3);
+    color: #7ec8ff;
+    padding: 10px 18px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 700;
+    text-align: center;
+    transition: 0.3s;
+    font-family: 'Tajawal';
+  }
+  .course-card:hover .course-btn { background: var(--primary); color: white; border-color: var(--primary); }
+
+  /* ===== NEWS SECTION ===== */
+  .news-grid { display: flex; flex-direction: column; gap: 16px; }
+  .news-card {
+    background: linear-gradient(135deg, #0d2f4f, #0a3d62);
+    border: 1px solid rgba(255,255,255,0.07);
+    border-right: 4px solid var(--primary);
+    border-radius: 18px;
+    padding: 20px 22px;
+    transition: 0.3s;
+    position: relative;
+  }
+  .news-card:hover { transform: translateX(-6px); box-shadow: 0 10px 30px rgba(0,0,0,0.4); border-right-color: var(--gold); }
+  .news-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
+  .news-tag {
+    background: rgba(0,123,255,0.2);
+    color: #7ec8ff;
+    border: 1px solid rgba(0,123,255,0.35);
+    padding: 3px 12px;
+    border-radius: 15px;
+    font-size: 11px;
+    font-weight: 700;
+  }
+  .news-tag.hot { background: rgba(255,59,59,0.15); color: #ff8a80; border-color: rgba(255,59,59,0.3); }
+  .news-tag.new { background: rgba(0,200,83,0.15); color: #69f0ae; border-color: rgba(0,200,83,0.3); }
+  .news-date { font-size: 11px; color: #5a8aaa; font-weight: 700; }
+  .news-title { font-size: 17px; font-weight: 900; margin-bottom: 10px; line-height: 1.5; color: white; }
+  .news-body { font-size: 13px; color: #8ab8d4; line-height: 1.7; }
+  .news-emoji { font-size: 28px; position: absolute; top: 18px; left: 18px; }
+
+  /* ===== FOOTER NAV ===== */
+  footer {
+    position: fixed; bottom: 0; width: 100%;
+    background: rgba(10,30,50,0.97);
+    backdrop-filter: blur(20px);
+    display: flex; justify-content: space-around;
+    padding: 14px 10px;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    z-index: 2000;
+  }
+  .nav-item {
+    color: #5a8aaa;
+    text-decoration: none;
+    font-size: 10px;
+    font-weight: 700;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    cursor: pointer;
+    transition: 0.25s;
+    padding: 0 6px;
+    flex: 1;
+  }
+  .nav-item .nav-icon { font-size: 22px; line-height: 1; }
+  .nav-item.active { color: var(--primary); }
+  .nav-item:hover { color: white; }
 </style>
 </head>
 <body>
 
+<!-- HEADER -->
 <header>
-  <h1>2500+ AI Tools</h1>
-  <p style="color:#a5d8ff">بوابة HATIM_BOSS لكل أدوات الذكاء الاصطناعي</p>
+  <h1>AI Universe 🌌</h1>
+  <p>الدليل الشامل لأدوات الذكاء الاصطناعي</p>
 </header>
 
-<div class="search-container">
-  <input type="text" class="search-bar" placeholder="ابحث عن أداة ذكاء اصطناعي..." onkeyup="filterTools()">
+<!-- SEARCH (only shown in tools page) -->
+<div class="search-container" id="searchArea">
+  <input type="text" id="mainSearch" class="search-bar" placeholder="🔍 ابحث في الذكاء الاصطناعي..." oninput="doSearch()">
 </div>
 
-<div class="category-tabs">
-  <div class="tab active" onclick="filterCat('all')">الكل</div>
-  <div class="tab" onclick="filterCat('text')">نصوص (ChatGPT)</div>
-  <div class="tab" onclick="filterCat('image')">صور (Design)</div>
-  <div class="tab" onclick="filterCat('video')">فيديو (Video)</div>
-  <div class="tab" onclick="filterCat('audio')">صوت (Audio)</div>
+<!-- ======================== PAGE: TOOLS ======================== -->
+<div id="page-tools">
+  <div class="tabs-wrapper" id="catTabs">
+    <div class="tab active" onclick="filterCat('all', this)">🌐 الكل</div>
+    <div class="tab" onclick="filterCat('text', this)">✍️ نصوص</div>
+    <div class="tab" onclick="filterCat('image', this)">🎨 صور</div>
+    <div class="tab" onclick="filterCat('video', this)">🎬 فيديو</div>
+    <div class="tab" onclick="filterCat('audio', this)">🎵 صوت</div>
+    <div class="tab" onclick="filterCat('coding', this)">💻 برمجة</div>
+    <div class="tab" onclick="filterCat('marketing', this)">📈 تسويق</div>
+    <div class="tab" onclick="filterCat('3d', this)">🧊 3D</div>
+    <div class="tab" onclick="filterCat('education', this)">📚 تعليم</div>
+  </div>
+  <div class="grid" id="toolsGrid"></div>
+  <div class="dev-box">
+    <h2>👨‍💻 مطور البرنامج: حاتم</h2>
+    <p>يتم الآن أرشفة وتدقيق أكثر من 20,000 أداة ذكاء اصطناعي عالمية لتكون بين أيديكم قريباً.</p>
+    <div class="coming-soon">تحديث ضخم قادم خلال أيام.. ابقوا منتظرين! 🔥</div>
+  </div>
 </div>
 
-<div class="container" id="ai-container">
+<!-- ======================== PAGE: PROMPTS ======================== -->
+<div id="page-prompts" class="page-section">
+  <div class="section-hero">
+    <h2>🧠 مكتبة الأوامر الاحترافية</h2>
+    <p>أوامر جاهزة للاستخدام الفوري — انسخ وألصق وابدأ</p>
   </div>
 
+  <div id="promptsContainer"></div>
+</div>
+
+<!-- ======================== PAGE: COURSES ======================== -->
+<div id="page-courses" class="page-section">
+  <div class="section-hero">
+    <h2>🎓 كورسات الذكاء الاصطناعي</h2>
+    <p>أفضل الدورات المجانية من كبرى الشركات والجامعات العالمية</p>
+  </div>
+  <div class="courses-grid" id="coursesContainer"></div>
+</div>
+
+<!-- ======================== PAGE: NEWS ======================== -->
+<div id="page-news" class="page-section">
+  <div class="section-hero">
+    <h2>📡 أخبار الذكاء الاصطناعي</h2>
+    <p>أحدث التطورات والإطلاقات في عالم AI</p>
+  </div>
+  <div class="news-grid" id="newsContainer"></div>
+</div>
+
+<!-- ======================== FOOTER NAV ======================== -->
 <footer>
-  <a href="#" class="footer-item">🏠 الرئيسية</a>
-  <a href="https://wa.me/212714551734" class="footer-item">💬 دعم حاتم</a>
-  <a href="#" class="footer-item">⭐ المفضلة</a>
+  <div class="nav-item active" id="nav-tools" onclick="showPage('tools')">
+    <span class="nav-icon">🤖</span>الأدوات
+  </div>
+  <div class="nav-item" id="nav-prompts" onclick="showPage('prompts')">
+    <span class="nav-icon">🧠</span>الأوامر
+  </div>
+  <div class="nav-item" id="nav-courses" onclick="showPage('courses')">
+    <span class="nav-icon">🎓</span>كورسات
+  </div>
+  <div class="nav-item" id="nav-news" onclick="showPage('news')">
+    <span class="nav-icon">📡</span>الأخبار
+  </div>
+  <div class="nav-item" id="nav-fav" onclick="showFavorites()">
+    <span class="nav-icon">⭐</span>المفضلة
+  </div>
+  <a href="https://wa.me/212714551734" class="nav-item">
+    <span class="nav-icon">💬</span>دعم
+  </a>
 </footer>
 
 <script>
-  const aiTools = [
-    { name: "ChatGPT", cat: "text", desc: "أقوى مساعد ذكاء اصطناعي للنصوص", url: "https://chat.openai.com", img: "https://upload.wikimedia.org/wikipedia/commons/0/04/ChatGPT_logo.svg" },
-    { name: "Claude.ai", cat: "text", desc: "منافس شات جي بي تي القوي من انثروبيك", url: "https://claude.ai", img: "https://avatars.githubusercontent.com/u/76839331?s=200&v=4" },
-    { name: "Midjourney", cat: "image", desc: "أفضل أداة لتوليد الصور الفنية", url: "https://www.midjourney.com", img: "https://cdn.worldvectorlogo.com/logos/midjourney.svg" },
-    { name: "DeepSeek", cat: "text", desc: "محرك ذكاء اصطناعي صيني متطور", url: "https://www.deepseek.com", img: "https://www.deepseek.com/favicon.ico" },
-    { name: "Leonardo.Ai", cat: "image", desc: "منصة احترافية لتصميم الصور", url: "https://leonardo.ai", img: "https://leonardo.ai/favicon.ico" },
-    { name: "Pika Labs", cat: "video", desc: "تحويل النصوص والصور إلى فيديو", url: "https://pika.art", img: "https://pika.art/favicon.ico" },
-    { name: "ElevenLabs", cat: "audio", desc: "أفضل موقع لتحويل النص إلى صوت بشري", url: "https://elevenlabs.io", img: "https://elevenlabs.io/static/img/favicon.png" },
-    { name: "Suno AI", cat: "audio", desc: "صناعة الأغاني والموسيقى بالكامل", url: "https://suno.com", img: "https://suno.com/favicon.ico" },
-    { name: "Perplexity AI", cat: "text", desc: "محرك بحث ذكي يعطيك إجابات مباشرة", url: "https://www.perplexity.ai", img: "https://www.perplexity.ai/favicon.ico" },
-    { name: "Kling AI", cat: "video", desc: "توليد فيديوهات واقعية جداً", url: "https://klingai.com", img: "https://klingai.com/favicon.ico" }
-  ];
+// ============================================================
+// =================== DATABASE: 500 TOOLS ====================
+// ============================================================
+const megaDatabase = [
+  // ===== TEXT / نصوص ومقالات =====
+  { name: "ChatGPT", cat: "text", desc: "أقوى محرك نصوص في العالم من OpenAI", url: "https://chat.openai.com", img: "https://upload.wikimedia.org/wikipedia/commons/0/04/ChatGPT_logo.svg" },
+  { name: "Claude", cat: "text", desc: "مساعد ذكي متعدد المهام من Anthropic", url: "https://claude.ai", img: "https://claude.ai/favicon.ico" },
+  { name: "Gemini", cat: "text", desc: "نموذج غوغل للمحادثة والتحليل", url: "https://gemini.google.com", img: "https://www.gstatic.com/lamda/images/gemini_favicon_f069958c85030456e93de685481c559f160ea06.svg" },
+  { name: "DeepSeek", cat: "text", desc: "نموذج لغوي متطور للنصوص والكود", url: "https://chat.deepseek.com", img: "https://www.deepseek.com/favicon.ico" },
+  { name: "Copilot", cat: "text", desc: "مساعد مايكروسوفت بذكاء اصطناعي", url: "https://copilot.microsoft.com", img: "https://copilot.microsoft.com/favicon.ico" },
+  { name: "Perplexity AI", cat: "text", desc: "محرك بحث ذكي يجيب بدقة عالية", url: "https://perplexity.ai", img: "https://www.perplexity.ai/favicon.ico" },
+  { name: "Jasper AI", cat: "text", desc: "كتابة محتوى تسويقي احترافي", url: "https://jasper.ai", img: "https://jasper.ai/favicon.ico" },
+  { name: "Copy.ai", cat: "text", desc: "توليد نصوص إبداعية وتسويقية", url: "https://copy.ai", img: "https://copy.ai/favicon.ico" },
+  { name: "Writesonic", cat: "text", desc: "كتابة مقالات ومحتوى بالذكاء الاصطناعي", url: "https://writesonic.com", img: "https://writesonic.com/favicon.ico" },
+  { name: "Rytr", cat: "text", desc: "مساعد كتابة سريع وبأسعار معقولة", url: "https://rytr.me", img: "https://rytr.me/favicon.ico" },
+  { name: "Notion AI", cat: "text", desc: "كتابة وتلخيص داخل Notion", url: "https://notion.so", img: "https://notion.so/favicon.ico" },
+  { name: "Grammarly", cat: "text", desc: "تصحيح الكتابة والقواعد اللغوية", url: "https://grammarly.com", img: "https://grammarly.com/favicon.ico" },
+  { name: "QuillBot", cat: "text", desc: "إعادة صياغة النصوص بأسلوب احترافي", url: "https://quillbot.com", img: "https://quillbot.com/favicon.ico" },
+  { name: "Wordtune", cat: "text", desc: "تحسين وإعادة كتابة الجمل بذكاء", url: "https://wordtune.com", img: "https://wordtune.com/favicon.ico" },
+  { name: "Sudowrite", cat: "text", desc: "أداة متخصصة لكتابة الروايات", url: "https://sudowrite.com", img: "https://sudowrite.com/favicon.ico" },
+  { name: "Hyperwrite", cat: "text", desc: "مساعد الكتابة الشخصي بالذكاء الاصطناعي", url: "https://hyperwriteai.com", img: "https://hyperwriteai.com/favicon.ico" },
+  { name: "Anyword", cat: "text", desc: "كتابة إعلانية محسنة بالبيانات", url: "https://anyword.com", img: "https://anyword.com/favicon.ico" },
+  { name: "Longshot AI", cat: "text", desc: "كتابة مقالات طويلة وتحسين SEO", url: "https://longshot.ai", img: "https://longshot.ai/favicon.ico" },
+  { name: "Scalenut", cat: "text", desc: "بحث SEO وكتابة محتوى متكامل", url: "https://scalenut.com", img: "https://scalenut.com/favicon.ico" },
+  { name: "Frase", cat: "text", desc: "تحسين محرك البحث وكتابة المحتوى", url: "https://frase.io", img: "https://frase.io/favicon.ico" },
+  { name: "AI Writer", cat: "text", desc: "كتابة مقالات موثوقة ومصادر", url: "https://ai-writer.com", img: "https://ai-writer.com/favicon.ico" },
+  { name: "Ink Editor", cat: "text", desc: "تحسين المحتوى لمحركات البحث", url: "https://inkforall.com", img: "https://inkforall.com/favicon.ico" },
+  { name: "TextCortex", cat: "text", desc: "مساعد كتابة ذكي متعدد الأدوات", url: "https://textcortex.com", img: "https://textcortex.com/favicon.ico" },
+  { name: "Lex", cat: "text", desc: "محرر نصوص بمساعدة الذكاء الاصطناعي", url: "https://lex.page", img: "https://lex.page/favicon.ico" },
+  { name: "Shortly AI", cat: "text", desc: "كتابة قصص وروايات إبداعية", url: "https://shortlyai.com", img: "https://shortlyai.com/favicon.ico" },
+  { name: "Simplified", cat: "text", desc: "تصميم ومحتوى للتسويق الرقمي", url: "https://simplified.com", img: "https://simplified.com/favicon.ico" },
+  { name: "Neuroflash", cat: "text", desc: "توليد نصوص تسويقية بالألمانية والإنجليزية", url: "https://neuroflash.com", img: "https://neuroflash.com/favicon.ico" },
+  { name: "Cohesive AI", cat: "text", desc: "تحرير وكتابة المحتوى بسرعة", url: "https://cohesive.so", img: "https://cohesive.so/favicon.ico" },
+  { name: "Peppertype", cat: "text", desc: "توليد محتوى تسويقي بالذكاء الاصطناعي", url: "https://peppertype.ai", img: "https://peppertype.ai/favicon.ico" },
+  { name: "GrammarlyGO", cat: "text", desc: "كتابة جمل كاملة بذكاء اصطناعي", url: "https://grammarly.com/grammarlygo", img: "https://grammarly.com/favicon.ico" },
+  { name: "ProWritingAid", cat: "text", desc: "تحليل الكتابة وتحسين الأسلوب", url: "https://prowritingaid.com", img: "https://prowritingaid.com/favicon.ico" },
+  { name: "Summarize.tech", cat: "text", desc: "تلخيص مقاطع يوتيوب بالذكاء الاصطناعي", url: "https://summarize.tech", img: "https://summarize.tech/favicon.ico" },
+  { name: "Tldr This", cat: "text", desc: "تلخيص المقالات والنصوص الطويلة", url: "https://tldrthis.com", img: "https://tldrthis.com/favicon.ico" },
+  { name: "Gist AI", cat: "text", desc: "تلخيص صفحات الويب والمستندات", url: "https://gistapp.ai", img: "https://gistapp.ai/favicon.ico" },
+  { name: "Kagi", cat: "text", desc: "محرك بحث مدفوع بذكاء خارق", url: "https://kagi.com", img: "https://kagi.com/favicon.ico" },
+  { name: "You.com", cat: "text", desc: "بحث ذكي ومحادثة مدمجة", url: "https://you.com", img: "https://you.com/favicon.ico" },
+  { name: "Poe", cat: "text", desc: "منصة تجميع نماذج AI متعددة", url: "https://poe.com", img: "https://poe.com/favicon.ico" },
+  { name: "Character AI", cat: "text", desc: "محادثات مع شخصيات افتراضية", url: "https://character.ai", img: "https://character.ai/favicon.ico" },
+  { name: "Inflection Pi", cat: "text", desc: "مساعد شخصي ذكي ودود", url: "https://pi.ai", img: "https://pi.ai/favicon.ico" },
+  { name: "HuggingChat", cat: "text", desc: "نماذج مفتوحة المصدر مجاناً", url: "https://huggingface.co/chat", img: "https://huggingface.co/favicon.ico" },
+  { name: "Mistral AI", cat: "text", desc: "نموذج أوروبي سريع ودقيق", url: "https://mistral.ai", img: "https://mistral.ai/favicon.ico" },
+  { name: "Cohere", cat: "text", desc: "نماذج لغوية للشركات والمطورين", url: "https://cohere.com", img: "https://cohere.com/favicon.ico" },
+  { name: "AI21 Studio", cat: "text", desc: "كتابة ذكية بنماذج Jurassic", url: "https://studio.ai21.com", img: "https://studio.ai21.com/favicon.ico" },
+  { name: "Bloom AI", cat: "text", desc: "نموذج متعدد اللغات مفتوح المصدر", url: "https://huggingface.co/bigscience/bloom", img: "https://huggingface.co/favicon.ico" },
+  { name: "Llama 3", cat: "text", desc: "نموذج Meta مفتوح المصدر القوي", url: "https://llama.meta.com", img: "https://llama.meta.com/favicon.ico" },
+  { name: "Typeface AI", cat: "text", desc: "توليد محتوى علامة تجارية متسق", url: "https://typeface.ai", img: "https://typeface.ai/favicon.ico" },
+  { name: "Contenda", cat: "text", desc: "تحويل المحتوى التقني لمقالات", url: "https://contenda.co", img: "https://contenda.co/favicon.ico" },
+  { name: "Describely", cat: "text", desc: "كتابة أوصاف المنتجات للتجارة", url: "https://describely.ai", img: "https://describely.ai/favicon.ico" },
+  { name: "Storytell AI", cat: "text", desc: "تحليل البيانات وسرد القصص", url: "https://storytell.ai", img: "https://storytell.ai/favicon.ico" },
+  { name: "Bearly AI", cat: "text", desc: "قراءة وكتابة وتلخيص بالذكاء الاصطناعي", url: "https://bearly.ai", img: "https://bearly.ai/favicon.ico" },
+  // ===== IMAGE / تصميم وصور =====
+  { name: "Midjourney", cat: "image", desc: "توليد صور فنية خيالية مبهرة", url: "https://midjourney.com", img: "https://cdn.worldvectorlogo.com/logos/midjourney.svg" },
+  { name: "DALL-E 3", cat: "image", desc: "توليد صور من OpenAI بدقة عالية", url: "https://openai.com/dall-e-3", img: "https://upload.wikimedia.org/wikipedia/commons/0/04/ChatGPT_logo.svg" },
+  { name: "Stable Diffusion", cat: "image", desc: "نموذج مفتوح لتوليد الصور", url: "https://stability.ai", img: "https://stability.ai/favicon.ico" },
+  { name: "Adobe Firefly", cat: "image", desc: "توليد صور احترافية من Adobe", url: "https://firefly.adobe.com", img: "https://firefly.adobe.com/favicon.ico" },
+  { name: "Leonardo.ai", cat: "image", desc: "تصميم صور وشخصيات احترافية", url: "https://leonardo.ai", img: "https://leonardo.ai/favicon.ico" },
+  { name: "Canva AI", cat: "image", desc: "تصميم جرافيك ذكي ومتكامل", url: "https://canva.com", img: "https://canva.com/favicon.ico" },
+  { name: "Ideogram", cat: "image", desc: "صور مع نص مدمج بشكل صحيح", url: "https://ideogram.ai", img: "https://ideogram.ai/favicon.ico" },
+  { name: "Playground AI", cat: "image", desc: "توليد صور مجاني بنماذج متعددة", url: "https://playgroundai.com", img: "https://playgroundai.com/favicon.ico" },
+  { name: "Nightcafe", cat: "image", desc: "فن بالذكاء الاصطناعي بأساليب متعددة", url: "https://nightcafe.studio", img: "https://nightcafe.studio/favicon.ico" },
+  { name: "Artbreeder", cat: "image", desc: "خلط ودمج الصور بطريقة إبداعية", url: "https://artbreeder.com", img: "https://artbreeder.com/favicon.ico" },
+  { name: "DreamStudio", cat: "image", desc: "واجهة رسمية لـ Stable Diffusion", url: "https://dreamstudio.ai", img: "https://dreamstudio.ai/favicon.ico" },
+  { name: "Blue Willow", cat: "image", desc: "توليد صور مجاني مثل Midjourney", url: "https://bluewillow.ai", img: "https://bluewillow.ai/favicon.ico" },
+  { name: "Bing Image Creator", cat: "image", desc: "توليد صور مجاني من مايكروسوفت", url: "https://bing.com/images/create", img: "https://bing.com/favicon.ico" },
+  { name: "Craiyon", cat: "image", desc: "توليد صور مجاني وسريع", url: "https://craiyon.com", img: "https://craiyon.com/favicon.ico" },
+  { name: "Imagen Google", cat: "image", desc: "نموذج Google لتوليد صور عالية الجودة", url: "https://imagen.research.google", img: "https://google.com/favicon.ico" },
+  { name: "Flux AI", cat: "image", desc: "توليد صور واقعية جداً من Black Forest Labs", url: "https://flux1.ai", img: "https://flux1.ai/favicon.ico" },
+  { name: "Freepik AI", cat: "image", desc: "توليد صور وتصاميم احترافية", url: "https://freepik.com/ai", img: "https://freepik.com/favicon.ico" },
+  { name: "Fotor AI", cat: "image", desc: "تحرير وتوليد صور بالذكاء الاصطناعي", url: "https://fotor.com", img: "https://fotor.com/favicon.ico" },
+  { name: "Remove.bg", cat: "image", desc: "إزالة خلفية الصور تلقائياً", url: "https://remove.bg", img: "https://remove.bg/favicon.ico" },
+  { name: "Clipdrop", cat: "image", desc: "أدوات تحرير صور ذكية من Stability", url: "https://clipdrop.co", img: "https://clipdrop.co/favicon.ico" },
+  { name: "Upscale.media", cat: "image", desc: "تكبير الصور دون فقدان الجودة", url: "https://upscale.media", img: "https://upscale.media/favicon.ico" },
+  { name: "Lensa AI", cat: "image", desc: "تحويل الصور الشخصية لأعمال فنية", url: "https://lensa-ai.com", img: "https://lensa-ai.com/favicon.ico" },
+  { name: "PhotoRoom", cat: "image", desc: "تحرير صور المنتجات للتجارة", url: "https://photoroom.com", img: "https://photoroom.com/favicon.ico" },
+  { name: "Picsart AI", cat: "image", desc: "تحرير صور احترافي بالذكاء الاصطناعي", url: "https://picsart.com", img: "https://picsart.com/favicon.ico" },
+  { name: "Pixlr AI", cat: "image", desc: "تحرير صور إبداعي مجاني بالذكاء", url: "https://pixlr.com", img: "https://pixlr.com/favicon.ico" },
+  { name: "Krita AI", cat: "image", desc: "رسم رقمي مع مساعد ذكاء اصطناعي", url: "https://krita.org", img: "https://krita.org/favicon.ico" },
+  { name: "Invoke AI", cat: "image", desc: "توليد صور احترافي للمصممين", url: "https://invoke.ai", img: "https://invoke.ai/favicon.ico" },
+  { name: "Civitai", cat: "image", desc: "مجتمع نماذج Stable Diffusion", url: "https://civitai.com", img: "https://civitai.com/favicon.ico" },
+  { name: "Tensor Art", cat: "image", desc: "توليد صور بنماذج متنوعة مجاناً", url: "https://tensor.art", img: "https://tensor.art/favicon.ico" },
+  { name: "Seaart AI", cat: "image", desc: "توليد صور أنيمي وفانتازيا", url: "https://seaart.ai", img: "https://seaart.ai/favicon.ico" },
+  { name: "Gencraft", cat: "image", desc: "توليد صور وفيديوهات بالذكاء الاصطناعي", url: "https://gencraft.com", img: "https://gencraft.com/favicon.ico" },
+  { name: "Getimg AI", cat: "image", desc: "توليد وتحرير صور بنماذج متعددة", url: "https://getimg.ai", img: "https://getimg.ai/favicon.ico" },
+  { name: "Photoai.com", cat: "image", desc: "إنشاء صور شخصية احترافية بالذكاء", url: "https://photoai.com", img: "https://photoai.com/favicon.ico" },
+  { name: "Magic Eraser", cat: "image", desc: "مسح عناصر الصورة تلقائياً", url: "https://magiceraser.io", img: "https://magiceraser.io/favicon.ico" },
+  { name: "Vectorizer AI", cat: "image", desc: "تحويل الصور إلى رسومات SVG", url: "https://vectorizer.ai", img: "https://vectorizer.ai/favicon.ico" },
+  { name: "Designs AI", cat: "image", desc: "تصميم شامل بالذكاء الاصطناعي", url: "https://designs.ai", img: "https://designs.ai/favicon.ico" },
+  { name: "Looka", cat: "image", desc: "تصميم شعارات وهوية بصرية", url: "https://looka.com", img: "https://looka.com/favicon.ico" },
+  { name: "Brandmark", cat: "image", desc: "إنشاء شعارات احترافية بالذكاء", url: "https://brandmark.io", img: "https://brandmark.io/favicon.ico" },
+  { name: "Hotpot AI", cat: "image", desc: "تحرير وتوليد صور واجهة سهلة", url: "https://hotpot.ai", img: "https://hotpot.ai/favicon.ico" },
+  { name: "Deep Dream", cat: "image", desc: "تحويل الصور لأحلام فنية سريالية", url: "https://deepdreamgenerator.com", img: "https://deepdreamgenerator.com/favicon.ico" },
+  { name: "Prisma AI", cat: "image", desc: "فلاتر فنية احترافية للصور", url: "https://prisma-ai.com", img: "https://prisma-ai.com/favicon.ico" },
+  { name: "Wepik AI", cat: "image", desc: "تصميم ذكي للتسويق والعروض", url: "https://wepik.com", img: "https://wepik.com/favicon.ico" },
+  { name: "Visme AI", cat: "image", desc: "إنشاء إنفوغرافيك وتصاميم تفاعلية", url: "https://visme.co", img: "https://visme.co/favicon.ico" },
+  { name: "Neural Love", cat: "image", desc: "تحسين الصور القديمة والتالفة", url: "https://neural.love", img: "https://neural.love/favicon.ico" },
+  { name: "Stablecog", cat: "image", desc: "توليد صور مفتوح المصدر مجاناً", url: "https://stablecog.com", img: "https://stablecog.com/favicon.ico" },
+  { name: "Stable Cascade", cat: "image", desc: "نموذج جديد أسرع وأدق من Stability", url: "https://stability.ai/stable-cascade", img: "https://stability.ai/favicon.ico" },
+  { name: "Imagine Meta", cat: "image", desc: "توليد صور مجاني من Meta", url: "https://imagine.meta.com", img: "https://imagine.meta.com/favicon.ico" },
+  { name: "Kaiber AI", cat: "image", desc: "تحريك الصور وإنشاء فيديو فني", url: "https://kaiber.ai", img: "https://kaiber.ai/favicon.ico" },
+  { name: "Mage Space", cat: "image", desc: "توليد صور مجاني سريع", url: "https://mage.space", img: "https://mage.space/favicon.ico" },
+  { name: "Lexica Art", cat: "image", desc: "محرك بحث وتوليد صور Stable", url: "https://lexica.art", img: "https://lexica.art/favicon.ico" },
+  { name: "Openart AI", cat: "image", desc: "منصة متقدمة لتوليد الصور", url: "https://openart.ai", img: "https://openart.ai/favicon.ico" },
+  { name: "Dreamlike Art", cat: "image", desc: "صور فنية بنماذج متنوعة", url: "https://dreamlike.art", img: "https://dreamlike.art/favicon.ico" },
+  { name: "Vana Portrait", cat: "image", desc: "إنشاء صور شخصية فنية متنوعة", url: "https://portrait.vana.com", img: "https://portrait.vana.com/favicon.ico" },
+  { name: "Generated Photos", cat: "image", desc: "وجوه بشرية مولدة بالذكاء", url: "https://generated.photos", img: "https://generated.photos/favicon.ico" },
+  { name: "Reface AI", cat: "image", desc: "تبديل الوجوه في الصور والفيديو", url: "https://reface.ai", img: "https://reface.ai/favicon.ico" },
+  { name: "Stable Doodle", cat: "image", desc: "تحويل الرسومات اليدوية لصور", url: "https://clipdrop.co/stable-doodle", img: "https://clipdrop.co/favicon.ico" },
+  { name: "Bg.Removal", cat: "image", desc: "إزالة الخلفية مجاناً وبسرعة", url: "https://bg.removal.ai", img: "https://bg.removal.ai/favicon.ico" },
+  // ===== VIDEO / صناعة فيديو =====
+  { name: "Kling AI", cat: "video", desc: "واقعية مذهلة في تحويل النص لفيديو", url: "https://klingai.com", img: "https://klingai.com/favicon.ico" },
+  { name: "Sora", cat: "video", desc: "توليد فيديو من OpenAI بجودة سينمائية", url: "https://sora.com", img: "https://upload.wikimedia.org/wikipedia/commons/0/04/ChatGPT_logo.svg" },
+  { name: "Runway ML", cat: "video", desc: "أدوات فيديو إبداعية للمصممين", url: "https://runwayml.com", img: "https://runwayml.com/favicon.ico" },
+  { name: "Pika Labs", cat: "video", desc: "تحويل النص والصور لفيديو", url: "https://pika.art", img: "https://pika.art/favicon.ico" },
+  { name: "Luma Dream Machine", cat: "video", desc: "فيديو واقعي ثلاثي الأبعاد بالذكاء", url: "https://lumalabs.ai/dream-machine", img: "https://lumalabs.ai/favicon.ico" },
+  { name: "Synthesia", cat: "video", desc: "صناعة فيديوهات بمقدمين افتراضيين", url: "https://synthesia.io", img: "https://synthesia.io/favicon.ico" },
+  { name: "HeyGen", cat: "video", desc: "أفاتار بشري ناطق بلغات متعددة", url: "https://heygen.com", img: "https://heygen.com/favicon.ico" },
+  { name: "D-ID", cat: "video", desc: "إحياء الصور الثابتة وصناعة أفاتار", url: "https://d-id.com", img: "https://d-id.com/favicon.ico" },
+  { name: "Wondershare Filmora", cat: "video", desc: "تحرير فيديو ذكي باحترافية عالية", url: "https://filmora.wondershare.com", img: "https://filmora.wondershare.com/favicon.ico" },
+  { name: "CapCut AI", cat: "video", desc: "تحرير فيديو احترافي للمبتدئين", url: "https://capcut.com", img: "https://capcut.com/favicon.ico" },
+  { name: "Pictory AI", cat: "video", desc: "تحويل المقالات لفيديوهات تلقائياً", url: "https://pictory.ai", img: "https://pictory.ai/favicon.ico" },
+  { name: "Lovo AI", cat: "video", desc: "فويس أوفر وفيديو بالذكاء الاصطناعي", url: "https://lovo.ai", img: "https://lovo.ai/favicon.ico" },
+  { name: "Deepbrain AI", cat: "video", desc: "فيديوهات تدريبية بأفاتار ذكية", url: "https://deepbrain.io", img: "https://deepbrain.io/favicon.ico" },
+  { name: "InVideo AI", cat: "video", desc: "صناعة فيديوهات تسويقية سريعاً", url: "https://invideo.io", img: "https://invideo.io/favicon.ico" },
+  { name: "Fliki AI", cat: "video", desc: "تحويل النص لفيديوهات بصوت بشري", url: "https://fliki.ai", img: "https://fliki.ai/favicon.ico" },
+  { name: "Steve AI", cat: "video", desc: "إنشاء فيديوهات رسوم متحركة", url: "https://steve.ai", img: "https://steve.ai/favicon.ico" },
+  { name: "Veed IO", cat: "video", desc: "تحرير وترجمة الفيديوهات أونلاين", url: "https://veed.io", img: "https://veed.io/favicon.ico" },
+  { name: "Clipchamp", cat: "video", desc: "محرر فيديو من مايكروسوفت", url: "https://clipchamp.com", img: "https://clipchamp.com/favicon.ico" },
+  { name: "Descript", cat: "video", desc: "تحرير الفيديو عن طريق تحرير النص", url: "https://descript.com", img: "https://descript.com/favicon.ico" },
+  { name: "Haiper AI", cat: "video", desc: "توليد مقاطع فيديو قصيرة بالذكاء", url: "https://haiper.ai", img: "https://haiper.ai/favicon.ico" },
+  { name: "Vidu AI", cat: "video", desc: "فيديو احترافي بالذكاء الاصطناعي الصيني", url: "https://vidu.studio", img: "https://vidu.studio/favicon.ico" },
+  { name: "Stable Video", cat: "video", desc: "تحويل الصور لمقاطع فيديو متحركة", url: "https://stability.ai/stable-video", img: "https://stability.ai/favicon.ico" },
+  { name: "Opus Clip", cat: "video", desc: "تحويل الفيديو لكليبات قصيرة تلقائياً", url: "https://opus.pro", img: "https://opus.pro/favicon.ico" },
+  { name: "Vidyo AI", cat: "video", desc: "إنشاء Shorts وReels تلقائياً", url: "https://vidyo.ai", img: "https://vidyo.ai/favicon.ico" },
+  { name: "Munch", cat: "video", desc: "استخراج أفضل لحظات الفيديو", url: "https://getmunch.com", img: "https://getmunch.com/favicon.ico" },
+  { name: "Klap", cat: "video", desc: "تحويل الفيديو الطويل لكليبات تلقائياً", url: "https://klap.app", img: "https://klap.app/favicon.ico" },
+  { name: "Captions AI", cat: "video", desc: "إضافة ترجمة وتأثيرات للفيديو", url: "https://captions.ai", img: "https://captions.ai/favicon.ico" },
+  { name: "Elai IO", cat: "video", desc: "فيديوهات تعليمية بأفاتار بشري", url: "https://elai.io", img: "https://elai.io/favicon.ico" },
+  { name: "Colossyan", cat: "video", desc: "فيديوهات الشركات بأفاتار احترافي", url: "https://colossyan.com", img: "https://colossyan.com/favicon.ico" },
+  { name: "Tavus", cat: "video", desc: "فيديوهات شخصية مخصصة لكل عميل", url: "https://tavus.io", img: "https://tavus.io/favicon.ico" },
+  { name: "Wisecut", cat: "video", desc: "مونتاج تلقائي باستخدام الذكاء الاصطناعي", url: "https://wisecut.video", img: "https://wisecut.video/favicon.ico" },
+  { name: "Wonder Studio", cat: "video", desc: "دمج شخصيات CG في الفيديو الحقيقي", url: "https://wonderdynamics.com", img: "https://wonderdynamics.com/favicon.ico" },
+  // ===== AUDIO / تعديل صوت =====
+  { name: "ElevenLabs", cat: "audio", desc: "أفضل دبلجة صوتية بالذكاء الاصطناعي", url: "https://elevenlabs.io", img: "https://elevenlabs.io/favicon.ico" },
+  { name: "Suno AI", cat: "audio", desc: "توليد أغاني وموسيقى احترافية", url: "https://suno.com", img: "https://suno.com/favicon.ico" },
+  { name: "Udio", cat: "audio", desc: "توليد موسيقى بجودة استوديو", url: "https://udio.com", img: "https://udio.com/favicon.ico" },
+  { name: "Mubert", cat: "audio", desc: "موسيقى تعبيرية بلا انقطاع للإبداع", url: "https://mubert.com", img: "https://mubert.com/favicon.ico" },
+  { name: "Soundraw", cat: "audio", desc: "تأليف موسيقى خلفية بالذكاء", url: "https://soundraw.io", img: "https://soundraw.io/favicon.ico" },
+  { name: "Beatoven AI", cat: "audio", desc: "موسيقى تتكيف مع مزاج المقطع", url: "https://beatoven.ai", img: "https://beatoven.ai/favicon.ico" },
+  { name: "Aiva", cat: "audio", desc: "تأليف موسيقى كلاسيكية وأفلام", url: "https://aiva.ai", img: "https://aiva.ai/favicon.ico" },
+  { name: "Loudly", cat: "audio", desc: "أدوات موسيقية ذكية للمنشئين", url: "https://loudly.com", img: "https://loudly.com/favicon.ico" },
+  { name: "Boomy", cat: "audio", desc: "إنشاء أغاني أصلية في ثوانٍ", url: "https://boomy.com", img: "https://boomy.com/favicon.ico" },
+  { name: "Soundful", cat: "audio", desc: "موسيقى خلفية لإبداعك الرقمي", url: "https://soundful.com", img: "https://soundful.com/favicon.ico" },
+  { name: "Riffusion", cat: "audio", desc: "توليد موسيقى من نص بنموذج انتشار", url: "https://riffusion.com", img: "https://riffusion.com/favicon.ico" },
+  { name: "Stable Audio", cat: "audio", desc: "توليد موسيقى واضح من Stability AI", url: "https://stableaudio.com", img: "https://stableaudio.com/favicon.ico" },
+  { name: "Play.ht", cat: "audio", desc: "تحويل نص لصوت بشري طبيعي", url: "https://play.ht", img: "https://play.ht/favicon.ico" },
+  { name: "Murf AI", cat: "audio", desc: "أصوات بشرية احترافية للفيديو", url: "https://murf.ai", img: "https://murf.ai/favicon.ico" },
+  { name: "Speechify", cat: "audio", desc: "تحويل أي نص لصوت طبيعي", url: "https://speechify.com", img: "https://speechify.com/favicon.ico" },
+  { name: "Resemble AI", cat: "audio", desc: "استنساخ وتوليد الصوت البشري", url: "https://resemble.ai", img: "https://resemble.ai/favicon.ico" },
+  { name: "Replica Studios", cat: "audio", desc: "أصوات لشخصيات الألعاب والرسوم", url: "https://replicastudios.com", img: "https://replicastudios.com/favicon.ico" },
+  { name: "Voicemod AI", cat: "audio", desc: "تغيير الصوت في الوقت الفعلي", url: "https://voicemod.net", img: "https://voicemod.net/favicon.ico" },
+  { name: "Krisp AI", cat: "audio", desc: "إلغاء ضوضاء الخلفية من الصوت", url: "https://krisp.ai", img: "https://krisp.ai/favicon.ico" },
+  { name: "Adobe Podcast", cat: "audio", desc: "تحسين جودة الصوت تلقائياً", url: "https://podcast.adobe.com", img: "https://podcast.adobe.com/favicon.ico" },
+  { name: "Whisper OpenAI", cat: "audio", desc: "تحويل الكلام لنص بدقة عالية", url: "https://openai.com/research/whisper", img: "https://upload.wikimedia.org/wikipedia/commons/0/04/ChatGPT_logo.svg" },
+  { name: "AssemblyAI", cat: "audio", desc: "API تحويل الصوت لنص للمطورين", url: "https://assemblyai.com", img: "https://assemblyai.com/favicon.ico" },
+  { name: "Deepgram", cat: "audio", desc: "تحويل صوت لنص بسرعة خارقة", url: "https://deepgram.com", img: "https://deepgram.com/favicon.ico" },
+  { name: "Rev AI", cat: "audio", desc: "خدمة ترجمة وتحويل صوت احترافية", url: "https://rev.ai", img: "https://rev.ai/favicon.ico" },
+  { name: "Podcastle AI", cat: "audio", desc: "تسجيل وتحرير بودكاست بالذكاء", url: "https://podcastle.ai", img: "https://podcastle.ai/favicon.ico" },
+  { name: "Cleanvoice AI", cat: "audio", desc: "إزالة التلعثم والصمت من البودكاست", url: "https://cleanvoice.ai", img: "https://cleanvoice.ai/favicon.ico" },
+  { name: "Kits AI", cat: "audio", desc: "تحويل الصوت لأصوات أدوات موسيقية", url: "https://kits.ai", img: "https://kits.ai/favicon.ico" },
+  { name: "Vocal Remover", cat: "audio", desc: "فصل الصوت عن الموسيقى", url: "https://vocalremover.org", img: "https://vocalremover.org/favicon.ico" },
+  { name: "Moises App", cat: "audio", desc: "فصل الآلات وتعديل الإيقاع", url: "https://moises.ai", img: "https://moises.ai/favicon.ico" },
+  { name: "Voicemaker", cat: "audio", desc: "تحويل نص لصوت بـ 1000 صوت", url: "https://voicemaker.in", img: "https://voicemaker.in/favicon.ico" },
+  { name: "Listnr AI", cat: "audio", desc: "تحويل نص لبودكاست صوتي", url: "https://listnr.ai", img: "https://listnr.ai/favicon.ico" },
+  { name: "Wellsaid Labs", cat: "audio", desc: "أصوات بشرية طبيعية احترافية", url: "https://wellsaidlabs.com", img: "https://wellsaidlabs.com/favicon.ico" },
+  { name: "Uberduck AI", cat: "audio", desc: "أصوات المشاهير والراب بالذكاء", url: "https://uberduck.ai", img: "https://uberduck.ai/favicon.ico" },
+  { name: "NaturalReader AI", cat: "audio", desc: "قراءة أي نص أو وثيقة بصوت عالٍ", url: "https://naturalreaders.com", img: "https://naturalreaders.com/favicon.ico" },
+  { name: "TTSMaker", cat: "audio", desc: "تحويل نص لصوت مجاني غير محدود", url: "https://ttsmaker.com", img: "https://ttsmaker.com/favicon.ico" },
+  // ===== CODING / برمجة وتطوير =====
+  { name: "GitHub Copilot", cat: "coding", desc: "مساعد البرمجة الأول في العالم", url: "https://copilot.github.com", img: "https://github.com/favicon.ico" },
+  { name: "Cursor AI", cat: "coding", desc: "محرر كود ذكي مبني على GPT-4", url: "https://cursor.sh", img: "https://cursor.sh/favicon.ico" },
+  { name: "Tabnine", cat: "coding", desc: "إكمال الكود بالذكاء الاصطناعي", url: "https://tabnine.com", img: "https://tabnine.com/favicon.ico" },
+  { name: "Codeium", cat: "coding", desc: "مساعد برمجي مجاني بقدرات عالية", url: "https://codeium.com", img: "https://codeium.com/favicon.ico" },
+  { name: "Replit AI", cat: "coding", desc: "برمجة سحابية بمساعد ذكي", url: "https://replit.com", img: "https://replit.com/favicon.ico" },
+  { name: "Amazon CodeWhisperer", cat: "coding", desc: "مساعد برمجي من أمازون", url: "https://aws.amazon.com/codewhisperer", img: "https://aws.amazon.com/favicon.ico" },
+  { name: "Phind", cat: "coding", desc: "محرك بحث للمطورين بالذكاء", url: "https://phind.com", img: "https://phind.com/favicon.ico" },
+  { name: "AskCodi", cat: "coding", desc: "مساعد كود يجيب على أسئلة البرمجة", url: "https://askcodi.com", img: "https://askcodi.com/favicon.ico" },
+  { name: "Mintlify", cat: "coding", desc: "توثيق الكود تلقائياً بالذكاء", url: "https://mintlify.com", img: "https://mintlify.com/favicon.ico" },
+  { name: "Devin AI", cat: "coding", desc: "أول مهندس برمجيات بالذكاء الاصطناعي", url: "https://cognition.ai/devin", img: "https://cognition.ai/favicon.ico" },
+  { name: "Warp Terminal", cat: "coding", desc: "طرفية ذكية بمساعد AI", url: "https://warp.dev", img: "https://warp.dev/favicon.ico" },
+  { name: "Fronty AI", cat: "coding", desc: "تحويل الصور لكود HTML/CSS", url: "https://fronty.com", img: "https://fronty.com/favicon.ico" },
+  { name: "Durable AI", cat: "coding", desc: "بناء موقع ويب كامل في 30 ثانية", url: "https://durable.co", img: "https://durable.co/favicon.ico" },
+  { name: "Framer AI", cat: "coding", desc: "تصميم وبناء مواقع تفاعلية", url: "https://framer.com", img: "https://framer.com/favicon.ico" },
+  { name: "Vercel v0", cat: "coding", desc: "توليد مكونات React بالوصف", url: "https://v0.dev", img: "https://v0.dev/favicon.ico" },
+  { name: "Bolt.new", cat: "coding", desc: "بناء تطبيقات كاملة بالمحادثة", url: "https://bolt.new", img: "https://bolt.new/favicon.ico" },
+  { name: "Lovable AI", cat: "coding", desc: "بناء تطبيقات سحابية بالنص", url: "https://lovable.dev", img: "https://lovable.dev/favicon.ico" },
+  { name: "LangChain", cat: "coding", desc: "بناء تطبيقات LLM المتقدمة", url: "https://langchain.com", img: "https://langchain.com/favicon.ico" },
+  { name: "LlamaIndex", cat: "coding", desc: "ربط بياناتك بنماذج اللغة الكبيرة", url: "https://llamaindex.ai", img: "https://llamaindex.ai/favicon.ico" },
+  { name: "Flowise AI", cat: "coding", desc: "بناء flows بالذكاء الاصطناعي بسهولة", url: "https://flowiseai.com", img: "https://flowiseai.com/favicon.ico" },
+  { name: "Hugging Face", cat: "coding", desc: "منصة نماذج AI مفتوحة المصدر", url: "https://huggingface.co", img: "https://huggingface.co/favicon.ico" },
+  { name: "Replicate", cat: "coding", desc: "تشغيل نماذج AI في السحابة", url: "https://replicate.com", img: "https://replicate.com/favicon.ico" },
+  { name: "Pinecone", cat: "coding", desc: "قاعدة بيانات متجهات للذكاء الاصطناعي", url: "https://pinecone.io", img: "https://pinecone.io/favicon.ico" },
+  { name: "Scale AI", cat: "coding", desc: "تسمية البيانات لتدريب النماذج", url: "https://scale.com", img: "https://scale.com/favicon.ico" },
+  { name: "Weights Biases", cat: "coding", desc: "تتبع تجارب نماذج الذكاء الاصطناعي", url: "https://wandb.ai", img: "https://wandb.ai/favicon.ico" },
+  { name: "Vertex AI", cat: "coding", desc: "منصة Google لنماذج الذكاء الاصطناعي", url: "https://cloud.google.com/vertex-ai", img: "https://cloud.google.com/favicon.ico" },
+  { name: "Azure AI", cat: "coding", desc: "خدمات ذكاء اصطناعي من مايكروسوفت", url: "https://azure.microsoft.com/ai", img: "https://azure.microsoft.com/favicon.ico" },
+  { name: "AWS Bedrock", cat: "coding", desc: "نماذج AI من أمازون السحابية", url: "https://aws.amazon.com/bedrock", img: "https://aws.amazon.com/favicon.ico" },
+  { name: "N8N AI", cat: "coding", desc: "أتمتة مفتوحة المصدر بالذكاء", url: "https://n8n.io", img: "https://n8n.io/favicon.ico" },
+  { name: "Sweep AI", cat: "coding", desc: "إصلاح الأخطاء البرمجية تلقائياً", url: "https://sweep.dev", img: "https://sweep.dev/favicon.ico" },
+  { name: "Bubble AI", cat: "coding", desc: "بناء تطبيقات ويب بدون كود", url: "https://bubble.io", img: "https://bubble.io/favicon.ico" },
+  { name: "Webflow AI", cat: "coding", desc: "تصميم مواقع احترافية بدون كود", url: "https://webflow.com", img: "https://webflow.com/favicon.ico" },
+  { name: "Wix ADI", cat: "coding", desc: "بناء موقع تلقائي بالذكاء الاصطناعي", url: "https://wix.com/adi", img: "https://wix.com/favicon.ico" },
+  { name: "Uizard AI", cat: "coding", desc: "تحويل الرسومات لنماذج UI", url: "https://uizard.io", img: "https://uizard.io/favicon.ico" },
+  { name: "Figma AI", cat: "coding", desc: "ذكاء اصطناعي مدمج في Figma", url: "https://figma.com", img: "https://figma.com/favicon.ico" },
+  { name: "Codeium Windsurf", cat: "coding", desc: "محرر كود ذكي من Codeium", url: "https://codeium.com/windsurf", img: "https://codeium.com/favicon.ico" },
+  { name: "Trae AI", cat: "coding", desc: "بيئة تطوير ذكية من ByteDance", url: "https://trae.ai", img: "https://trae.ai/favicon.ico" },
+  { name: "OpenDevin", cat: "coding", desc: "مهندس برمجيات ذكاء اصطناعي مفتوح", url: "https://github.com/OpenDevin/OpenDevin", img: "https://github.com/favicon.ico" },
+  { name: "Snyk AI", cat: "coding", desc: "فحص أمان الكود تلقائياً", url: "https://snyk.io", img: "https://snyk.io/favicon.ico" },
+  { name: "Bito AI", cat: "coding", desc: "مراجعة الكود والتوثيق بالذكاء", url: "https://bito.ai", img: "https://bito.ai/favicon.ico" },
+  // ===== MARKETING / تسويق ومبيعات =====
+  { name: "HubSpot AI", cat: "marketing", desc: "CRM وتسويق ذكي متكامل", url: "https://hubspot.com", img: "https://hubspot.com/favicon.ico" },
+  { name: "Salesforce Einstein", cat: "marketing", desc: "ذكاء اصطناعي مدمج في Salesforce", url: "https://salesforce.com/einstein", img: "https://salesforce.com/favicon.ico" },
+  { name: "Drift AI", cat: "marketing", desc: "دردشة تسويقية ذكية في الوقت الفعلي", url: "https://drift.com", img: "https://drift.com/favicon.ico" },
+  { name: "Intercom AI", cat: "marketing", desc: "خدمة عملاء ذكية بالمحادثة", url: "https://intercom.com", img: "https://intercom.com/favicon.ico" },
+  { name: "Tidio AI", cat: "marketing", desc: "شات بوت ذكي لزيادة المبيعات", url: "https://tidio.com", img: "https://tidio.com/favicon.ico" },
+  { name: "ManyChat AI", cat: "marketing", desc: "أتمتة المحادثات على سوشيال ميديا", url: "https://manychat.com", img: "https://manychat.com/favicon.ico" },
+  { name: "Semrush AI", cat: "marketing", desc: "تحليل SEO والمنافسين بالذكاء", url: "https://semrush.com", img: "https://semrush.com/favicon.ico" },
+  { name: "Ahrefs AI", cat: "marketing", desc: "تحليل الروابط والكلمات المفتاحية", url: "https://ahrefs.com", img: "https://ahrefs.com/favicon.ico" },
+  { name: "Surfer SEO", cat: "marketing", desc: "تحسين المحتوى لمحركات البحث", url: "https://surferseo.com", img: "https://surferseo.com/favicon.ico" },
+  { name: "Smartly IO", cat: "marketing", desc: "أتمتة حملات الإعلانات الرقمية", url: "https://smartly.io", img: "https://smartly.io/favicon.ico" },
+  { name: "Gong IO", cat: "marketing", desc: "تحليل المكالمات البيعية بالذكاء", url: "https://gong.io", img: "https://gong.io/favicon.ico" },
+  { name: "Apollo AI", cat: "marketing", desc: "منصة مبيعات وتواصل ذكية", url: "https://apollo.io", img: "https://apollo.io/favicon.ico" },
+  { name: "Sprout Social AI", cat: "marketing", desc: "إدارة سوشيال ميديا ذكية", url: "https://sproutsocial.com", img: "https://sproutsocial.com/favicon.ico" },
+  { name: "Hootsuite AI", cat: "marketing", desc: "جدولة محتوى ذكية عبر المنصات", url: "https://hootsuite.com", img: "https://hootsuite.com/favicon.ico" },
+  { name: "Buffer AI", cat: "marketing", desc: "جدولة وتحليل سوشيال ميديا", url: "https://buffer.com", img: "https://buffer.com/favicon.ico" },
+  { name: "Adcreative AI", cat: "marketing", desc: "إنشاء إبداعات إعلانية بالذكاء", url: "https://adcreative.ai", img: "https://adcreative.ai/favicon.ico" },
+  { name: "Predis AI", cat: "marketing", desc: "منشورات سوشيال ميديا تلقائية", url: "https://predis.ai", img: "https://predis.ai/favicon.ico" },
+  { name: "Postwise AI", cat: "marketing", desc: "تغريدات تويتر ذكية ومؤثرة", url: "https://postwise.ai", img: "https://postwise.ai/favicon.ico" },
+  { name: "Taplio AI", cat: "marketing", desc: "نمو لينكدإن بالذكاء الاصطناعي", url: "https://taplio.com", img: "https://taplio.com/favicon.ico" },
+  { name: "Mailchimp AI", cat: "marketing", desc: "تسويق إيميل ذكي وآلي", url: "https://mailchimp.com", img: "https://mailchimp.com/favicon.ico" },
+  { name: "Klaviyo AI", cat: "marketing", desc: "أتمتة التسويق للتجارة الإلكترونية", url: "https://klaviyo.com", img: "https://klaviyo.com/favicon.ico" },
+  { name: "Instantly AI", cat: "marketing", desc: "حملات إيميل باردة واسعة النطاق", url: "https://instantly.ai", img: "https://instantly.ai/favicon.ico" },
+  { name: "Clari AI", cat: "marketing", desc: "تنبؤ الإيرادات والمبيعات بالذكاء", url: "https://clari.com", img: "https://clari.com/favicon.ico" },
+  { name: "Mutiny AI", cat: "marketing", desc: "تخصيص موقع الويب لكل زائر", url: "https://mutinyhq.com", img: "https://mutinyhq.com/favicon.ico" },
+  { name: "Lavender AI", cat: "marketing", desc: "تحسين رسائل البريد البيعية", url: "https://lavender.ai", img: "https://lavender.ai/favicon.ico" },
+  { name: "Brand24", cat: "marketing", desc: "مراقبة العلامة التجارية بالذكاء", url: "https://brand24.com", img: "https://brand24.com/favicon.ico" },
+  { name: "Ocoya AI", cat: "marketing", desc: "إنشاء وجدولة محتوى سوشيال ميديا", url: "https://ocoya.com", img: "https://ocoya.com/favicon.ico" },
+  { name: "Flick AI", cat: "marketing", desc: "جدولة إنستجرام وتوليد محتوى", url: "https://flick.social", img: "https://flick.social/favicon.ico" },
+  { name: "Salesloft AI", cat: "marketing", desc: "منصة تفاعل مبيعات ذكية", url: "https://salesloft.com", img: "https://salesloft.com/favicon.ico" },
+  { name: "Pencil AI", cat: "marketing", desc: "توليد إعلانات وتنبؤ أدائها", url: "https://trypencil.com", img: "https://trypencil.com/favicon.ico" },
+  // ===== 3D / نماذج ثلاثية الأبعاد =====
+  { name: "Luma AI", cat: "3d", desc: "تحويل الصور لنماذج ثلاثية الأبعاد", url: "https://lumalabs.ai", img: "https://lumalabs.ai/favicon.ico" },
+  { name: "Meshy AI", cat: "3d", desc: "توليد نماذج 3D من نص أو صورة", url: "https://meshy.ai", img: "https://meshy.ai/favicon.ico" },
+  { name: "Spline AI", cat: "3d", desc: "تصميم ثلاثي الأبعاد تفاعلي بالذكاء", url: "https://spline.design", img: "https://spline.design/favicon.ico" },
+  { name: "Kaedim", cat: "3d", desc: "تحويل الصور لنماذج 3D للألعاب", url: "https://kaedim3d.com", img: "https://kaedim3d.com/favicon.ico" },
+  { name: "Alpha3D", cat: "3d", desc: "نماذج ثلاثية الأبعاد من صور المنتجات", url: "https://alpha3d.io", img: "https://alpha3d.io/favicon.ico" },
+  { name: "Masterpiece Studio", cat: "3d", desc: "إنشاء شخصيات ثلاثية الأبعاد بالذكاء", url: "https://masterpiecestudio.com", img: "https://masterpiecestudio.com/favicon.ico" },
+  { name: "Scenario AI", cat: "3d", desc: "أصول فنية للألعاب بالذكاء الاصطناعي", url: "https://scenario.com", img: "https://scenario.com/favicon.ico" },
+  { name: "CSM AI", cat: "3d", desc: "تحويل الصور لنماذج قابلة للطباعة", url: "https://csm.ai", img: "https://csm.ai/favicon.ico" },
+  { name: "Polycam AI", cat: "3d", desc: "مسح ثلاثي الأبعاد بالهاتف الذكي", url: "https://poly.cam", img: "https://poly.cam/favicon.ico" },
+  { name: "3DFY AI", cat: "3d", desc: "توليد نماذج ثلاثية من نص فقط", url: "https://3dfy.ai", img: "https://3dfy.ai/favicon.ico" },
+  { name: "Skybox AI", cat: "3d", desc: "توليد بيئات ثلاثية الأبعاد 360", url: "https://skybox.blockadelabs.com", img: "https://skybox.blockadelabs.com/favicon.ico" },
+  { name: "Plask AI", cat: "3d", desc: "التقاط حركة من الفيديو تلقائياً", url: "https://plask.ai", img: "https://plask.ai/favicon.ico" },
+  { name: "Rokoko AI", cat: "3d", desc: "تقنيات capture حركة بالذكاء", url: "https://rokoko.com", img: "https://rokoko.com/favicon.ico" },
+  { name: "Cascadeur", cat: "3d", desc: "أنيميشن ثلاثي الأبعاد بمساعدة AI", url: "https://cascadeur.com", img: "https://cascadeur.com/favicon.ico" },
+  { name: "Promethean AI", cat: "3d", desc: "إنشاء بيئات ألعاب بالذكاء", url: "https://prometheanai.com", img: "https://prometheanai.com/favicon.ico" },
+  { name: "Blender AI", cat: "3d", desc: "نمذجة ثلاثية الأبعاد مفتوحة المصدر", url: "https://blender.org", img: "https://blender.org/favicon.ico" },
+  { name: "Genie Luma", cat: "3d", desc: "توليد نماذج 3D من وصف نصي", url: "https://lumalabs.ai/genie", img: "https://lumalabs.ai/favicon.ico" },
+  { name: "Deemos AI", cat: "3d", desc: "وجوه بشرية واقعية ثلاثية الأبعاد", url: "https://deemos.com", img: "https://deemos.com/favicon.ico" },
+  { name: "Rodin AI", cat: "3d", desc: "توليد نماذج 3D متعددة الاستخدام", url: "https://hyperhuman.deemos.com/rodin", img: "https://hyperhuman.deemos.com/favicon.ico" },
+  { name: "Kinetix AI", cat: "3d", desc: "رقصات وأنيميشن للميتافيرس", url: "https://kinetix.tech", img: "https://kinetix.tech/favicon.ico" },
+  // ===== EDUCATION / تعليم وأبحاث =====
+  { name: "Khan Academy Khanmigo", cat: "education", desc: "مدرس ذكي شخصي من Khan Academy", url: "https://khanacademy.org/khan-labs", img: "https://khanacademy.org/favicon.ico" },
+  { name: "Duolingo Max", cat: "education", desc: "تعلم اللغات بمحادثة ذكاء اصطناعي", url: "https://duolingo.com", img: "https://duolingo.com/favicon.ico" },
+  { name: "Wolfram Alpha", cat: "education", desc: "حل المعادلات والمسائل الرياضية", url: "https://wolframalpha.com", img: "https://wolframalpha.com/favicon.ico" },
+  { name: "Socratic Google", cat: "education", desc: "مساعد الطلاب في الواجبات", url: "https://socratic.org", img: "https://socratic.org/favicon.ico" },
+  { name: "Quizlet AI", cat: "education", desc: "بطاقات دراسية واختبارات ذكية", url: "https://quizlet.com", img: "https://quizlet.com/favicon.ico" },
+  { name: "Photomath", cat: "education", desc: "حل المسائل الرياضية بالكاميرا", url: "https://photomath.com", img: "https://photomath.com/favicon.ico" },
+  { name: "Consensus AI", cat: "education", desc: "بحث علمي موثق بالذكاء الاصطناعي", url: "https://consensus.app", img: "https://consensus.app/favicon.ico" },
+  { name: "Elicit AI", cat: "education", desc: "مساعد بحث علمي متطور", url: "https://elicit.com", img: "https://elicit.com/favicon.ico" },
+  { name: "Semantic Scholar", cat: "education", desc: "بحث أكاديمي ذكي في الأوراق العلمية", url: "https://semanticscholar.org", img: "https://semanticscholar.org/favicon.ico" },
+  { name: "ResearchRabbit", cat: "education", desc: "اكتشاف الأبحاث العلمية المترابطة", url: "https://researchrabbit.ai", img: "https://researchrabbit.ai/favicon.ico" },
+  { name: "Scispace", cat: "education", desc: "تحليل الأبحاث العلمية وشرحها", url: "https://typeset.io", img: "https://typeset.io/favicon.ico" },
+  { name: "ChatPDF", cat: "education", desc: "محادثة مع ملفات PDF وكتب", url: "https://chatpdf.com", img: "https://chatpdf.com/favicon.ico" },
+  { name: "Humata AI", cat: "education", desc: "تلخيص وتحليل الملفات الضخمة", url: "https://humata.ai", img: "https://humata.ai/favicon.ico" },
+  { name: "NotebookLM", cat: "education", desc: "مساعد بحثي من Google بملفاتك", url: "https://notebooklm.google.com", img: "https://notebooklm.google.com/favicon.ico" },
+  { name: "Otter AI", cat: "education", desc: "تحويل الاجتماعات لنص تلقائياً", url: "https://otter.ai", img: "https://otter.ai/favicon.ico" },
+  { name: "Fireflies AI", cat: "education", desc: "تسجيل وتلخيص الاجتماعات بذكاء", url: "https://fireflies.ai", img: "https://fireflies.ai/favicon.ico" },
+  { name: "MagicSchool AI", cat: "education", desc: "أدوات ذكاء اصطناعي للمعلمين", url: "https://magicschool.ai", img: "https://magicschool.ai/favicon.ico" },
+  { name: "Mindsmith AI", cat: "education", desc: "وحدات تعليمية تفاعلية بالذكاء", url: "https://mindsmith.ai", img: "https://mindsmith.ai/favicon.ico" },
+  { name: "Turnitin AI", cat: "education", desc: "كشف الانتحال والكتابة الذكية", url: "https://turnitin.com", img: "https://turnitin.com/favicon.ico" },
+  { name: "Explain Paper", cat: "education", desc: "شرح الأوراق البحثية بلغة بسيطة", url: "https://explainpaper.com", img: "https://explainpaper.com/favicon.ico" },
+  { name: "Scholarcy", cat: "education", desc: "تلخيص الأوراق الأكاديمية الطويلة", url: "https://scholarcy.com", img: "https://scholarcy.com/favicon.ico" },
+  { name: "Langotalk", cat: "education", desc: "تعلم اللغات بمحادثة ذكية", url: "https://langotalk.org", img: "https://langotalk.org/favicon.ico" },
+  { name: "Curipod AI", cat: "education", desc: "دروس تفاعلية ذكية للمعلمين", url: "https://curipod.com", img: "https://curipod.com/favicon.ico" },
+  { name: "SchoolAI", cat: "education", desc: "أدوات ذكاء اصطناعي آمنة للمدارس", url: "https://schoolai.com", img: "https://schoolai.com/favicon.ico" },
+  // ===== EXTRA =====
+  { name: "Jasper Chat", cat: "text", desc: "محادثة ذكية تسويقية متخصصة", url: "https://jasper.ai/chat", img: "https://jasper.ai/favicon.ico" },
+  { name: "Dante AI", cat: "text", desc: "بوت دردشة مخصص على بياناتك", url: "https://dante-ai.com", img: "https://dante-ai.com/favicon.ico" },
+  { name: "Chatbase AI", cat: "text", desc: "إنشاء chatbot من PDF وموقعك", url: "https://chatbase.co", img: "https://chatbase.co/favicon.ico" },
+  { name: "Mem AI", cat: "text", desc: "مذكرات ذكية تنظم نفسها تلقائياً", url: "https://mem.ai", img: "https://mem.ai/favicon.ico" },
+  { name: "Zapier AI", cat: "text", desc: "أتمتة سير العمل بالذكاء الاصطناعي", url: "https://zapier.com", img: "https://zapier.com/favicon.ico" },
+  { name: "Tome AI", cat: "text", desc: "عروض تقديمية ذكية بالذكاء", url: "https://tome.app", img: "https://tome.app/favicon.ico" },
+  { name: "Gamma App", cat: "text", desc: "عروض وصفحات ذكية في دقائق", url: "https://gamma.app", img: "https://gamma.app/favicon.ico" },
+  { name: "Beautiful AI", cat: "text", desc: "شرائح عرض احترافية بالذكاء", url: "https://beautiful.ai", img: "https://beautiful.ai/favicon.ico" },
+  { name: "Notion AI Plus", cat: "text", desc: "مساعد متقدم لإدارة المعرفة", url: "https://notion.so", img: "https://notion.so/favicon.ico" },
+  { name: "Miro AI", cat: "text", desc: "لوح تعاون ذكي للفرق الإبداعية", url: "https://miro.com", img: "https://miro.com/favicon.ico" },
+  { name: "Taskade AI", cat: "text", desc: "مساعد إنتاجية وتعاون فريق ذكي", url: "https://taskade.com", img: "https://taskade.com/favicon.ico" },
+  { name: "Novel AI", cat: "text", desc: "كتابة روايات وقصص بالذكاء", url: "https://novelai.net", img: "https://novelai.net/favicon.ico" },
+  { name: "Replika", cat: "text", desc: "رفيق ذكاء اصطناعي شخصي", url: "https://replika.com", img: "https://replika.com/favicon.ico" },
+  { name: "Reclaim AI", cat: "text", desc: "جدولة ذكية للمهام والاجتماعات", url: "https://reclaim.ai", img: "https://reclaim.ai/favicon.ico" },
+  { name: "Motion AI", cat: "text", desc: "جدولة يوم العمل تلقائياً", url: "https://usemotion.com", img: "https://usemotion.com/favicon.ico" },
+  { name: "Fathom AI", cat: "text", desc: "تسجيل وتلخيص مكالمات Zoom", url: "https://fathom.video", img: "https://fathom.video/favicon.ico" },
+  { name: "Airgram AI", cat: "text", desc: "ملاحظات اجتماعات ذكية ومتقدمة", url: "https://airgram.io", img: "https://airgram.io/favicon.ico" },
+  { name: "Otter AI Meetings", cat: "education", desc: "ملخصات اجتماعات فورية بالذكاء", url: "https://otter.ai/meeting-notes", img: "https://otter.ai/favicon.ico" },
+  { name: "Lindy AI", cat: "text", desc: "مساعد شخصي ذكي لإدارة الأعمال", url: "https://lindy.ai", img: "https://lindy.ai/favicon.ico" },
+  { name: "Krea AI", cat: "image", desc: "أداة رسم وإبداع تفاعلية", url: "https://krea.ai", img: "https://krea.ai/favicon.ico" },
+  { name: "Mixo AI", cat: "coding", desc: "إنشاء موقع startup في ثوانٍ", url: "https://mixo.io", img: "https://mixo.io/favicon.ico" },
+  { name: "Presentations AI", cat: "text", desc: "عروض احترافية من النص فقط", url: "https://presentations.ai", img: "https://presentations.ai/favicon.ico" },
+  { name: "Decktopus AI", cat: "text", desc: "عروض تقديمية ذكية ومتجاوبة", url: "https://decktopus.com", img: "https://decktopus.com/favicon.ico" }
+];
 
-  function renderTools(tools) {
-    const container = document.getElementById('ai-container');
-    container.innerHTML = tools.map(tool => `
-      <a href="${tool.url}" target="_blank" class="ai-card" data-cat="${tool.cat}">
-        <span class="star">★</span>
-        <img src="${tool.img}" alt="${tool.name}" onerror="this.src='https://cdn-icons-png.flaticon.com/512/2103/2103633.png'">
-        <h3>${tool.name}</h3>
-        <p>${tool.desc}</p>
-      </a>
-    `).join('');
+// ============================================================
+// =================== PROMPTS DATABASE =======================
+// ============================================================
+const promptsDatabase = [
+  {
+    tool: "ChatGPT",
+    cat: "سيرة ذاتية",
+    title: "كتابة سيرة ذاتية احترافية",
+    text: `اكتب لي سيرة ذاتية احترافية للوظيفة التالية: [اسم الوظيفة]. لديّ خبرة في [المجال] لمدة [عدد السنوات] سنوات. مهاراتي الرئيسية: [قائمة المهارات]. اجعل الأسلوب رسمياً ومختصراً في صفحة واحدة، مع تضمين ملخص مهني قوي في البداية.`
+  },
+  {
+    tool: "ChatGPT",
+    cat: "بريد إلكتروني",
+    title: "كتابة بريد عمل متميز",
+    text: `اكتب بريداً إلكترونياً احترافياً إلى [المسمى الوظيفي للمستلم] في شركة [اسم الشركة] بخصوص [موضوع البريد]. المرسل: [اسمك ومنصبك]. اجعل النبرة ودية لكن رسمية، والطول لا يتجاوز 150 كلمة، مع CTA واضح في النهاية.`
+  },
+  {
+    tool: "Midjourney",
+    cat: "تصميم",
+    title: "بورتريه فني خيالي",
+    text: `/imagine a majestic fantasy portrait of [describe character], ethereal glowing light, intricate armor details, dramatic cinematic lighting, 8K resolution, hyper-realistic, painted by Greg Rutkowski and Artgerm, trending on ArtStation --ar 2:3 --v 6 --style raw --q 2`
+  },
+  {
+    tool: "Midjourney",
+    cat: "معمار",
+    title: "تصميم مبنى عصري",
+    text: `/imagine stunning futuristic architecture building, [describe style: e.g. biophilic, minimalist, brutalist], glass and steel structure, surrounded by lush greenery, golden hour lighting, ultra-detailed, architectural visualization, photorealistic render, wide angle --ar 16:9 --v 6 --q 2`
+  },
+  {
+    tool: "ChatGPT",
+    cat: "تسويق",
+    title: "خطة تسويق رقمي 30 يوم",
+    text: `ضع لي خطة تسويق رقمي لمدة 30 يوماً لـ [اسم المنتج/الخدمة] الموجه لـ [الجمهور المستهدف]. الميزانية: [المبلغ]. القنوات المتاحة: [إنستجرام / يوتيوب / إيميل / ...]. اقسم الخطة أسبوعياً مع تحديد الأهداف والـ KPIs لكل أسبوع.`
+  },
+  {
+    tool: "Claude AI",
+    cat: "برمجة",
+    title: "مراجعة وتحسين الكود",
+    text: `راجع الكود التالي وحسّنه من حيث: 1) الأداء والسرعة 2) الأمان من الثغرات 3) قابلية القراءة والصيانة 4) أفضل الممارسات في [اللغة البرمجية]. أضف تعليقات توضيحية واقترح تحسينات مع شرح سبب كل تغيير:\n\n[الصق الكود هنا]`
+  },
+  {
+    tool: "ChatGPT",
+    cat: "محتوى",
+    title: "خطة محتوى يوتيوب شهرية",
+    text: `ضع لي خطة محتوى شهرية لقناة يوتيوب في مجال [اسم المجال]. الجمهور: [وصف الجمهور]. اقترح 12 فيديو مع: عنوان جذاب لكل فيديو، ملخص المحتوى في 3 نقاط، العنوان المثالي للـ SEO، الـ thumbnail المقترح، أفضل وقت للنشر.`
+  },
+  {
+    tool: "DALL-E 3",
+    cat: "منتجات",
+    title: "صورة منتج احترافية",
+    text: `A professional product photography of [product name], placed on a [white/marble/wood] surface, soft studio lighting from the left side, ultra clean background, commercial advertising style, high-end luxury feel, 4K quality, shot with Canon 5D Mark IV, 85mm lens, f/2.8 aperture`
+  },
+  {
+    tool: "ChatGPT",
+    cat: "دراسة",
+    title: "ملخص دراسي احترافي",
+    text: `لخّص الموضوع التالي تلخيصاً شاملاً لطالب [المرحلة الدراسية] في مادة [اسم المادة]:\n[الموضوع]\n\nاستخدم: خريطة ذهنية نصية، تعريفات مبسطة، أمثلة عملية، أسئلة مراجعة مع إجاباتها، وأبرز 5 نقاط يجب حفظها.`
+  },
+  {
+    tool: "ChatGPT",
+    cat: "استراتيجية",
+    title: "تحليل SWOT كامل",
+    text: `أجرِ تحليل SWOT شاملاً لـ [اسم الشركة أو المشروع] في مجال [اسم المجال] في السوق [اسم السوق/البلد]. لكل محور (نقاط القوة، الضعف، الفرص، التهديدات) أعطِ 5 نقاط مفصلة مع توصيات استراتيجية للمرحلة القادمة.`
   }
+];
 
-  function filterTools() {
-    const val = document.querySelector('.search-bar').value.toLowerCase();
-    const filtered = aiTools.filter(t => t.name.toLowerCase().includes(val));
-    renderTools(filtered);
+// ============================================================
+// =================== COURSES DATABASE =======================
+// ============================================================
+const coursesDatabase = [
+  {
+    provider: "Google",
+    providerImg: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Google_2015_logo.svg/250px-Google_2015_logo.svg.png",
+    title: "Google AI Essentials",
+    desc: "تعلم أساسيات الذكاء الاصطناعي وكيفية استخدامه في العمل اليومي من مهندسي Google.",
+    level: "مبتدئ",
+    duration: "5 ساعات",
+    free: true,
+    url: "https://grow.google/ai-essentials"
+  },
+  {
+    provider: "IBM",
+    providerImg: "https://upload.wikimedia.org/wikipedia/commons/5/51/IBM_logo.svg",
+    title: "Introduction to Artificial Intelligence",
+    desc: "مقدمة شاملة في الذكاء الاصطناعي من IBM تغطي المفاهيم والتطبيقات العملية.",
+    level: "مبتدئ",
+    duration: "3 ساعات",
+    free: true,
+    url: "https://www.coursera.org/learn/introduction-to-ai"
+  },
+  {
+    provider: "Harvard",
+    providerImg: "https://upload.wikimedia.org/wikipedia/en/2/29/Harvard_shield_wreath.PNG",
+    title: "CS50's Introduction to AI with Python",
+    desc: "دورة هارفارد الشهيرة لبناء نماذج ذكاء اصطناعي بلغة Python.",
+    level: "متوسط",
+    duration: "7 أسابيع",
+    free: true,
+    url: "https://pll.harvard.edu/course/cs50s-introduction-artificial-intelligence-python"
+  },
+  {
+    provider: "Microsoft",
+    providerImg: "https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg",
+    title: "AI for Beginners - Microsoft",
+    desc: "منهج مايكروسوفت الكامل للمبتدئين في الذكاء الاصطناعي مفتوح المصدر على GitHub.",
+    level: "مبتدئ",
+    duration: "24 درس",
+    free: true,
+    url: "https://microsoft.github.io/AI-For-Beginners"
+  },
+  {
+    provider: "DeepLearning.AI",
+    providerImg: "https://deeplearning.ai/static/favicon/favicon.ico",
+    title: "ChatGPT Prompt Engineering for Developers",
+    desc: "تعلم هندسة البرومبتات من Andrew Ng وOpenAI لبناء تطبيقات LLM احترافية.",
+    level: "متوسط",
+    duration: "9 دروس",
+    free: true,
+    url: "https://www.deeplearning.ai/short-courses/chatgpt-prompt-engineering-for-developers"
+  },
+  {
+    provider: "Meta AI",
+    providerImg: "https://upload.wikimedia.org/wikipedia/commons/7/7b/Meta_Platforms_Inc._logo.svg",
+    title: "Introduction to Generative AI",
+    desc: "فهم الذكاء الاصطناعي التوليدي وأدوات Meta وكيفية تطبيقها.",
+    level: "مبتدئ",
+    duration: "4 ساعات",
+    free: true,
+    url: "https://ai.meta.com/learn"
+  },
+  {
+    provider: "Stanford",
+    providerImg: "https://upload.wikimedia.org/wikipedia/en/b/b7/Stanford_University_seal_2003.svg",
+    title: "Machine Learning Specialization",
+    desc: "المنهج الأصلي لـ Andrew Ng من ستانفورد في تعلم الآلة - الأشهر في العالم.",
+    level: "متوسط",
+    duration: "3 أشهر",
+    free: true,
+    url: "https://www.coursera.org/specializations/machine-learning-introduction"
+  },
+  {
+    provider: "Anthropic",
+    providerImg: "https://claude.ai/favicon.ico",
+    title: "Prompt Engineering Interactive Tutorial",
+    desc: "الدليل الرسمي من Anthropic لإتقان كتابة البرومبتات لنموذج Claude.",
+    level: "متوسط",
+    duration: "تفاعلي",
+    free: true,
+    url: "https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/overview"
+  },
+  {
+    provider: "OpenAI",
+    providerImg: "https://upload.wikimedia.org/wikipedia/commons/0/04/ChatGPT_logo.svg",
+    title: "OpenAI API Documentation & Tutorials",
+    desc: "تعلم استخدام OpenAI API لبناء تطبيقات GPT-4 وDALL-E احترافية.",
+    level: "متقدم",
+    duration: "ذاتي",
+    free: true,
+    url: "https://platform.openai.com/docs/tutorials"
+  },
+  {
+    provider: "Fast.AI",
+    providerImg: "https://www.fast.ai/favicon.ico",
+    title: "Practical Deep Learning for Coders",
+    desc: "أفضل دورة عملية في Deep Learning للمبرمجين بدون خلفية رياضية معقدة.",
+    level: "متوسط",
+    duration: "18 ساعة",
+    free: true,
+    url: "https://course.fast.ai"
+  },
+  {
+    provider: "Hugging Face",
+    providerImg: "https://huggingface.co/favicon.ico",
+    title: "Hugging Face NLP Course",
+    desc: "دورة شاملة في معالجة اللغة الطبيعية باستخدام مكتبة Transformers الشهيرة.",
+    level: "متقدم",
+    duration: "8 وحدات",
+    free: true,
+    url: "https://huggingface.co/learn/nlp-course"
+  },
+  {
+    provider: "Google Cloud",
+    providerImg: "https://cloud.google.com/favicon.ico",
+    title: "Introduction to Generative AI Learning Path",
+    desc: "مسار تعلم متكامل من Google Cloud يغطي Generative AI وLLMs وResponsible AI.",
+    level: "مبتدئ",
+    duration: "مسار كامل",
+    free: true,
+    url: "https://cloud.google.com/learn/training/machinelearning-ai"
   }
+];
 
-  function filterCat(cat) {
-    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
-    event.target.classList.add('active');
-    if(cat === 'all') return renderTools(aiTools);
-    const filtered = aiTools.filter(t => t.cat === cat);
-    renderTools(filtered);
+// ============================================================
+// =================== NEWS DATABASE ==========================
+// ============================================================
+const newsDatabase = [
+  {
+    emoji: "🤖",
+    tag: "إطلاق جديد",
+    tagType: "new",
+    date: "يناير 2025",
+    title: "OpenAI تطلق Sora رسمياً للعموم — توليد فيديو بجودة سينمائية",
+    body: "أصبح نموذج Sora الثوري متاحاً لمستخدمي ChatGPT Plus وPro، مع قدرة على توليد مقاطع فيديو تصل إلى 20 ثانية بجودة سينمائية مذهلة من وصف نصي فقط. يُعدّ هذا أبرز إطلاق في صناعة الذكاء الاصطناعي التوليدي لعام 2025."
+  },
+  {
+    emoji: "🧠",
+    tag: "نموذج جديد",
+    tagType: "hot",
+    date: "فبراير 2025",
+    title: "DeepSeek R1 يُحدث زلزالاً في عالم الذكاء الاصطناعي",
+    body: "أطلقت الشركة الصينية DeepSeek نموذجها R1 المفتوح المصدر الذي يضاهي أداء GPT-4o بتكلفة أقل بـ 95%. هبطت أسهم شركات التكنولوجيا الكبرى بعد هذا الإطلاق، مما يُشير إلى تحول جذري في ديناميكيات سوق الذكاء الاصطناعي العالمي."
+  },
+  {
+    emoji: "🎨",
+    tag: "تصميم",
+    tagType: "",
+    date: "يناير 2025",
+    title: "Flux 1.1 Pro يتجاوز Midjourney في جودة الصور الواقعية",
+    body: "أصدرت Black Forest Labs تحديثاً ضخماً لنموذج Flux مع دعم كامل للنصوص داخل الصور وجودة فوتوغرافية لا تُصدق. يرى كثير من المصممين أن Flux بات الخيار الأول لأعمال الإعلانات والتسويق الرقمي."
+  },
+  {
+    emoji: "🎵",
+    tag: "موسيقى AI",
+    tagType: "new",
+    date: "ديسمبر 2024",
+    title: "Suno v4 يُطلق أغاني بجودة استوديو مهنية في ثوانٍ",
+    body: "وصل نموذج Suno للإصدار الرابع الذي يُنتج موسيقى بجودة استوديو احترافية مع صوت بشري طبيعي تماماً. النموذج الجديد يدعم أنماطاً موسيقية متعددة ويُمكن من التحكم الدقيق في المزاج والأسلوب."
+  },
+  {
+    emoji: "💻",
+    tag: "برمجة",
+    tagType: "hot",
+    date: "نوفمبر 2024",
+    title: "Anthropic تطلق Claude 3.5 Sonnet المحدث — الأقوى في البرمجة",
+    body: "أصدرت Anthropic تحديثاً جوهرياً لـ Claude 3.5 Sonnet مع تحسينات ضخمة في البرمجة وتحليل الكود. النموذج الجديد يتفوق على GPT-4o في معظم المعايير البرمجية، ويدعم الآن Computer Use للتفاعل المباشر مع سطح المكتب."
+  },
+  {
+    emoji: "🌐",
+    tag: "بنية تحتية",
+    tagType: "",
+    date: "أكتوبر 2024",
+    title: "Google تُطلق Gemini 2.0 بنافذة سياق مليون رمز",
+    body: "كشفت Google عن الجيل الثاني من Gemini مع نافذة سياق تاريخية تبلغ مليون رمز، مما يسمح بتحليل ملفات PDF ضخمة وساعات من الفيديو دفعةً واحدة. يُمثّل هذا قفزةً نوعية في قدرات الذاكرة طويلة المدى لنماذج اللغة."
+  },
+  {
+    emoji: "🚀",
+    tag: "استثمار",
+    tagType: "",
+    date: "سبتمبر 2024",
+    title: "OpenAI تجمع 6.6 مليار دولار في جولة تمويل تاريخية",
+    body: "أتمّت OpenAI أكبر جولة تمويل في تاريخ صناعة التكنولوجيا بقيمة 6.6 مليار دولار، رافعةً تقييمها إلى 157 مليار دولار. التمويل يُموّل تطوير GPT-5 وبنية تحتية حوسبية ضخمة لخدمة مئات الملايين من المستخدمين."
   }
+];
 
-  renderTools(aiTools);
+// ============================================================
+// ========================= LOGIC ============================
+// ============================================================
+let favorites = JSON.parse(localStorage.getItem('ai_fav') || '[]');
+let currentPage = 'tools';
+
+// --- TOOLS ---
+function render(data) {
+  const g = document.getElementById('toolsGrid');
+  if (data.length === 0) {
+    g.innerHTML = '<div class="no-results">😔 لا توجد نتائج مطابقة</div>';
+    return;
+  }
+  g.innerHTML = data.map(item => {
+    const isFav = favorites.includes(item.name);
+    return `<a href="${item.url}" target="_blank" class="card">
+      <span class="fav-star ${isFav ? 'active' : ''}" onclick="toggleFav(event,'${item.name.replace(/'/g,"\\'")}')">★</span>
+      <img src="${item.img}" onerror="this.src='https://cdn-icons-png.flaticon.com/512/2103/2103633.png'" loading="lazy">
+      <h3>${item.name}</h3>
+      <p>${item.desc}</p>
+    </a>`;
+  }).join('');
+}
+
+function toggleFav(e, name) {
+  e.preventDefault(); e.stopPropagation();
+  const idx = favorites.indexOf(name);
+  if (idx === -1) favorites.push(name);
+  else favorites.splice(idx, 1);
+  localStorage.setItem('ai_fav', JSON.stringify(favorites));
+  e.target.classList.toggle('active');
+}
+
+function showFavorites() {
+  setActiveNav('fav');
+  document.getElementById('page-tools').style.display = 'block';
+  document.querySelectorAll('.page-section').forEach(p => p.classList.remove('active'));
+  document.getElementById('searchArea').style.display = 'block';
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  render(megaDatabase.filter(t => favorites.includes(t.name)));
+  currentPage = 'tools';
+}
+
+function doSearch() {
+  const q = document.getElementById('mainSearch').value.toLowerCase();
+  render(megaDatabase.filter(t =>
+    t.name.toLowerCase().includes(q) || t.desc.toLowerCase().includes(q)
+  ));
+}
+
+function filterCat(c, el) {
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  if (el) el.classList.add('active');
+  document.getElementById('mainSearch').value = '';
+  render(c === 'all' ? megaDatabase : megaDatabase.filter(t => t.cat === c));
+}
+
+// --- PAGE NAVIGATION ---
+function showPage(page) {
+  currentPage = page;
+  // show/hide tools div
+  document.getElementById('page-tools').style.display = page === 'tools' ? 'block' : 'none';
+  document.getElementById('searchArea').style.display = page === 'tools' ? 'block' : 'none';
+  // page sections
+  document.querySelectorAll('.page-section').forEach(p => p.classList.remove('active'));
+  if (page !== 'tools') {
+    document.getElementById('page-' + page).classList.add('active');
+  }
+  setActiveNav(page);
+  window.scrollTo(0, 0);
+}
+
+function setActiveNav(page) {
+  document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+  const el = document.getElementById('nav-' + page);
+  if (el) el.classList.add('active');
+}
+
+// --- RENDER PROMPTS ---
+function renderPrompts() {
+  const c = document.getElementById('promptsContainer');
+  c.innerHTML = promptsDatabase.map((p, i) => `
+    <div class="prompt-card">
+      <div class="prompt-header">
+        <span class="prompt-tool-badge">🤖 ${p.tool}</span>
+        <span class="prompt-cat-badge">🏷️ ${p.cat}</span>
+      </div>
+      <div class="prompt-title">📝 ${p.title}</div>
+      <div class="prompt-text" id="pt-${i}">${p.text}</div>
+      <button class="copy-btn" onclick="copyPrompt(${i}, this)">
+        <span>📋</span> نسخ الأمر
+      </button>
+    </div>
+  `).join('');
+}
+
+function copyPrompt(i, btn) {
+  navigator.clipboard.writeText(promptsDatabase[i].text).then(() => {
+    btn.innerHTML = '<span>✅</span> تم النسخ!';
+    btn.classList.add('copied');
+    setTimeout(() => {
+      btn.innerHTML = '<span>📋</span> نسخ الأمر';
+      btn.classList.remove('copied');
+    }, 2000);
+  });
+}
+
+// --- RENDER COURSES ---
+function renderCourses() {
+  const c = document.getElementById('coursesContainer');
+  c.innerHTML = coursesDatabase.map(course => `
+    <a href="${course.url}" target="_blank" class="course-card">
+      <div class="course-provider">
+        <img src="${course.providerImg}" onerror="this.style.display='none'">
+        <span>${course.provider}</span>
+      </div>
+      <div class="course-title">${course.title}</div>
+      <div class="course-meta">
+        ${course.free ? '<span class="badge badge-free">✅ مجاني</span>' : ''}
+        <span class="badge badge-level">📊 ${course.level}</span>
+        <span class="badge badge-duration">⏱️ ${course.duration}</span>
+      </div>
+      <div class="course-desc">${course.desc}</div>
+      <div class="course-btn">🚀 ابدأ الكورس مجاناً</div>
+    </a>
+  `).join('');
+}
+
+// --- RENDER NEWS ---
+function renderNews() {
+  const c = document.getElementById('newsContainer');
+  c.innerHTML = newsDatabase.map(n => `
+    <div class="news-card">
+      <span class="news-emoji">${n.emoji}</span>
+      <div class="news-top">
+        <span class="news-tag ${n.tagType}">${n.tag}</span>
+        <span class="news-date">📅 ${n.date}</span>
+      </div>
+      <div class="news-title">${n.title}</div>
+      <div class="news-body">${n.body}</div>
+    </div>
+  `).join('');
+}
+
+// --- INIT ---
+render(megaDatabase);
+renderPrompts();
+renderCourses();
+renderNews();
 </script>
 </body>
 </html>
