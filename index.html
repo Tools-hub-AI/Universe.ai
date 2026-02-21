@@ -1,9 +1,18 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-3J2DQ0BV3M"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-3J2DQ0BV3M');
+</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AI Universe 🌌 — Master Edition</title>
+<title>AI Universe 🌌 — Tools-hub-AI</title>
 <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;900&display=swap" rel="stylesheet">
 <style>
 :root {
@@ -14,67 +23,151 @@
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{font-family:'Tajawal',sans-serif;background:var(--bg);color:#e2f0ff;padding-bottom:85px;overflow-x:hidden}
-body::before{content:'';position:fixed;inset:0;background-image:radial-gradient(1px 1px at 10% 15%,rgba(255,255,255,.6) 0%,transparent 0%),radial-gradient(1px 1px at 25% 40%,rgba(255,255,255,.4) 0%,transparent 0%),radial-gradient(1px 1px at 55% 8%,rgba(255,255,255,.5) 0%,transparent 0%);pointer-events:none;z-index:0}
-
+body::before{content:'';position:fixed;inset:0;background-image:radial-gradient(1px 1px at 10% 15%,rgba(255,255,255,.6) 0%,transparent 0%),radial-gradient(1px 1px at 25% 40%,rgba(255,255,255,.4) 0%,transparent 0%),radial-gradient(1px 1px at 55% 8%,rgba(255,255,255,.5) 0%,transparent 0%),radial-gradient(1px 1px at 70% 55%,rgba(255,255,255,.3) 0%,transparent 0%),radial-gradient(1px 1px at 85% 20%,rgba(255,255,255,.6) 0%,transparent 0%),radial-gradient(1px 1px at 40% 75%,rgba(255,255,255,.4) 0%,transparent 0%),radial-gradient(1px 1px at 92% 70%,rgba(255,255,255,.5) 0%,transparent 0%),radial-gradient(1px 1px at 18% 88%,rgba(255,255,255,.3) 0%,transparent 0%),radial-gradient(1px 1px at 60% 92%,rgba(255,255,255,.4) 0%,transparent 0%),radial-gradient(1px 1px at 78% 35%,rgba(255,255,255,.5) 0%,transparent 0%);pointer-events:none;z-index:0}
 /* HEADER */
-header{padding:40px 20px 52px;text-align:center;background:linear-gradient(180deg,#0a2040 0%,var(--bg) 100%);border-bottom:1px solid var(--border);position:relative}
-header h1{font-size:38px;font-weight:900;background:linear-gradient(135deg,#7dd3fc,#e2f0ff,#38bdf8);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:8px}
-header p{color:#7fb8d8;font-size:14px}
-
-/* SEARCH & TABS */
+header{padding:40px 20px 52px;text-align:center;background:linear-gradient(180deg,#0a2040 0%,var(--bg) 100%);border-bottom:1px solid var(--border);position:relative;overflow:hidden}
+header::after{content:'';position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:300px;height:1px;background:linear-gradient(90deg,transparent,var(--primary),transparent)}
+.hglow{position:absolute;top:-60px;left:50%;transform:translateX(-50%);width:400px;height:200px;background:radial-gradient(ellipse,rgba(14,165,233,.12) 0%,transparent 70%);pointer-events:none}
+header h1{font-size:38px;font-weight:900;letter-spacing:-1px;background:linear-gradient(135deg,#7dd3fc,#e2f0ff,#38bdf8);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:8px;position:relative}
+header p{color:#7fb8d8;font-size:14px;position:relative}
+.header-link{color:#38bdf8;font-size:11px;opacity:.7;position:relative;text-decoration:none}
+/* SEARCH */
 .search-wrap{padding:0 16px;position:sticky;top:12px;z-index:500;margin-top:-22px}
-.search-bar{width:100%;padding:18px 24px;border-radius:50px;border:1px solid var(--border);font-size:15px;background:rgba(10,25,45,.98);backdrop-filter:blur(20px);color:#e2f0ff;outline:none;box-shadow:var(--glow)}
+.search-bar{width:100%;padding:18px 24px;border-radius:50px;border:1px solid var(--border);font-size:15px;background:rgba(10,25,45,.98);backdrop-filter:blur(20px);color:#e2f0ff;outline:none;font-family:'Tajawal';box-shadow:var(--glow),0 8px 32px rgba(0,0,0,.5);transition:border-color .3s,box-shadow .3s}
+.search-bar::placeholder{color:#4a7a99}
+.search-bar:focus{border-color:var(--primary);box-shadow:0 0 0 3px rgba(14,165,233,.15),0 8px 32px rgba(0,0,0,.5)}
+/* TABS */
 .tabs-wrap{padding:20px 16px 8px;display:flex;gap:8px;overflow-x:auto;scrollbar-width:none}
-.tab{background:rgba(255,255,255,.05);padding:10px 18px;border-radius:25px;white-space:nowrap;cursor:pointer;font-size:12px;font-weight:700;border:1px solid rgba(255,255,255,.08);color:#7fb8d8}
-.tab.active{background:var(--primary);color:#fff;box-shadow:0 4px 15px rgba(14,165,233,.35)}
-
+.tabs-wrap::-webkit-scrollbar{display:none}
+.tab{background:rgba(255,255,255,.05);padding:10px 18px;border-radius:25px;white-space:nowrap;cursor:pointer;font-size:12px;font-weight:700;border:1px solid rgba(255,255,255,.08);transition:all .25s;color:#7fb8d8;flex-shrink:0}
+.tab:hover{background:rgba(14,165,233,.1);border-color:var(--primary);color:#fff}
+.tab.active{background:var(--primary);border-color:var(--primary);color:#fff;box-shadow:0 4px 15px rgba(14,165,233,.35)}
 /* GRID */
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(155px,1fr));gap:14px;padding:14px 16px}
-.tool-card{background:linear-gradient(145deg,#0e2035,#0a1a2e);border:1px solid rgba(255,255,255,.07);border-radius:20px;padding:18px;text-align:center;text-decoration:none;transition:0.3s;position:relative}
-.tool-card:hover{transform:translateY(-6px);border-color:var(--primary)}
-.tool-card img{width:56px;height:56px;border-radius:14px;margin-bottom:11px;object-fit:contain;background:#fff;padding:4px}
-.tool-card h3{font-size:14px;font-weight:900;color:#e8f4ff}
-.tool-card p{font-size:11px;color:#4e8aaa;height:33px;overflow:hidden}
-.fav-btn{position:absolute;top:11px;left:11px;color:rgba(255,255,255,.2);background:none;border:none;font-size:18px;cursor:pointer}
-.fav-btn.on{color:var(--gold)}
-
-/* SUPPORT & BUTTONS */
+.tool-card{background:linear-gradient(145deg,#0e2035,#0a1a2e);border:1px solid rgba(255,255,255,.07);border-radius:20px;padding:18px;text-align:center;text-decoration:none;transition:all .35s;position:relative;display:flex;flex-direction:column;align-items:center;overflow:hidden}
+.tool-card::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(14,165,233,.04),transparent);opacity:0;transition:opacity .3s}
+.tool-card:hover{transform:translateY(-6px);border-color:rgba(14,165,233,.35);box-shadow:0 12px 30px rgba(0,0,0,.5)}
+.tool-card:hover::before{opacity:1}
+.tool-card img{width:56px;height:56px;border-radius:14px;margin-bottom:11px;object-fit:contain;background:#fff;padding:4px;border:1px solid rgba(255,255,255,.1)}
+.tool-card h3{color:#e8f4ff;font-size:14px;font-weight:900;margin-bottom:5px;line-height:1.2}
+.tool-card p{color:#4e8aaa;font-size:11px;line-height:1.5;height:33px;overflow:hidden}
+.fav-btn{position:absolute;top:11px;left:11px;color:rgba(255,255,255,.2);font-size:17px;cursor:pointer;transition:color .2s,transform .2s;z-index:2;background:none;border:none}
+.fav-btn:hover{transform:scale(1.2)}
+.fav-btn.on{color:#f59e0b}
+.no-results{grid-column:1/-1;text-align:center;padding:50px 20px;color:#3a6a88;font-size:16px}
+/* PAGES */
+#page-tools{display:block}
 .page{display:none;padding:16px}
 .page.active{display:block}
+/* SECTION HERO */
+.sec-hero{background:linear-gradient(135deg,rgba(14,165,233,.08),rgba(139,92,246,.05));border:1px solid var(--border);border-radius:20px;padding:24px;text-align:center;margin-bottom:20px}
+.sec-hero h2{font-size:22px;font-weight:900;margin-bottom:6px;color:#e2f0ff}
+.sec-hero p{color:#5a90b0;font-size:13px}
+/* PROMPTS */
+.prompt-card{background:linear-gradient(135deg,#091e35,#071525);border:1px solid var(--border);border-radius:18px;padding:18px;margin-bottom:14px;transition:border-color .3s}
+.prompt-card:hover{border-color:rgba(14,165,233,.45)}
+.prompt-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;flex-wrap:wrap;gap:6px}
+.p-badge{padding:3px 12px;border-radius:20px;font-size:11px;font-weight:700}
+.p-badge-tool{background:rgba(14,165,233,.15);color:#7dd3fc;border:1px solid rgba(14,165,233,.3)}
+.p-badge-cat{background:rgba(245,158,11,.12);color:#fbbf24;border:1px solid rgba(245,158,11,.25)}
+.prompt-title{font-size:15px;font-weight:900;color:#c8e6ff;margin-bottom:10px}
+.prompt-body{background:rgba(0,0,0,.3);border-radius:10px;padding:13px 15px;font-size:12px;color:#6aaccf;line-height:1.75;direction:rtl}
+.copy-btn{margin-top:11px;background:rgba(14,165,233,.12);color:#7dd3fc;border:1px solid rgba(14,165,233,.25);padding:9px 20px;border-radius:22px;font-size:12px;font-family:'Tajawal';font-weight:700;cursor:pointer;transition:all .25s}
+.copy-btn:hover{background:var(--primary);color:#fff;border-color:var(--primary)}
+.copy-btn.done{background:var(--green);color:#fff;border-color:var(--green)}
+/* COURSES */
+.courses-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:14px}
+.course-card{background:linear-gradient(135deg,#091e35,#071525);border:1px solid var(--border);border-radius:18px;padding:20px;text-decoration:none;display:flex;flex-direction:column;gap:10px;transition:all .3s}
+.course-card:hover{transform:translateY(-5px);border-color:rgba(14,165,233,.4);box-shadow:0 12px 30px rgba(0,0,0,.5)}
+.course-provider{display:flex;align-items:center;gap:10px}
+.course-provider img{width:32px;height:32px;border-radius:8px;object-fit:contain;background:#fff;padding:3px}
+.course-provider span{font-weight:900;font-size:13px;color:#7dd3fc}
+.course-title{font-size:15px;font-weight:900;color:#e2f0ff;line-height:1.4}
+.course-meta{display:flex;gap:7px;flex-wrap:wrap}
+.badge{padding:3px 11px;border-radius:14px;font-size:10px;font-weight:700}
+.b-free{background:rgba(16,185,129,.12);color:#6ee7b7;border:1px solid rgba(16,185,129,.25)}
+.b-level{background:rgba(139,92,246,.12);color:#c4b5fd;border:1px solid rgba(139,92,246,.25)}
+.b-dur{background:rgba(245,158,11,.1);color:#fcd34d;border:1px solid rgba(245,158,11,.2)}
+.course-desc{font-size:11px;color:#4e8aaa;line-height:1.6}
+.course-btn{background:rgba(14,165,233,.1);border:1px solid rgba(14,165,233,.25);color:#7dd3fc;padding:9px;border-radius:16px;font-size:12px;font-weight:700;text-align:center;transition:all .25s}
+.course-card:hover .course-btn{background:var(--primary);color:#fff;border-color:var(--primary)}
+/* NEWS */
+.news-list{display:flex;flex-direction:column;gap:12px}
+.news-card{background:linear-gradient(135deg,#091e35,#071525);border:1px solid var(--border);border-right:3px solid var(--primary);border-radius:16px;padding:18px 20px;transition:all .3s}
+.news-card:hover{transform:translateX(-4px);border-right-color:var(--gold);box-shadow:0 8px 25px rgba(0,0,0,.4)}
+.news-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;flex-wrap:wrap;gap:6px}
+.news-tag{padding:3px 12px;border-radius:14px;font-size:10px;font-weight:700}
+.nt-default{background:rgba(14,165,233,.12);color:#7dd3fc;border:1px solid rgba(14,165,233,.25)}
+.nt-hot{background:rgba(239,68,68,.12);color:#fca5a5;border:1px solid rgba(239,68,68,.25)}
+.nt-new{background:rgba(16,185,129,.12);color:#6ee7b7;border:1px solid rgba(16,185,129,.25)}
+.news-date{font-size:10px;color:#3a6a88;font-weight:700}
+.news-title{font-size:16px;font-weight:900;color:#e2f0ff;margin-bottom:8px;line-height:1.4}
+.news-body{font-size:12px;color:#4e8aaa;line-height:1.7}
+/* SUPPORT */
 .support-box{background:linear-gradient(135deg,#091e35,#071525);border:1px solid var(--border);border-radius:20px;padding:24px;margin-bottom:16px}
-.email-btn{display:flex;align-items:center;justify-content:center;gap:10px;background:rgba(14,165,233,0.1);border:1px solid var(--primary);color:var(--primary);padding:14px;border-radius:15px;text-decoration:none;font-weight:700;transition:0.3s}
-.email-btn:hover{background:var(--primary);color:#fff}
-
-/* LEGAL SECTION */
-.legal-btn{width:100%;background:none;border:1px solid rgba(255,255,255,0.05);color:#3a6a88;padding:15px;border-radius:12px;font-size:12px;cursor:pointer;margin-top:10px;font-family:'Tajawal'}
-.legal-content{display:none;padding:15px;background:rgba(0,0,0,0.2);border-radius:10px;font-size:12px;color:#6aaccf;line-height:1.6;margin-top:10px;border:1px solid rgba(14,165,233,0.1)}
-
-/* ADMIN DASHBOARD */
-#admin-panel{display:none;background:rgba(245,158,11,0.05);border:1px solid rgba(245,158,11,0.2);padding:20px;border-radius:20px;margin-top:20px}
-.stat-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-bottom:15px}
-.stat-card{background:rgba(0,0,0,0.3);padding:15px;border-radius:15px;text-align:center;border:1px solid rgba(245,158,11,0.1)}
-.stat-num{display:block;font-size:24px;font-weight:900;color:var(--gold)}
-.stat-lbl{font-size:10px;color:#7fb8d8}
-
-/* FOOTER NAV */
-footer{position:fixed;bottom:0;width:100%;background:rgba(4,13,24,0.98);backdrop-filter:blur(15px);border-top:1px solid var(--border);display:flex;padding:10px 5px;z-index:1000}
-.nav-btn{flex:1;background:none;border:none;color:#3a6a88;font-size:10px;font-family:'Tajawal';cursor:pointer;display:flex;flex-direction:column;align-items:center}
+.support-box h3{font-size:17px;font-weight:900;color:#e2f0ff;margin-bottom:14px}
+.info-row{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+.info-row span{color:#4e8aaa;font-size:13px}
+.info-row a{color:#38bdf8;font-size:13px;text-decoration:none;font-weight:700}
+.email-btn{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,rgba(14,165,233,.15),rgba(14,165,233,.08));border:1px solid rgba(14,165,233,.35);color:#7dd3fc;padding:11px 22px;border-radius:25px;font-size:13px;font-family:'Tajawal';font-weight:700;text-decoration:none;cursor:pointer;transition:all .3s;margin-top:4px}
+.email-btn:hover{background:var(--primary);color:#fff;border-color:var(--primary);transform:scale(1.03);box-shadow:0 6px 20px rgba(14,165,233,.35)}
+.announce-box{background:rgba(245,158,11,.06);border:1px solid rgba(245,158,11,.2);border-radius:14px;padding:16px;margin-bottom:16px}
+.announce-box p{color:#fcd34d;font-size:13px;line-height:1.7}
+textarea.suggest-input{width:100%;background:rgba(0,0,0,.3);border:1px solid var(--border);border-radius:12px;padding:14px;color:#c8e6ff;font-size:13px;font-family:'Tajawal';resize:vertical;min-height:100px;outline:none;transition:border-color .3s}
+textarea.suggest-input:focus{border-color:var(--primary)}
+textarea.suggest-input::placeholder{color:#3a6a88}
+.send-btn{margin-top:10px;background:var(--primary);color:#fff;border:none;padding:12px 28px;border-radius:25px;font-size:14px;font-weight:700;font-family:'Tajawal';cursor:pointer;transition:all .25s}
+.send-btn:hover{background:#0284c7;transform:scale(1.03)}
+.send-btn.sent{background:var(--green)}
+.admin-input{width:100%;background:rgba(0,0,0,.4);border:1px solid rgba(255,255,255,.07);border-radius:12px;padding:12px 16px;color:#5a8aaa;font-size:13px;font-family:'Tajawal';outline:none;letter-spacing:3px;transition:border-color .3s;margin-top:10px}
+.admin-input:focus{border-color:rgba(245,158,11,.3)}
+.admin-input::placeholder{letter-spacing:0;color:#2a5a70}
+/* ADMIN */
+#admin-panel{display:none;padding:16px;background:rgba(245,158,11,.04);border-top:1px solid rgba(245,158,11,.2);margin-top:10px;border-radius:16px}
+#admin-panel h2{color:var(--gold);font-size:20px;font-weight:900;margin-bottom:18px;text-align:center}
+.stat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:20px}
+.stat-card{background:rgba(245,158,11,.06);border:1px solid rgba(245,158,11,.15);border-radius:14px;padding:14px;text-align:center}
+.stat-num{font-size:26px;font-weight:900;color:var(--gold)}
+.stat-lbl{font-size:11px;color:#8aaa6a;margin-top:2px}
+.inbox-title{font-size:15px;font-weight:900;color:#e2f0ff;margin-bottom:10px}
+.suggestion-item{background:rgba(0,0,0,.3);border:1px solid rgba(255,255,255,.06);border-radius:10px;padding:12px 14px;margin-bottom:8px}
+.suggestion-item .s-text{font-size:13px;color:#a0c8e0;line-height:1.6}
+.suggestion-item .s-time{font-size:10px;color:#3a6a88;margin-top:5px}
+.empty-inbox{text-align:center;color:#3a6a88;padding:20px;font-size:13px}
+.clear-btn{background:rgba(239,68,68,.1);border:1px solid rgba(239,68,68,.2);color:#fca5a5;padding:8px 18px;border-radius:20px;font-size:12px;font-family:'Tajawal';font-weight:700;cursor:pointer;margin-top:8px;transition:all .25s}
+.clear-btn:hover{background:var(--red);color:#fff}
+/* FOOTER */
+footer{position:fixed;bottom:0;width:100%;background:rgba(4,13,24,.97);backdrop-filter:blur(20px);border-top:1px solid rgba(14,165,233,.12);display:flex;z-index:1000;padding:10px 4px}
+.nav-btn{flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;cursor:pointer;color:#2a5a78;font-size:10px;font-weight:700;transition:color .25s;background:none;border:none;font-family:'Tajawal';padding:4px 2px}
+.nav-btn .ni{font-size:21px;line-height:1;transition:transform .25s}
+.nav-btn:hover{color:#7dd3fc}
+.nav-btn:hover .ni{transform:translateY(-2px)}
 .nav-btn.active{color:var(--primary)}
-.ni{font-size:20px;margin-bottom:3px}
+/* DEV BOX */
+.dev-box{margin:16px;padding:20px;background:rgba(14,165,233,.04);border:1px dashed rgba(14,165,233,.2);border-radius:18px;text-align:center}
+.dev-box h3{color:var(--gold);font-size:16px;font-weight:900;margin-bottom:8px}
+.dev-box p{font-size:12px;color:#3a6a88;line-height:1.6}
+.coming-badge{display:inline-block;margin-top:10px;background:var(--primary);color:#fff;padding:5px 16px;border-radius:20px;font-size:11px;font-weight:700}
+/* SCROLLBAR */
+::-webkit-scrollbar{width:4px}
+::-webkit-scrollbar-track{background:transparent}
+::-webkit-scrollbar-thumb{background:rgba(14,165,233,.3);border-radius:2px}
 </style>
 </head>
 <body>
-
 <header>
+  <div class="hglow"></div>
   <h1>AI Universe 🌌</h1>
-  <p>المرجع الشامل والأكثر دقة لأدوات الذكاء الاصطناعي</p>
+  <p>الدليل الشامل لأدوات الذكاء الاصطناعي</p>
+  <a href="https://Tools-hub-AI.github.io/Universe.ai/" class="header-link">Tools-hub-AI.github.io/Universe.ai</a>
 </header>
 
 <div class="search-wrap" id="searchWrap">
-  <input type="text" id="mainSearch" class="search-bar" placeholder="🔍 ابحث عن أي أداة..." oninput="doSearch()">
+  <input type="text" id="mainSearch" class="search-bar" placeholder="🔍  ابحث في أدوات الذكاء الاصطناعي..." oninput="doSearch()">
 </div>
 
-<div id="page-tools" class="page active">
+<!-- TOOLS PAGE -->
+<div id="page-tools">
   <div class="tabs-wrap">
     <div class="tab active" onclick="filterCat('all',this)">🌐 الكل</div>
     <div class="tab" onclick="filterCat('text',this)">✍️ نصوص</div>
@@ -82,144 +175,829 @@ footer{position:fixed;bottom:0;width:100%;background:rgba(4,13,24,0.98);backdrop
     <div class="tab" onclick="filterCat('video',this)">🎬 فيديو</div>
     <div class="tab" onclick="filterCat('audio',this)">🎵 صوت</div>
     <div class="tab" onclick="filterCat('coding',this)">💻 برمجة</div>
+    <div class="tab" onclick="filterCat('marketing',this)">📈 تسويق</div>
+    <div class="tab" onclick="filterCat('3d',this)">🧊 3D</div>
+    <div class="tab" onclick="filterCat('education',this)">📚 تعليم</div>
   </div>
   <div class="grid" id="toolsGrid"></div>
+  <div class="dev-box">
+    <h3>👨‍💻 مطور الموقع: حاتم</h3>
+    <p>يتم الآن أرشفة وتدقيق أكثر من 20,000 أداة ذكاء اصطناعي عالمية لتكون بين أيديكم قريباً.</p>
+    <span class="coming-badge">تحديث ضخم قادم قريباً 🔥</span>
+  </div>
 </div>
 
+<!-- PROMPTS PAGE -->
+<div id="page-prompts" class="page">
+  <div class="sec-hero"><h2>🧠 مكتبة الأوامر الاحترافية</h2><p>أوامر جاهزة للاستخدام الفوري — انسخ بضغطة زر واحدة</p></div>
+  <div id="promptsList"></div>
+</div>
+
+<!-- COURSES PAGE -->
+<div id="page-courses" class="page">
+  <div class="sec-hero"><h2>🎓 كورسات الذكاء الاصطناعي</h2><p>أفضل الدورات المجانية من كبرى الشركات والجامعات العالمية</p></div>
+  <div class="courses-grid" id="coursesList"></div>
+</div>
+
+<!-- NEWS PAGE -->
+<div id="page-news" class="page">
+  <div class="sec-hero"><h2>📡 أخبار الذكاء الاصطناعي</h2><p>أحدث التطورات والإطلاقات في عالم AI</p></div>
+  <div class="news-list" id="newsList"></div>
+</div>
+
+<!-- SUPPORT PAGE -->
 <div id="page-support" class="page">
+  <div class="sec-hero"><h2>💬 الدعم والتواصل</h2><p>تواصل مع المطور أو شارك بمقترحاتك</p></div>
+
   <div class="support-box">
     <h3>👨‍💻 معلومات المطور</h3>
-    <p style="margin:10px 0; color:#7fb8d8">الاسم: <strong style="color:#fff">حاتم</strong></p>
-    <a href="mailto:hatimvv0@gmail.com" class="email-btn">📧 مراسلة المطور</a>
-  </div>
-
-  <div class="support-box" style="border-color:var(--gold)">
-    <p style="color:var(--gold); font-size:13px; line-height:1.6">🔥 يتم الآن أرشفة وتدقيق أكثر من 20,000 أداة ذكاء اصطناعي عالمية لتكون بين أيديكم قريباً. تحديث ضخم قادم خلال أيام.. ابقوا منتظرين!</p>
-  </div>
-
-  <div class="support-box">
-    <input type="password" id="adminKey" class="search-bar" style="padding:12px; font-size:13px" placeholder="كلمة مرور المدير..." oninput="checkAdmin(this.value)">
-    
-    <div id="admin-panel">
-      <h3 style="color:var(--gold); text-align:center; margin-bottom:15px">لوحة تحكم المدير — HATIM</h3>
-      <div class="stat-grid">
-        <div class="stat-card"><span class="stat-num">454+</span><span class="stat-lbl">أداة في القاعدة</span></div>
-        <div class="stat-card"><span class="stat-num" id="liveUsers">1</span><span class="stat-lbl">الزوار الآن</span></div>
-        <div class="stat-card"><span class="stat-num" id="totalVisits">Loading</span><span class="stat-lbl">إجمالي الزيارات</span></div>
-        <div class="stat-card"><span class="stat-num" id="statFavs">0</span><span class="stat-lbl">أدوات مفضلة</span></div>
-      </div>
+    <div class="info-row"><span>المطور:</span><span style="color:#e2f0ff;font-weight:900">حاتم</span></div>
+    <div class="info-row"><span>الموقع:</span><a href="https://Tools-hub-AI.github.io/Universe.ai/" target="_blank">Tools-hub-AI.github.io</a></div>
+    <div style="margin-top:12px">
+      <a href="mailto:hatimvv0@gmail.com" class="email-btn">
+        <span>✉️</span> مراسلة المطور — hatimvv0@gmail.com
+      </a>
     </div>
   </div>
 
-  <button class="legal-btn" onclick="toggleLegal()">⚖️ سياسة الخصوصية وحقوق النشر</button>
-  <div id="legalBox" class="legal-content">
-    جميع الحقوق محفوظة لـ AI Universe © 2026. نحن ملتزمون بأعلى معايير حماية الخصوصية الرقمية. تم تصميم وبرمجة هذه المنصة لتكون المرجع الشامل والأكثر دقة لأدوات الذكاء الاصطناعي، مع الحرص التام على تقديم تجربة مستخدم آمنة ومبتكرة.
+  <div class="announce-box">
+    <p>🔥 يتم الآن أرشفة وتدقيق أكثر من 20,000 أداة ذكاء اصطناعي عالمية لتكون بين أيديكم قريباً. تحديث ضخم قادم خلال أيام.. ابقوا منتظرين!</p>
+  </div>
+
+  <div class="support-box">
+    <h3>💡 اقترح أداة أو ميزة جديدة</h3>
+    <textarea class="suggest-input" id="suggestInput" placeholder="اكتب اقتراحك هنا... (اسم أداة، ميزة مطلوبة، ملاحظة...)"></textarea>
+    <br>
+    <button class="send-btn" id="sendBtn" onclick="sendSuggestion()">📤 إرسال الاقتراح</button>
+  </div>
+
+  <div class="support-box" style="border-color:rgba(245,158,11,.1)">
+    <h3 style="color:#2a5a70;font-size:13px">🔒 الوصول المتقدم</h3>
+    <input type="password" class="admin-input" id="adminInput" placeholder="أدخل كلمة المرور" oninput="checkAdmin(this.value)">
+  </div>
+
+  <div id="admin-panel">
+    <h2>⚙️ لوحة تحكم المدير — HATIM</h2>
+    <div class="stat-grid">
+      <div class="stat-card"><div class="stat-num" id="statTools">0</div><div class="stat-lbl">أداة في القاعدة</div></div>
+      <div class="stat-card"><div class="stat-num" id="statFavs">0</div><div class="stat-lbl">أداة مُفضَّلة</div></div>
+      <div class="stat-card"><div class="stat-num" id="statSugg">0</div><div class="stat-lbl">اقتراح وصل</div></div>
+    </div>
+    <div class="inbox-title">📥 صندوق الاقتراحات</div>
+    <div id="suggestionsList"></div>
+    <button class="clear-btn" onclick="clearSugg()">🗑️ مسح كل الاقتراحات</button>
   </div>
 </div>
 
+<!-- FAVORITES PAGE -->
 <div id="page-fav" class="page">
+  <div class="sec-hero"><h2>⭐ الأدوات المفضلة</h2><p>الأدوات التي حفظتها لسهولة الوصول إليها</p></div>
   <div class="grid" id="favGrid"></div>
 </div>
 
 <footer>
   <button class="nav-btn active" id="nb-tools" onclick="showPage('tools')"><span class="ni">🤖</span>الأدوات</button>
+  <button class="nav-btn" id="nb-prompts" onclick="showPage('prompts')"><span class="ni">🧠</span>الأوامر</button>
+  <button class="nav-btn" id="nb-courses" onclick="showPage('courses')"><span class="ni">🎓</span>كورسات</button>
+  <button class="nav-btn" id="nb-news" onclick="showPage('news')"><span class="ni">📡</span>الأخبار</button>
   <button class="nav-btn" id="nb-fav" onclick="showPage('fav')"><span class="ni">⭐</span>المفضلة</button>
   <button class="nav-btn" id="nb-support" onclick="showPage('support')"><span class="ni">💬</span>الدعم</button>
 </footer>
 
 <script>
-// DATABASE (454+ TOOLS)
+// ─────────────────────────────────────────────────────────────────────
+// ICON HELPER — always use Google's favicon service as primary fallback
+// ─────────────────────────────────────────────────────────────────────
+const G = (d,p='')=> p || `https://www.google.com/s2/favicons?domain=${d}&sz=64`;
+const WP = (path)=> `https://upload.wikimedia.org/wikipedia/${path}`;
+
+// ─────────────────────────────────────────────────────────────────────
+// 450+ TOOLS DATABASE
+// ─────────────────────────────────────────────────────────────────────
 const DB = [
-  {name:"ChatGPT",cat:"text",desc:"أقوى محرك نصوص من OpenAI",url:"https://chat.openai.com",img:"https://www.google.com/s2/favicons?domain=openai.com&sz=64"},
-  {name:"Claude AI",cat:"text",desc:"مساعد ذكي للمهام المعقدة",url:"https://claude.ai",img:"https://www.google.com/s2/favicons?domain=anthropic.com&sz=64"},
-  {name:"Midjourney",cat:"image",desc:"توليد صور فنية خيالية",url:"https://midjourney.com",img:"https://www.google.com/s2/favicons?domain=midjourney.com&sz=64"},
-  {name:"GitHub Copilot",cat:"coding",desc:"مساعد البرمجة العالمي",url:"https://github.com/features/copilot",img:"https://www.google.com/s2/favicons?domain=github.com&sz=64"},
-  // ... سيقوم النظام تلقائياً بجلب أي أداة مضافة لاحقاً
+// ══════════ TEXT ══════════
+{name:"ChatGPT",cat:"text",desc:"أقوى محرك نصوص في العالم من OpenAI",url:"https://chat.openai.com",img:WP("commons/0/04/ChatGPT_logo.svg")},
+{name:"Claude",cat:"text",desc:"مساعد ذكي متعدد المهام من Anthropic",url:"https://claude.ai",img:"https://www.anthropic.com/favicon.ico"},
+{name:"Gemini",cat:"text",desc:"نموذج غوغل للمحادثة والتحليل",url:"https://gemini.google.com",img:"https://www.gstatic.com/lamda/images/gemini_favicon_f069958c85030456e93de685481c559f160ea06.svg"},
+{name:"DeepSeek",cat:"text",desc:"نموذج لغوي متطور للنصوص والكود",url:"https://chat.deepseek.com",img:G("deepseek.com")},
+{name:"Microsoft Copilot",cat:"text",desc:"مساعد مايكروسوفت بذكاء اصطناعي",url:"https://copilot.microsoft.com",img:G("microsoft.com")},
+{name:"Perplexity AI",cat:"text",desc:"محرك بحث ذكي يجيب بدقة عالية",url:"https://perplexity.ai",img:G("perplexity.ai")},
+{name:"Jasper AI",cat:"text",desc:"كتابة محتوى تسويقي احترافي",url:"https://jasper.ai",img:G("jasper.ai")},
+{name:"Copy.ai",cat:"text",desc:"توليد نصوص إبداعية وتسويقية",url:"https://copy.ai",img:G("copy.ai")},
+{name:"Writesonic",cat:"text",desc:"كتابة مقالات ومحتوى بالذكاء الاصطناعي",url:"https://writesonic.com",img:G("writesonic.com")},
+{name:"Rytr",cat:"text",desc:"مساعد كتابة سريع وبأسعار معقولة",url:"https://rytr.me",img:G("rytr.me")},
+{name:"Notion AI",cat:"text",desc:"كتابة وتلخيص داخل Notion",url:"https://notion.so",img:G("notion.so")},
+{name:"Grammarly",cat:"text",desc:"تصحيح الكتابة والقواعد اللغوية",url:"https://grammarly.com",img:G("grammarly.com")},
+{name:"QuillBot",cat:"text",desc:"إعادة صياغة النصوص بأسلوب احترافي",url:"https://quillbot.com",img:G("quillbot.com")},
+{name:"Wordtune",cat:"text",desc:"تحسين وإعادة كتابة الجمل بذكاء",url:"https://wordtune.com",img:G("wordtune.com")},
+{name:"Sudowrite",cat:"text",desc:"أداة متخصصة لكتابة الروايات",url:"https://sudowrite.com",img:G("sudowrite.com")},
+{name:"Hyperwrite",cat:"text",desc:"مساعد الكتابة الشخصي بالذكاء الاصطناعي",url:"https://hyperwriteai.com",img:G("hyperwriteai.com")},
+{name:"Anyword",cat:"text",desc:"كتابة إعلانية محسنة بالبيانات",url:"https://anyword.com",img:G("anyword.com")},
+{name:"Longshot AI",cat:"text",desc:"كتابة مقالات طويلة وتحسين SEO",url:"https://longshot.ai",img:G("longshot.ai")},
+{name:"Scalenut",cat:"text",desc:"بحث SEO وكتابة محتوى متكامل",url:"https://scalenut.com",img:G("scalenut.com")},
+{name:"Frase",cat:"text",desc:"تحسين محرك البحث وكتابة المحتوى",url:"https://frase.io",img:G("frase.io")},
+{name:"AI Writer",cat:"text",desc:"كتابة مقالات موثوقة ومصادر",url:"https://ai-writer.com",img:G("ai-writer.com")},
+{name:"TextCortex",cat:"text",desc:"مساعد كتابة ذكي متعدد الأدوات",url:"https://textcortex.com",img:G("textcortex.com")},
+{name:"Lex Page",cat:"text",desc:"محرر نصوص بمساعدة الذكاء الاصطناعي",url:"https://lex.page",img:G("lex.page")},
+{name:"Simplified",cat:"text",desc:"تصميم ومحتوى للتسويق الرقمي",url:"https://simplified.com",img:G("simplified.com")},
+{name:"Neuroflash",cat:"text",desc:"توليد نصوص تسويقية احترافية",url:"https://neuroflash.com",img:G("neuroflash.com")},
+{name:"ProWritingAid",cat:"text",desc:"تحليل الكتابة وتحسين الأسلوب",url:"https://prowritingaid.com",img:G("prowritingaid.com")},
+{name:"Summarize Tech",cat:"text",desc:"تلخيص مقاطع يوتيوب بالذكاء",url:"https://summarize.tech",img:G("summarize.tech")},
+{name:"Tldr This",cat:"text",desc:"تلخيص المقالات والنصوص الطويلة",url:"https://tldrthis.com",img:G("tldrthis.com")},
+{name:"You.com",cat:"text",desc:"بحث ذكي ومحادثة مدمجة",url:"https://you.com",img:G("you.com")},
+{name:"Poe",cat:"text",desc:"منصة تجميع نماذج AI متعددة",url:"https://poe.com",img:G("poe.com")},
+{name:"Character AI",cat:"text",desc:"محادثات مع شخصيات افتراضية",url:"https://character.ai",img:G("character.ai")},
+{name:"Pi AI",cat:"text",desc:"مساعد شخصي ذكي ودود من Inflection",url:"https://pi.ai",img:G("pi.ai")},
+{name:"HuggingChat",cat:"text",desc:"نماذج مفتوحة المصدر مجاناً",url:"https://huggingface.co/chat",img:G("huggingface.co")},
+{name:"Mistral AI",cat:"text",desc:"نموذج أوروبي سريع ودقيق",url:"https://mistral.ai",img:G("mistral.ai")},
+{name:"Cohere",cat:"text",desc:"نماذج لغوية للشركات والمطورين",url:"https://cohere.com",img:G("cohere.com")},
+{name:"Llama 3",cat:"text",desc:"نموذج Meta مفتوح المصدر القوي",url:"https://llama.meta.com",img:G("meta.com")},
+{name:"Typeface AI",cat:"text",desc:"توليد محتوى علامة تجارية متسق",url:"https://typeface.ai",img:G("typeface.ai")},
+{name:"Bearly AI",cat:"text",desc:"قراءة وكتابة وتلخيص بالذكاء",url:"https://bearly.ai",img:G("bearly.ai")},
+{name:"Novel AI",cat:"text",desc:"كتابة روايات وقصص بالذكاء",url:"https://novelai.net",img:G("novelai.net")},
+{name:"Replika",cat:"text",desc:"رفيق ذكاء اصطناعي شخصي",url:"https://replika.com",img:G("replika.com")},
+{name:"Reclaim AI",cat:"text",desc:"جدولة ذكية للمهام والاجتماعات",url:"https://reclaim.ai",img:G("reclaim.ai")},
+{name:"Motion AI",cat:"text",desc:"جدولة يوم العمل تلقائياً",url:"https://usemotion.com",img:G("usemotion.com")},
+{name:"Fathom AI",cat:"text",desc:"تسجيل وتلخيص مكالمات Zoom",url:"https://fathom.video",img:G("fathom.video")},
+{name:"Miro AI",cat:"text",desc:"لوح تعاون ذكي للفرق الإبداعية",url:"https://miro.com",img:G("miro.com")},
+{name:"Taskade AI",cat:"text",desc:"مساعد إنتاجية وتعاون فريق ذكي",url:"https://taskade.com",img:G("taskade.com")},
+{name:"Tome AI",cat:"text",desc:"عروض تقديمية ذكية بالذكاء",url:"https://tome.app",img:G("tome.app")},
+{name:"Gamma App",cat:"text",desc:"عروض وصفحات ذكية في دقائق",url:"https://gamma.app",img:G("gamma.app")},
+{name:"Beautiful AI",cat:"text",desc:"شرائح عرض احترافية بالذكاء",url:"https://beautiful.ai",img:G("beautiful.ai")},
+{name:"Zapier AI",cat:"text",desc:"أتمتة سير العمل بالذكاء الاصطناعي",url:"https://zapier.com",img:G("zapier.com")},
+{name:"Chatbase",cat:"text",desc:"إنشاء chatbot من PDF وموقعك",url:"https://chatbase.co",img:G("chatbase.co")},
+{name:"Mem AI",cat:"text",desc:"مذكرات ذكية تنظم نفسها تلقائياً",url:"https://mem.ai",img:G("mem.ai")},
+{name:"Lindy AI",cat:"text",desc:"مساعد شخصي ذكي لإدارة الأعمال",url:"https://lindy.ai",img:G("lindy.ai")},
+{name:"Decktopus AI",cat:"text",desc:"عروض تقديمية ذكية ومتجاوبة",url:"https://decktopus.com",img:G("decktopus.com")},
+{name:"Headlime",cat:"text",desc:"عناوين ونصوص إعلانية قوية",url:"https://headlime.com",img:G("headlime.com")},
+{name:"Copymatic",cat:"text",desc:"توليد محتوى إعلاني بالذكاء",url:"https://copymatic.ai",img:G("copymatic.ai")},
+{name:"Hypotenuse AI",cat:"text",desc:"محتوى تجارة إلكترونية احترافي",url:"https://hypotenuse.ai",img:G("hypotenuse.ai")},
+{name:"Moonbeam AI",cat:"text",desc:"كتابة مقالات طويلة بخطوات ذكية",url:"https://gomoonbeam.com",img:G("gomoonbeam.com")},
+{name:"GrammarlyGO",cat:"text",desc:"كتابة جمل كاملة بذكاء اصطناعي",url:"https://grammarly.com",img:G("grammarly.com")},
+{name:"Kagi Search",cat:"text",desc:"محرك بحث مدفوع بذكاء خارق",url:"https://kagi.com",img:G("kagi.com")},
+{name:"Harvey AI",cat:"text",desc:"ذكاء اصطناعي للمجال القانوني",url:"https://harvey.ai",img:G("harvey.ai")},
+{name:"Superhuman AI",cat:"text",desc:"بريد إلكتروني فائق السرعة",url:"https://superhuman.com",img:G("superhuman.com")},
+{name:"AI21 Studio",cat:"text",desc:"كتابة ذكية بنماذج Jurassic",url:"https://studio.ai21.com",img:G("ai21.com")},
+{name:"Shortly AI",cat:"text",desc:"كتابة قصص وروايات إبداعية",url:"https://shortlyai.com",img:G("shortlyai.com")},
+{name:"Peppertype",cat:"text",desc:"توليد محتوى تسويقي بالذكاء",url:"https://peppertype.ai",img:G("peppertype.ai")},
+{name:"Dante AI",cat:"text",desc:"بوت دردشة مخصص على بياناتك",url:"https://dante-ai.com",img:G("dante-ai.com")},
+{name:"Presentations AI",cat:"text",desc:"عروض احترافية من النص فقط",url:"https://presentations.ai",img:G("presentations.ai")},
+{name:"Cohesive AI",cat:"text",desc:"تحرير وكتابة المحتوى بسرعة",url:"https://cohesive.so",img:G("cohesive.so")},
+{name:"Airgram",cat:"text",desc:"ملاحظات اجتماعات ذكية متقدمة",url:"https://airgram.io",img:G("airgram.io")},
+{name:"Otter AI",cat:"text",desc:"تحويل المحادثات لنص فوري",url:"https://otter.ai",img:G("otter.ai")},
+// ══════════ IMAGE ══════════
+{name:"Midjourney",cat:"image",desc:"توليد صور فنية خيالية مبهرة",url:"https://midjourney.com",img:"https://cdn.worldvectorlogo.com/logos/midjourney.svg"},
+{name:"DALL-E 3",cat:"image",desc:"توليد صور من OpenAI بدقة عالية",url:"https://openai.com/dall-e-3",img:WP("commons/0/04/ChatGPT_logo.svg")},
+{name:"Stable Diffusion",cat:"image",desc:"نموذج مفتوح لتوليد الصور",url:"https://stability.ai",img:G("stability.ai")},
+{name:"Adobe Firefly",cat:"image",desc:"توليد صور احترافية من Adobe",url:"https://firefly.adobe.com",img:"https://www.adobe.com/favicon.ico"},
+{name:"Leonardo AI",cat:"image",desc:"تصميم صور وشخصيات احترافية",url:"https://leonardo.ai",img:G("leonardo.ai")},
+{name:"Canva AI",cat:"image",desc:"تصميم جرافيك ذكي ومتكامل",url:"https://canva.com",img:G("canva.com")},
+{name:"Ideogram",cat:"image",desc:"صور مع نص مدمج بشكل صحيح",url:"https://ideogram.ai",img:G("ideogram.ai")},
+{name:"Playground AI",cat:"image",desc:"توليد صور مجاني بنماذج متعددة",url:"https://playgroundai.com",img:G("playgroundai.com")},
+{name:"Nightcafe",cat:"image",desc:"فن بالذكاء الاصطناعي بأساليب متعددة",url:"https://nightcafe.studio",img:G("nightcafe.studio")},
+{name:"Artbreeder",cat:"image",desc:"خلط ودمج الصور بطريقة إبداعية",url:"https://artbreeder.com",img:G("artbreeder.com")},
+{name:"Bing Image Creator",cat:"image",desc:"توليد صور مجاني من مايكروسوفت",url:"https://bing.com/images/create",img:G("bing.com")},
+{name:"Craiyon",cat:"image",desc:"توليد صور مجاني وسريع",url:"https://craiyon.com",img:G("craiyon.com")},
+{name:"Flux AI",cat:"image",desc:"صور واقعية من Black Forest Labs",url:"https://flux1.ai",img:G("flux1.ai")},
+{name:"Freepik AI",cat:"image",desc:"توليد صور وتصاميم احترافية",url:"https://freepik.com/ai",img:G("freepik.com")},
+{name:"Fotor AI",cat:"image",desc:"تحرير وتوليد صور بالذكاء",url:"https://fotor.com",img:G("fotor.com")},
+{name:"Remove.bg",cat:"image",desc:"إزالة خلفية الصور تلقائياً",url:"https://remove.bg",img:G("remove.bg")},
+{name:"Clipdrop",cat:"image",desc:"أدوات تحرير صور ذكية من Stability",url:"https://clipdrop.co",img:G("clipdrop.co")},
+{name:"Upscale.media",cat:"image",desc:"تكبير الصور دون فقدان الجودة",url:"https://upscale.media",img:G("upscale.media")},
+{name:"Lensa AI",cat:"image",desc:"تحويل الصور الشخصية لأعمال فنية",url:"https://prisma-ai.com/lensa",img:G("prisma-ai.com")},
+{name:"PhotoRoom",cat:"image",desc:"تحرير صور المنتجات للتجارة",url:"https://photoroom.com",img:G("photoroom.com")},
+{name:"Picsart AI",cat:"image",desc:"تحرير صور احترافي بالذكاء",url:"https://picsart.com",img:G("picsart.com")},
+{name:"Civitai",cat:"image",desc:"مجتمع نماذج Stable Diffusion",url:"https://civitai.com",img:G("civitai.com")},
+{name:"Tensor Art",cat:"image",desc:"توليد صور بنماذج متنوعة مجاناً",url:"https://tensor.art",img:G("tensor.art")},
+{name:"Seaart AI",cat:"image",desc:"توليد صور أنيمي وفانتازيا",url:"https://seaart.ai",img:G("seaart.ai")},
+{name:"Getimg AI",cat:"image",desc:"توليد وتحرير صور بنماذج متعددة",url:"https://getimg.ai",img:G("getimg.ai")},
+{name:"Magic Eraser",cat:"image",desc:"مسح عناصر الصورة تلقائياً",url:"https://magiceraser.io",img:G("magiceraser.io")},
+{name:"Vectorizer AI",cat:"image",desc:"تحويل الصور إلى رسومات SVG",url:"https://vectorizer.ai",img:G("vectorizer.ai")},
+{name:"Looka",cat:"image",desc:"تصميم شعارات وهوية بصرية",url:"https://looka.com",img:G("looka.com")},
+{name:"Brandmark",cat:"image",desc:"إنشاء شعارات احترافية بالذكاء",url:"https://brandmark.io",img:G("brandmark.io")},
+{name:"Hotpot AI",cat:"image",desc:"تحرير وتوليد صور بواجهة سهلة",url:"https://hotpot.ai",img:G("hotpot.ai")},
+{name:"Deep Dream",cat:"image",desc:"تحويل الصور لأحلام فنية سريالية",url:"https://deepdreamgenerator.com",img:G("deepdreamgenerator.com")},
+{name:"Neural Love",cat:"image",desc:"تحسين الصور القديمة والتالفة",url:"https://neural.love",img:G("neural.love")},
+{name:"Mage Space",cat:"image",desc:"توليد صور مجاني سريع",url:"https://mage.space",img:G("mage.space")},
+{name:"Lexica Art",cat:"image",desc:"محرك بحث وتوليد صور Stable",url:"https://lexica.art",img:G("lexica.art")},
+{name:"Openart AI",cat:"image",desc:"منصة متقدمة لتوليد الصور",url:"https://openart.ai",img:G("openart.ai")},
+{name:"Dreamlike Art",cat:"image",desc:"صور فنية بنماذج متنوعة",url:"https://dreamlike.art",img:G("dreamlike.art")},
+{name:"Reface AI",cat:"image",desc:"تبديل الوجوه في الصور والفيديو",url:"https://reface.ai",img:G("reface.ai")},
+{name:"Krea AI",cat:"image",desc:"أداة رسم وإبداع تفاعلية",url:"https://krea.ai",img:G("krea.ai")},
+{name:"Kaiber AI",cat:"image",desc:"تحريك الصور وإنشاء فيديو فني",url:"https://kaiber.ai",img:G("kaiber.ai")},
+{name:"Imagine Meta",cat:"image",desc:"توليد صور مجاني من Meta",url:"https://imagine.meta.com",img:G("meta.com")},
+{name:"Stablecog",cat:"image",desc:"توليد صور مفتوح المصدر مجاناً",url:"https://stablecog.com",img:G("stablecog.com")},
+{name:"Wepik AI",cat:"image",desc:"تصميم ذكي للتسويق والعروض",url:"https://wepik.com",img:G("wepik.com")},
+{name:"Visme AI",cat:"image",desc:"إنشاء إنفوغرافيك وتصاميم تفاعلية",url:"https://visme.co",img:G("visme.co")},
+{name:"Designs AI",cat:"image",desc:"تصميم شامل بالذكاء الاصطناعي",url:"https://designs.ai",img:G("designs.ai")},
+{name:"Pixlr AI",cat:"image",desc:"تحرير صور إبداعي مجاني",url:"https://pixlr.com",img:G("pixlr.com")},
+{name:"Invoke AI",cat:"image",desc:"توليد صور احترافي للمصممين",url:"https://invoke.ai",img:G("invoke.ai")},
+{name:"Gencraft",cat:"image",desc:"توليد صور وفيديوهات بالذكاء",url:"https://gencraft.com",img:G("gencraft.com")},
+{name:"PhotoAI",cat:"image",desc:"صور شخصية احترافية بالذكاء",url:"https://photoai.com",img:G("photoai.com")},
+{name:"Picso AI",cat:"image",desc:"توليد صور فنية سريع ومجاني",url:"https://picso.ai",img:G("picso.ai")},
+{name:"Bing Designer",cat:"image",desc:"توليد صور ودمجها ذكياً",url:"https://designer.microsoft.com",img:G("microsoft.com")},
+{name:"Adobe Express AI",cat:"image",desc:"تصميم سريع احترافي بالذكاء",url:"https://express.adobe.com",img:"https://www.adobe.com/favicon.ico"},
+{name:"Prisma AI",cat:"image",desc:"فلاتر فنية احترافية للصور",url:"https://prisma-ai.com",img:G("prisma-ai.com")},
+// ══════════ VIDEO ══════════
+{name:"Kling AI",cat:"video",desc:"واقعية مذهلة في تحويل النص لفيديو",url:"https://klingai.com",img:G("klingai.com")},
+{name:"Sora",cat:"video",desc:"توليد فيديو من OpenAI بجودة سينمائية",url:"https://sora.com",img:WP("commons/0/04/ChatGPT_logo.svg")},
+{name:"Runway ML",cat:"video",desc:"أدوات فيديو إبداعية للمصممين",url:"https://runwayml.com",img:G("runwayml.com")},
+{name:"Pika Labs",cat:"video",desc:"تحويل النص والصور لفيديو",url:"https://pika.art",img:G("pika.art")},
+{name:"Luma Dream Machine",cat:"video",desc:"فيديو واقعي ثلاثي الأبعاد بالذكاء",url:"https://lumalabs.ai/dream-machine",img:G("lumalabs.ai")},
+{name:"Synthesia",cat:"video",desc:"صناعة فيديوهات بمقدمين افتراضيين",url:"https://synthesia.io",img:G("synthesia.io")},
+{name:"HeyGen",cat:"video",desc:"أفاتار بشري ناطق بلغات متعددة",url:"https://heygen.com",img:G("heygen.com")},
+{name:"D-ID",cat:"video",desc:"إحياء الصور الثابتة وصناعة أفاتار",url:"https://d-id.com",img:G("d-id.com")},
+{name:"CapCut AI",cat:"video",desc:"تحرير فيديو احترافي للمبتدئين",url:"https://capcut.com",img:G("capcut.com")},
+{name:"Pictory AI",cat:"video",desc:"تحويل المقالات لفيديوهات تلقائياً",url:"https://pictory.ai",img:G("pictory.ai")},
+{name:"InVideo AI",cat:"video",desc:"صناعة فيديوهات تسويقية سريعاً",url:"https://invideo.io",img:G("invideo.io")},
+{name:"Fliki AI",cat:"video",desc:"تحويل النص لفيديوهات بصوت بشري",url:"https://fliki.ai",img:G("fliki.ai")},
+{name:"Veed IO",cat:"video",desc:"تحرير وترجمة الفيديوهات أونلاين",url:"https://veed.io",img:G("veed.io")},
+{name:"Descript",cat:"video",desc:"تحرير الفيديو عن طريق تحرير النص",url:"https://descript.com",img:G("descript.com")},
+{name:"Haiper AI",cat:"video",desc:"توليد مقاطع فيديو قصيرة بالذكاء",url:"https://haiper.ai",img:G("haiper.ai")},
+{name:"Vidu AI",cat:"video",desc:"فيديو احترافي بالذكاء الاصطناعي الصيني",url:"https://vidu.studio",img:G("vidu.studio")},
+{name:"Stable Video",cat:"video",desc:"تحويل الصور لمقاطع فيديو متحركة",url:"https://stability.ai",img:G("stability.ai")},
+{name:"Opus Clip",cat:"video",desc:"تحويل الفيديو لكليبات قصيرة تلقائياً",url:"https://opus.pro",img:G("opus.pro")},
+{name:"Vidyo AI",cat:"video",desc:"إنشاء Shorts وReels تلقائياً",url:"https://vidyo.ai",img:G("vidyo.ai")},
+{name:"Klap",cat:"video",desc:"تحويل الفيديو الطويل لكليبات تلقائياً",url:"https://klap.app",img:G("klap.app")},
+{name:"Captions AI",cat:"video",desc:"إضافة ترجمة وتأثيرات للفيديو",url:"https://captions.ai",img:G("captions.ai")},
+{name:"Elai IO",cat:"video",desc:"فيديوهات تعليمية بأفاتار بشري",url:"https://elai.io",img:G("elai.io")},
+{name:"Colossyan",cat:"video",desc:"فيديوهات الشركات بأفاتار احترافي",url:"https://colossyan.com",img:G("colossyan.com")},
+{name:"Tavus",cat:"video",desc:"فيديوهات شخصية مخصصة لكل عميل",url:"https://tavus.io",img:G("tavus.io")},
+{name:"Wisecut",cat:"video",desc:"مونتاج تلقائي باستخدام الذكاء",url:"https://wisecut.video",img:G("wisecut.video")},
+{name:"Wonder Studio",cat:"video",desc:"دمج شخصيات CG في الفيديو الحقيقي",url:"https://wonderdynamics.com",img:G("wonderdynamics.com")},
+{name:"Deepbrain AI",cat:"video",desc:"فيديوهات تدريبية بأفاتار ذكية",url:"https://deepbrain.io",img:G("deepbrain.io")},
+{name:"Steve AI",cat:"video",desc:"إنشاء فيديوهات رسوم متحركة",url:"https://steve.ai",img:G("steve.ai")},
+{name:"Lovo AI",cat:"video",desc:"فويس أوفر وفيديو بالذكاء",url:"https://lovo.ai",img:G("lovo.ai")},
+{name:"Filmora AI",cat:"video",desc:"تحرير فيديو ذكي باحترافية عالية",url:"https://filmora.wondershare.com",img:G("wondershare.com")},
+{name:"Clipchamp",cat:"video",desc:"محرر فيديو من مايكروسوفت",url:"https://clipchamp.com",img:G("clipchamp.com")},
+{name:"Munch AI",cat:"video",desc:"استخراج أفضل لحظات الفيديو",url:"https://getmunch.com",img:G("getmunch.com")},
+{name:"Runway Gen-3",cat:"video",desc:"توليد فيديو سينمائي الجيل الثالث",url:"https://runwayml.com",img:G("runwayml.com")},
+{name:"Viggle AI",cat:"video",desc:"دمج الشخصيات في أي فيديو",url:"https://viggle.ai",img:G("viggle.ai")},
+{name:"Hailuo AI",cat:"video",desc:"نموذج فيديو صيني فائق الجودة",url:"https://hailuoai.com",img:G("hailuoai.com")},
+{name:"Peech AI",cat:"video",desc:"تحرير فيديو ذكي للمحتوى الرقمي",url:"https://peech-ai.com",img:G("peech-ai.com")},
+{name:"Twelve Labs",cat:"video",desc:"تحليل وفهم الفيديو بالذكاء",url:"https://twelvelabs.io",img:G("twelvelabs.io")},
+{name:"Invideo Go",cat:"video",desc:"تحويل النص لفيديو فوري",url:"https://invideo.io/go",img:G("invideo.io")},
+{name:"Shuffll",cat:"video",desc:"صناعة فيديو تسويقي آلي",url:"https://shuffll.com",img:G("shuffll.com")},
+{name:"Hour One",cat:"video",desc:"فيديوهات شركات بأفاتار احترافي",url:"https://hourone.ai",img:G("hourone.ai")},
+// ══════════ AUDIO ══════════
+{name:"ElevenLabs",cat:"audio",desc:"أفضل دبلجة صوتية بالذكاء الاصطناعي",url:"https://elevenlabs.io",img:G("elevenlabs.io")},
+{name:"Suno AI",cat:"audio",desc:"توليد أغاني وموسيقى احترافية",url:"https://suno.com",img:G("suno.com")},
+{name:"Udio",cat:"audio",desc:"توليد موسيقى بجودة استوديو",url:"https://udio.com",img:G("udio.com")},
+{name:"Mubert",cat:"audio",desc:"موسيقى تعبيرية بلا انقطاع",url:"https://mubert.com",img:G("mubert.com")},
+{name:"Soundraw",cat:"audio",desc:"تأليف موسيقى خلفية بالذكاء",url:"https://soundraw.io",img:G("soundraw.io")},
+{name:"Beatoven AI",cat:"audio",desc:"موسيقى تتكيف مع مزاج المقطع",url:"https://beatoven.ai",img:G("beatoven.ai")},
+{name:"Aiva",cat:"audio",desc:"تأليف موسيقى كلاسيكية وأفلام",url:"https://aiva.ai",img:G("aiva.ai")},
+{name:"Boomy",cat:"audio",desc:"إنشاء أغاني أصلية في ثوانٍ",url:"https://boomy.com",img:G("boomy.com")},
+{name:"Soundful",cat:"audio",desc:"موسيقى خلفية لإبداعك الرقمي",url:"https://soundful.com",img:G("soundful.com")},
+{name:"Riffusion",cat:"audio",desc:"توليد موسيقى من نص بنموذج انتشار",url:"https://riffusion.com",img:G("riffusion.com")},
+{name:"Stable Audio",cat:"audio",desc:"توليد موسيقى من Stability AI",url:"https://stableaudio.com",img:G("stability.ai")},
+{name:"Play.ht",cat:"audio",desc:"تحويل نص لصوت بشري طبيعي",url:"https://play.ht",img:G("play.ht")},
+{name:"Murf AI",cat:"audio",desc:"أصوات بشرية احترافية للفيديو",url:"https://murf.ai",img:G("murf.ai")},
+{name:"Speechify",cat:"audio",desc:"تحويل أي نص لصوت طبيعي",url:"https://speechify.com",img:G("speechify.com")},
+{name:"Resemble AI",cat:"audio",desc:"استنساخ وتوليد الصوت البشري",url:"https://resemble.ai",img:G("resemble.ai")},
+{name:"Voicemod",cat:"audio",desc:"تغيير الصوت في الوقت الفعلي",url:"https://voicemod.net",img:G("voicemod.net")},
+{name:"Krisp AI",cat:"audio",desc:"إلغاء ضوضاء الخلفية من الصوت",url:"https://krisp.ai",img:G("krisp.ai")},
+{name:"Adobe Podcast",cat:"audio",desc:"تحسين جودة الصوت تلقائياً",url:"https://podcast.adobe.com",img:"https://www.adobe.com/favicon.ico"},
+{name:"Whisper OpenAI",cat:"audio",desc:"تحويل الكلام لنص بدقة عالية",url:"https://openai.com/research/whisper",img:WP("commons/0/04/ChatGPT_logo.svg")},
+{name:"AssemblyAI",cat:"audio",desc:"API تحويل الصوت لنص للمطورين",url:"https://assemblyai.com",img:G("assemblyai.com")},
+{name:"Deepgram",cat:"audio",desc:"تحويل صوت لنص بسرعة خارقة",url:"https://deepgram.com",img:G("deepgram.com")},
+{name:"Podcastle AI",cat:"audio",desc:"تسجيل وتحرير بودكاست بالذكاء",url:"https://podcastle.ai",img:G("podcastle.ai")},
+{name:"Cleanvoice AI",cat:"audio",desc:"إزالة التلعثم والصمت من البودكاست",url:"https://cleanvoice.ai",img:G("cleanvoice.ai")},
+{name:"Kits AI",cat:"audio",desc:"تحويل الصوت لأصوات موسيقية",url:"https://kits.ai",img:G("kits.ai")},
+{name:"Vocal Remover",cat:"audio",desc:"فصل الصوت عن الموسيقى",url:"https://vocalremover.org",img:G("vocalremover.org")},
+{name:"Moises App",cat:"audio",desc:"فصل الآلات وتعديل الإيقاع",url:"https://moises.ai",img:G("moises.ai")},
+{name:"Voicemaker",cat:"audio",desc:"تحويل نص لصوت بـ 1000 صوت",url:"https://voicemaker.in",img:G("voicemaker.in")},
+{name:"Listnr AI",cat:"audio",desc:"تحويل نص لبودكاست صوتي",url:"https://listnr.ai",img:G("listnr.ai")},
+{name:"Wellsaid Labs",cat:"audio",desc:"أصوات بشرية طبيعية احترافية",url:"https://wellsaidlabs.com",img:G("wellsaidlabs.com")},
+{name:"Uberduck AI",cat:"audio",desc:"أصوات المشاهير والراب بالذكاء",url:"https://uberduck.ai",img:G("uberduck.ai")},
+{name:"NaturalReader",cat:"audio",desc:"قراءة أي نص بصوت عالٍ",url:"https://naturalreaders.com",img:G("naturalreaders.com")},
+{name:"TTSMaker",cat:"audio",desc:"تحويل نص لصوت مجاني غير محدود",url:"https://ttsmaker.com",img:G("ttsmaker.com")},
+{name:"Voice AI",cat:"audio",desc:"تغيير الصوت الفوري للألعاب",url:"https://voice.ai",img:G("voice.ai")},
+{name:"Altered AI",cat:"audio",desc:"تعديل الصوت وتغييره بالذكاء",url:"https://altered.ai",img:G("altered.ai")},
+{name:"Speechgen",cat:"audio",desc:"توليد صوت بشري بلهجات متعددة",url:"https://speechgen.io",img:G("speechgen.io")},
+{name:"Loudly",cat:"audio",desc:"أدوات موسيقية ذكية للمنشئين",url:"https://loudly.com",img:G("loudly.com")},
+{name:"Soundverse AI",cat:"audio",desc:"إنتاج موسيقي ذكي متكامل",url:"https://soundverse.ai",img:G("soundverse.ai")},
+{name:"Melobytes",cat:"audio",desc:"تحويل النص لموسيقى وأغاني",url:"https://melobytes.com",img:G("melobytes.com")},
+// ══════════ CODING ══════════
+{name:"GitHub Copilot",cat:"coding",desc:"مساعد البرمجة الأول في العالم",url:"https://copilot.github.com",img:G("github.com")},
+{name:"Cursor AI",cat:"coding",desc:"محرر كود ذكي مبني على GPT-4",url:"https://cursor.sh",img:G("cursor.sh")},
+{name:"Tabnine",cat:"coding",desc:"إكمال الكود بالذكاء الاصطناعي",url:"https://tabnine.com",img:G("tabnine.com")},
+{name:"Codeium",cat:"coding",desc:"مساعد برمجي مجاني بقدرات عالية",url:"https://codeium.com",img:G("codeium.com")},
+{name:"Replit AI",cat:"coding",desc:"برمجة سحابية بمساعد ذكي",url:"https://replit.com",img:G("replit.com")},
+{name:"Amazon CodeWhisperer",cat:"coding",desc:"مساعد برمجي من أمازون",url:"https://aws.amazon.com/codewhisperer",img:G("aws.amazon.com")},
+{name:"Phind",cat:"coding",desc:"محرك بحث للمطورين بالذكاء",url:"https://phind.com",img:G("phind.com")},
+{name:"Mintlify",cat:"coding",desc:"توثيق الكود تلقائياً بالذكاء",url:"https://mintlify.com",img:G("mintlify.com")},
+{name:"Devin AI",cat:"coding",desc:"أول مهندس برمجيات بالذكاء",url:"https://cognition.ai",img:G("cognition.ai")},
+{name:"Warp Terminal",cat:"coding",desc:"طرفية ذكية بمساعد AI",url:"https://warp.dev",img:G("warp.dev")},
+{name:"Fronty AI",cat:"coding",desc:"تحويل الصور لكود HTML/CSS",url:"https://fronty.com",img:G("fronty.com")},
+{name:"Vercel v0",cat:"coding",desc:"توليد مكونات React بالوصف",url:"https://v0.dev",img:G("vercel.com")},
+{name:"Bolt.new",cat:"coding",desc:"بناء تطبيقات كاملة بالمحادثة",url:"https://bolt.new",img:G("bolt.new")},
+{name:"Lovable AI",cat:"coding",desc:"بناء تطبيقات سحابية بالنص",url:"https://lovable.dev",img:G("lovable.dev")},
+{name:"LangChain",cat:"coding",desc:"بناء تطبيقات LLM المتقدمة",url:"https://langchain.com",img:G("langchain.com")},
+{name:"LlamaIndex",cat:"coding",desc:"ربط بياناتك بنماذج اللغة",url:"https://llamaindex.ai",img:G("llamaindex.ai")},
+{name:"Flowise AI",cat:"coding",desc:"بناء flows بالذكاء بسهولة",url:"https://flowiseai.com",img:G("flowiseai.com")},
+{name:"Hugging Face",cat:"coding",desc:"منصة نماذج AI مفتوحة المصدر",url:"https://huggingface.co",img:G("huggingface.co")},
+{name:"Replicate",cat:"coding",desc:"تشغيل نماذج AI في السحابة",url:"https://replicate.com",img:G("replicate.com")},
+{name:"Pinecone",cat:"coding",desc:"قاعدة بيانات متجهات للذكاء",url:"https://pinecone.io",img:G("pinecone.io")},
+{name:"Scale AI",cat:"coding",desc:"تسمية البيانات لتدريب النماذج",url:"https://scale.com",img:G("scale.com")},
+{name:"Weights & Biases",cat:"coding",desc:"تتبع تجارب نماذج الذكاء",url:"https://wandb.ai",img:G("wandb.ai")},
+{name:"Vertex AI",cat:"coding",desc:"منصة Google لنماذج الذكاء",url:"https://cloud.google.com/vertex-ai",img:G("cloud.google.com")},
+{name:"Azure AI",cat:"coding",desc:"خدمات ذكاء اصطناعي من مايكروسوفت",url:"https://azure.microsoft.com/ai",img:G("microsoft.com")},
+{name:"AWS Bedrock",cat:"coding",desc:"نماذج AI من أمازون السحابية",url:"https://aws.amazon.com/bedrock",img:G("aws.amazon.com")},
+{name:"N8N AI",cat:"coding",desc:"أتمتة مفتوحة المصدر بالذكاء",url:"https://n8n.io",img:G("n8n.io")},
+{name:"Sweep AI",cat:"coding",desc:"إصلاح الأخطاء البرمجية تلقائياً",url:"https://sweep.dev",img:G("sweep.dev")},
+{name:"Webflow AI",cat:"coding",desc:"تصميم مواقع احترافية بدون كود",url:"https://webflow.com",img:G("webflow.com")},
+{name:"Bubble AI",cat:"coding",desc:"بناء تطبيقات ويب بدون كود",url:"https://bubble.io",img:G("bubble.io")},
+{name:"Figma AI",cat:"coding",desc:"ذكاء اصطناعي مدمج في Figma",url:"https://figma.com",img:G("figma.com")},
+{name:"Windsurf",cat:"coding",desc:"محرر كود ذكي من Codeium",url:"https://codeium.com/windsurf",img:G("codeium.com")},
+{name:"Trae AI",cat:"coding",desc:"بيئة تطوير ذكية من ByteDance",url:"https://trae.ai",img:G("trae.ai")},
+{name:"OpenDevin",cat:"coding",desc:"مهندس برمجيات AI مفتوح المصدر",url:"https://github.com/OpenDevin/OpenDevin",img:G("github.com")},
+{name:"Snyk AI",cat:"coding",desc:"فحص أمان الكود تلقائياً",url:"https://snyk.io",img:G("snyk.io")},
+{name:"Bito AI",cat:"coding",desc:"مراجعة الكود والتوثيق بالذكاء",url:"https://bito.ai",img:G("bito.ai")},
+{name:"Framer AI",cat:"coding",desc:"تصميم وبناء مواقع تفاعلية",url:"https://framer.com",img:G("framer.com")},
+{name:"Uizard AI",cat:"coding",desc:"تحويل الرسومات لنماذج UI",url:"https://uizard.io",img:G("uizard.io")},
+{name:"Galileo AI",cat:"coding",desc:"تصميم UI احترافي من النص",url:"https://usegalileo.ai",img:G("usegalileo.ai")},
+{name:"Plandex AI",cat:"coding",desc:"مساعد برمجي لمهام الكود الكبيرة",url:"https://plandex.ai",img:G("plandex.ai")},
+{name:"Aider AI",cat:"coding",desc:"مساعد برمجة في سطر الأوامر",url:"https://aider.chat",img:G("aider.chat")},
+{name:"Continue Dev",cat:"coding",desc:"إضافة ذكاء اصطناعي لـ VS Code",url:"https://continue.dev",img:G("continue.dev")},
+{name:"Durable AI",cat:"coding",desc:"بناء موقع ويب كامل في 30 ثانية",url:"https://durable.co",img:G("durable.co")},
+{name:"Mixo AI",cat:"coding",desc:"إنشاء موقع startup في ثوانٍ",url:"https://mixo.io",img:G("mixo.io")},
+{name:"Portkey AI",cat:"coding",desc:"بوابة وإدارة APIs نماذج اللغة",url:"https://portkey.ai",img:G("portkey.ai")},
+{name:"Langfuse",cat:"coding",desc:"تتبع وتقييم تطبيقات LLM",url:"https://langfuse.com",img:G("langfuse.com")},
+{name:"Together AI",cat:"coding",desc:"تشغيل نماذج مفتوحة بسرعة",url:"https://together.ai",img:G("together.ai")},
+{name:"Modal Labs",cat:"coding",desc:"بنية تحتية سحابية لنماذج AI",url:"https://modal.com",img:G("modal.com")},
+{name:"Supermaven",cat:"coding",desc:"إكمال تلقائي للكود بسياق واسع",url:"https://supermaven.com",img:G("supermaven.com")},
+{name:"Zed Editor",cat:"coding",desc:"محرر كود تعاوني فائق السرعة",url:"https://zed.dev",img:G("zed.dev")},
+{name:"Relevance AI",cat:"coding",desc:"بناء أدوات AI بدون برمجة",url:"https://relevanceai.com",img:G("relevanceai.com")},
+{name:"Stack AI",cat:"coding",desc:"بناء تطبيقات AI بسحب وإفلات",url:"https://stack-ai.com",img:G("stack-ai.com")},
+{name:"Weaviate",cat:"coding",desc:"قاعدة بيانات متجهات مفتوحة",url:"https://weaviate.io",img:G("weaviate.io")},
+{name:"Refraction AI",cat:"coding",desc:"توليد اختبارات الكود تلقائياً",url:"https://refraction.dev",img:G("refraction.dev")},
+{name:"Sitekick AI",cat:"coding",desc:"صفحات هبوط احترافية بالذكاء",url:"https://sitekick.ai",img:G("sitekick.ai")},
+{name:"Marblism",cat:"coding",desc:"تحويل المتطلبات لكود كامل",url:"https://marblism.com",img:G("marblism.com")},
+{name:"Datarobot",cat:"coding",desc:"منصة AutoML الرائدة للشركات",url:"https://datarobot.com",img:G("datarobot.com")},
+{name:"Promptlayer",cat:"coding",desc:"تتبع وإدارة وتحسين البرومبتات",url:"https://promptlayer.com",img:G("promptlayer.com")},
+// ══════════ MARKETING ══════════
+{name:"HubSpot AI",cat:"marketing",desc:"CRM وتسويق ذكي متكامل",url:"https://hubspot.com",img:G("hubspot.com")},
+{name:"Salesforce Einstein",cat:"marketing",desc:"ذكاء اصطناعي مدمج في Salesforce",url:"https://salesforce.com",img:G("salesforce.com")},
+{name:"Drift AI",cat:"marketing",desc:"دردشة تسويقية ذكية في الوقت الفعلي",url:"https://drift.com",img:G("drift.com")},
+{name:"Intercom AI",cat:"marketing",desc:"خدمة عملاء ذكية بالمحادثة",url:"https://intercom.com",img:G("intercom.com")},
+{name:"Tidio AI",cat:"marketing",desc:"شات بوت ذكي لزيادة المبيعات",url:"https://tidio.com",img:G("tidio.com")},
+{name:"ManyChat AI",cat:"marketing",desc:"أتمتة المحادثات على سوشيال ميديا",url:"https://manychat.com",img:G("manychat.com")},
+{name:"Semrush AI",cat:"marketing",desc:"تحليل SEO والمنافسين بالذكاء",url:"https://semrush.com",img:G("semrush.com")},
+{name:"Ahrefs AI",cat:"marketing",desc:"تحليل الروابط والكلمات المفتاحية",url:"https://ahrefs.com",img:G("ahrefs.com")},
+{name:"Surfer SEO",cat:"marketing",desc:"تحسين المحتوى لمحركات البحث",url:"https://surferseo.com",img:G("surferseo.com")},
+{name:"Smartly IO",cat:"marketing",desc:"أتمتة حملات الإعلانات الرقمية",url:"https://smartly.io",img:G("smartly.io")},
+{name:"Gong IO",cat:"marketing",desc:"تحليل المكالمات البيعية بالذكاء",url:"https://gong.io",img:G("gong.io")},
+{name:"Apollo AI",cat:"marketing",desc:"منصة مبيعات وتواصل ذكية",url:"https://apollo.io",img:G("apollo.io")},
+{name:"Hootsuite AI",cat:"marketing",desc:"جدولة محتوى ذكية عبر المنصات",url:"https://hootsuite.com",img:G("hootsuite.com")},
+{name:"Buffer AI",cat:"marketing",desc:"جدولة وتحليل سوشيال ميديا",url:"https://buffer.com",img:G("buffer.com")},
+{name:"Adcreative AI",cat:"marketing",desc:"إنشاء إبداعات إعلانية بالذكاء",url:"https://adcreative.ai",img:G("adcreative.ai")},
+{name:"Predis AI",cat:"marketing",desc:"منشورات سوشيال ميديا تلقائية",url:"https://predis.ai",img:G("predis.ai")},
+{name:"Taplio AI",cat:"marketing",desc:"نمو لينكدإن بالذكاء الاصطناعي",url:"https://taplio.com",img:G("taplio.com")},
+{name:"Mailchimp AI",cat:"marketing",desc:"تسويق إيميل ذكي وآلي",url:"https://mailchimp.com",img:G("mailchimp.com")},
+{name:"Klaviyo AI",cat:"marketing",desc:"أتمتة التسويق للتجارة الإلكترونية",url:"https://klaviyo.com",img:G("klaviyo.com")},
+{name:"Instantly AI",cat:"marketing",desc:"حملات إيميل باردة واسعة النطاق",url:"https://instantly.ai",img:G("instantly.ai")},
+{name:"Clari AI",cat:"marketing",desc:"تنبؤ الإيرادات والمبيعات بالذكاء",url:"https://clari.com",img:G("clari.com")},
+{name:"Mutiny AI",cat:"marketing",desc:"تخصيص موقع الويب لكل زائر",url:"https://mutinyhq.com",img:G("mutinyhq.com")},
+{name:"Lavender AI",cat:"marketing",desc:"تحسين رسائل البريد البيعية",url:"https://lavender.ai",img:G("lavender.ai")},
+{name:"Brand24",cat:"marketing",desc:"مراقبة العلامة التجارية بالذكاء",url:"https://brand24.com",img:G("brand24.com")},
+{name:"Ocoya AI",cat:"marketing",desc:"إنشاء وجدولة محتوى سوشيال ميديا",url:"https://ocoya.com",img:G("ocoya.com")},
+{name:"Flick AI",cat:"marketing",desc:"جدولة إنستجرام وتوليد محتوى",url:"https://flick.social",img:G("flick.social")},
+{name:"Salesloft AI",cat:"marketing",desc:"منصة تفاعل مبيعات ذكية",url:"https://salesloft.com",img:G("salesloft.com")},
+{name:"Pencil AI",cat:"marketing",desc:"توليد إعلانات وتنبؤ أدائها",url:"https://trypencil.com",img:G("trypencil.com")},
+{name:"Sprout Social AI",cat:"marketing",desc:"إدارة سوشيال ميديا ذكية",url:"https://sproutsocial.com",img:G("sproutsocial.com")},
+{name:"Postwise AI",cat:"marketing",desc:"تغريدات تويتر ذكية ومؤثرة",url:"https://postwise.ai",img:G("postwise.ai")},
+{name:"Tweethunter",cat:"marketing",desc:"تطوير حضور تويتر بالذكاء",url:"https://tweethunter.io",img:G("tweethunter.io")},
+{name:"Reply IO",cat:"marketing",desc:"أتمتة التواصل البيعي متعدد القنوات",url:"https://reply.io",img:G("reply.io")},
+{name:"Persado",cat:"marketing",desc:"كتابة نصوص تسويقية محسنة",url:"https://persado.com",img:G("persado.com")},
+{name:"Seventh Sense",cat:"marketing",desc:"تحسين توقيت إرسال الإيميلات",url:"https://theseventhsense.com",img:G("theseventhsense.com")},
+{name:"Clearbit AI",cat:"marketing",desc:"إثراء بيانات العملاء المحتملين",url:"https://clearbit.com",img:G("clearbit.com")},
+{name:"Vidyard AI",cat:"marketing",desc:"فيديوهات بيعية مخصصة بالذكاء",url:"https://vidyard.com",img:G("vidyard.com")},
+{name:"Locowise AI",cat:"marketing",desc:"تحليل أداء سوشيال ميديا",url:"https://locowise.com",img:G("locowise.com")},
+{name:"Crayon AI",cat:"marketing",desc:"تتبع المنافسين وتحليل السوق",url:"https://crayon.co",img:G("crayon.co")},
+// ══════════ 3D ══════════
+{name:"Luma AI",cat:"3d",desc:"تحويل الصور لنماذج ثلاثية الأبعاد",url:"https://lumalabs.ai",img:G("lumalabs.ai")},
+{name:"Meshy AI",cat:"3d",desc:"توليد نماذج 3D من نص أو صورة",url:"https://meshy.ai",img:G("meshy.ai")},
+{name:"Spline AI",cat:"3d",desc:"تصميم ثلاثي الأبعاد تفاعلي",url:"https://spline.design",img:G("spline.design")},
+{name:"Kaedim",cat:"3d",desc:"تحويل الصور لنماذج 3D للألعاب",url:"https://kaedim3d.com",img:G("kaedim3d.com")},
+{name:"Alpha3D",cat:"3d",desc:"نماذج ثلاثية الأبعاد من صور المنتجات",url:"https://alpha3d.io",img:G("alpha3d.io")},
+{name:"Masterpiece Studio",cat:"3d",desc:"إنشاء شخصيات ثلاثية الأبعاد",url:"https://masterpiecestudio.com",img:G("masterpiecestudio.com")},
+{name:"Scenario AI",cat:"3d",desc:"أصول فنية للألعاب بالذكاء",url:"https://scenario.com",img:G("scenario.com")},
+{name:"CSM AI",cat:"3d",desc:"تحويل الصور لنماذج قابلة للطباعة",url:"https://csm.ai",img:G("csm.ai")},
+{name:"Polycam AI",cat:"3d",desc:"مسح ثلاثي الأبعاد بالهاتف الذكي",url:"https://poly.cam",img:G("poly.cam")},
+{name:"3DFY AI",cat:"3d",desc:"توليد نماذج ثلاثية من نص فقط",url:"https://3dfy.ai",img:G("3dfy.ai")},
+{name:"Skybox AI",cat:"3d",desc:"توليد بيئات ثلاثية الأبعاد 360",url:"https://skybox.blockadelabs.com",img:G("blockadelabs.com")},
+{name:"Plask AI",cat:"3d",desc:"التقاط حركة من الفيديو تلقائياً",url:"https://plask.ai",img:G("plask.ai")},
+{name:"Rokoko AI",cat:"3d",desc:"تقنيات motion capture بالذكاء",url:"https://rokoko.com",img:G("rokoko.com")},
+{name:"Cascadeur",cat:"3d",desc:"أنيميشن ثلاثي الأبعاد بمساعدة AI",url:"https://cascadeur.com",img:G("cascadeur.com")},
+{name:"Promethean AI",cat:"3d",desc:"إنشاء بيئات ألعاب بالذكاء",url:"https://prometheanai.com",img:G("prometheanai.com")},
+{name:"Blender AI",cat:"3d",desc:"نمذجة ثلاثية الأبعاد مفتوحة المصدر",url:"https://blender.org",img:G("blender.org")},
+{name:"Genie 3D",cat:"3d",desc:"توليد نماذج 3D من وصف نصي",url:"https://lumalabs.ai/genie",img:G("lumalabs.ai")},
+{name:"Deemos AI",cat:"3d",desc:"وجوه بشرية واقعية ثلاثية الأبعاد",url:"https://deemos.com",img:G("deemos.com")},
+{name:"Kinetix AI",cat:"3d",desc:"رقصات وأنيميشن للميتافيرس",url:"https://kinetix.tech",img:G("kinetix.tech")},
+{name:"Tripo AI",cat:"3d",desc:"توليد نماذج 3D احترافي في ثوانٍ",url:"https://tripo3d.ai",img:G("tripo3d.ai")},
+{name:"Sloyd AI",cat:"3d",desc:"نماذج 3D للألعاب في الوقت الفعلي",url:"https://sloyd.ai",img:G("sloyd.ai")},
+{name:"Anything World",cat:"3d",desc:"تحريك أشياء 3D بأمر صوتي",url:"https://anything.world",img:G("anything.world")},
+// ══════════ EDUCATION ══════════
+{name:"Khan Academy AI",cat:"education",desc:"مدرس ذكي شخصي من Khan Academy",url:"https://khanacademy.org",img:G("khanacademy.org")},
+{name:"Duolingo Max",cat:"education",desc:"تعلم اللغات بمحادثة ذكاء اصطناعي",url:"https://duolingo.com",img:G("duolingo.com")},
+{name:"Wolfram Alpha",cat:"education",desc:"حل المعادلات والمسائل الرياضية",url:"https://wolframalpha.com",img:G("wolframalpha.com")},
+{name:"Socratic Google",cat:"education",desc:"مساعد الطلاب في الواجبات",url:"https://socratic.org",img:G("socratic.org")},
+{name:"Quizlet AI",cat:"education",desc:"بطاقات دراسية واختبارات ذكية",url:"https://quizlet.com",img:G("quizlet.com")},
+{name:"Photomath",cat:"education",desc:"حل المسائل الرياضية بالكاميرا",url:"https://photomath.com",img:G("photomath.com")},
+{name:"Consensus AI",cat:"education",desc:"بحث علمي موثق بالذكاء",url:"https://consensus.app",img:G("consensus.app")},
+{name:"Elicit AI",cat:"education",desc:"مساعد بحث علمي متطور",url:"https://elicit.com",img:G("elicit.com")},
+{name:"Semantic Scholar",cat:"education",desc:"بحث أكاديمي ذكي في الأوراق العلمية",url:"https://semanticscholar.org",img:G("semanticscholar.org")},
+{name:"ResearchRabbit",cat:"education",desc:"اكتشاف الأبحاث العلمية المترابطة",url:"https://researchrabbit.ai",img:G("researchrabbit.ai")},
+{name:"Scispace",cat:"education",desc:"تحليل الأبحاث العلمية وشرحها",url:"https://typeset.io",img:G("typeset.io")},
+{name:"ChatPDF",cat:"education",desc:"محادثة مع ملفات PDF وكتب",url:"https://chatpdf.com",img:G("chatpdf.com")},
+{name:"Humata AI",cat:"education",desc:"تلخيص وتحليل الملفات الضخمة",url:"https://humata.ai",img:G("humata.ai")},
+{name:"NotebookLM",cat:"education",desc:"مساعد بحثي من Google بملفاتك",url:"https://notebooklm.google.com",img:G("google.com")},
+{name:"Fireflies AI",cat:"education",desc:"تسجيل وتلخيص الاجتماعات بذكاء",url:"https://fireflies.ai",img:G("fireflies.ai")},
+{name:"MagicSchool AI",cat:"education",desc:"أدوات ذكاء اصطناعي للمعلمين",url:"https://magicschool.ai",img:G("magicschool.ai")},
+{name:"Mindsmith AI",cat:"education",desc:"وحدات تعليمية تفاعلية بالذكاء",url:"https://mindsmith.ai",img:G("mindsmith.ai")},
+{name:"Turnitin AI",cat:"education",desc:"كشف الانتحال والكتابة الذكية",url:"https://turnitin.com",img:G("turnitin.com")},
+{name:"Explain Paper",cat:"education",desc:"شرح الأوراق البحثية بلغة بسيطة",url:"https://explainpaper.com",img:G("explainpaper.com")},
+{name:"Scholarcy",cat:"education",desc:"تلخيص الأوراق الأكاديمية الطويلة",url:"https://scholarcy.com",img:G("scholarcy.com")},
+{name:"Langotalk",cat:"education",desc:"تعلم اللغات بمحادثة ذكية",url:"https://langotalk.org",img:G("langotalk.org")},
+{name:"Curipod AI",cat:"education",desc:"دروس تفاعلية ذكية للمعلمين",url:"https://curipod.com",img:G("curipod.com")},
+{name:"SchoolAI",cat:"education",desc:"أدوات ذكاء اصطناعي آمنة للمدارس",url:"https://schoolai.com",img:G("schoolai.com")},
+{name:"Gradescope",cat:"education",desc:"تصحيح الامتحانات تلقائياً بالذكاء",url:"https://gradescope.com",img:G("gradescope.com")},
+{name:"Numerade AI",cat:"education",desc:"حلول فيديو لمسائل العلوم",url:"https://numerade.com",img:G("numerade.com")},
+{name:"Synthesis AI",cat:"education",desc:"تعليم الرياضيات التفاعلي للأطفال",url:"https://synthesis.com",img:G("synthesis.com")},
+{name:"Speak AI",cat:"education",desc:"تحليل الكلام والمقابلات بالذكاء",url:"https://speakai.co",img:G("speakai.co")},
+{name:"Knowji",cat:"education",desc:"تعلم المفردات بالذكاء الاصطناعي",url:"https://knowji.com",img:G("knowji.com")},
+{name:"Khanmigo",cat:"education",desc:"مدرس AI من Khan للطلاب",url:"https://khanacademy.org/khan-labs",img:G("khanacademy.org")},
+{name:"Fetchy AI",cat:"education",desc:"أدوات AI للمعلمين والمدرسين",url:"https://fetchy.com",img:G("fetchy.com")},
+{name:"Diffit AI",cat:"education",desc:"تكييف المواد التعليمية لكل طالب",url:"https://diffit.me",img:G("diffit.me")},
+{name:"Magic Student",cat:"education",desc:"مساعد دراسي ذكي للطلاب",url:"https://magicschool.ai/students",img:G("magicschool.ai")},
+{name:"Quillionz",cat:"education",desc:"توليد أسئلة من محتوى تعليمي",url:"https://quillionz.com",img:G("quillionz.com")},
+{name:"Formative AI",cat:"education",desc:"تقييم الطلاب في الوقت الفعلي",url:"https://formative.com",img:G("formative.com")},
+{name:"Brainly AI",cat:"education",desc:"إجابات ذكية لأسئلة الدراسة",url:"https://brainly.com",img:G("brainly.com")},
+// ══ EXTRA TEXT ══
+{name:"Chatsonic",cat:"text",desc:"كتابة بالذكاء مع البحث الفوري",url:"https://writesonic.com/chat",img:G("writesonic.com")},
+{name:"Forefront AI",cat:"text",desc:"دردشة مع نماذج متعددة مجاناً",url:"https://forefront.ai",img:G("forefront.ai")},
+{name:"Venice AI",cat:"text",desc:"محادثة خاصة بدون تسجيل بيانات",url:"https://venice.ai",img:G("venice.ai")},
+{name:"Groq AI",cat:"text",desc:"أسرع نماذج LLM في العالم",url:"https://groq.com",img:G("groq.com")},
+{name:"Aria AI",cat:"text",desc:"مساعد ذكي مدمج من Opera",url:"https://opera.com/features/aria",img:G("opera.com")},
+{name:"Phind Assistant",cat:"text",desc:"بحث وإجابات للمطورين والباحثين",url:"https://phind.com",img:G("phind.com")},
+{name:"Brave Leo",cat:"text",desc:"مساعد AI خاص مدمج في Brave",url:"https://brave.com/leo",img:G("brave.com")},
+{name:"Elsa Speak",cat:"text",desc:"تحسين النطق بالإنجليزية بالذكاء",url:"https://elsaspeak.com",img:G("elsaspeak.com")},
+{name:"Wordvice AI",cat:"text",desc:"تحرير وتصحيح الكتابة الأكاديمية",url:"https://wordvice.ai",img:G("wordvice.ai")},
+{name:"Editpad AI",cat:"text",desc:"إعادة الصياغة وتحسين النصوص",url:"https://editpad.org",img:G("editpad.org")},
+{name:"Smodin AI",cat:"text",desc:"كتابة وتلخيص وترجمة بالذكاء",url:"https://smodin.io",img:G("smodin.io")},
+{name:"Jenni AI",cat:"text",desc:"مساعد كتابة الأوراق الأكاديمية",url:"https://jenni.ai",img:G("jenni.ai")},
+{name:"Essaybot",cat:"text",desc:"مساعد كتابة المقالات للطلاب",url:"https://essaybot.com",img:G("essaybot.com")},
+{name:"Compose AI",cat:"text",desc:"إكمال الجمل بالذكاء في المتصفح",url:"https://compose.ai",img:G("compose.ai")},
+{name:"Sudowrite Fiction",cat:"text",desc:"كتابة روايات وقصص قصيرة",url:"https://sudowrite.com",img:G("sudowrite.com")},
+{name:"Fibery AI",cat:"text",desc:"مساعد إنتاجية للفرق التقنية",url:"https://fibery.io",img:G("fibery.io")},
+{name:"Draftback",cat:"text",desc:"تحليل وتحسين مسودات الكتابة",url:"https://draftback.com",img:G("draftback.com")},
+{name:"Writecream",cat:"text",desc:"توليد محتوى بالبريد والسوشيال",url:"https://writecream.com",img:G("writecream.com")},
+{name:"Paragraph AI",cat:"text",desc:"كتابة فقرات احترافية بلمسة",url:"https://paragraphai.com",img:G("paragraphai.com")},
+// ══ EXTRA IMAGE ══
+{name:"NightCafe Creator",cat:"image",desc:"إنشاء أعمال فنية بنماذج متعددة",url:"https://creator.nightcafe.studio",img:G("nightcafe.studio")},
+{name:"Stockimg AI",cat:"image",desc:"صور stock مولدة بالذكاء",url:"https://stockimg.ai",img:G("stockimg.ai")},
+{name:"Picfinder AI",cat:"image",desc:"بحث وتوليد صور بالوصف النصي",url:"https://picfinder.ai",img:G("picfinder.ai")},
+{name:"Imagen 3",cat:"image",desc:"نموذج Google لتوليد الصور المحسن",url:"https://deepmind.google/technologies/imagen-3",img:G("google.com")},
+{name:"Luminar AI",cat:"image",desc:"تحرير صور احترافي بالذكاء",url:"https://skylum.com/luminar-ai",img:G("skylum.com")},
+{name:"Remini AI",cat:"image",desc:"تحسين الصور القديمة وتوضيحها",url:"https://remini.ai",img:G("remini.ai")},
+{name:"Photoroom Pro",cat:"image",desc:"تصميم صور تجارية احترافية",url:"https://photoroom.com",img:G("photoroom.com")},
+{name:"Flair AI",cat:"image",desc:"تصميم صور للمنتجات والإعلانات",url:"https://flair.ai",img:G("flair.ai")},
+{name:"Booth AI",cat:"image",desc:"صور احترافية للمنتجات بالذكاء",url:"https://booth.ai",img:G("booth.ai")},
+{name:"Erase.bg",cat:"image",desc:"حذف الخلفية بدقة عالية",url:"https://erase.bg",img:G("erase.bg")},
+{name:"Bg.Removal",cat:"image",desc:"إزالة الخلفية مجاناً وبسرعة",url:"https://bg.removal.ai",img:G("removal.ai")},
+{name:"AI Gahaku",cat:"image",desc:"تحويل صورتك لرسم كلاسيكي",url:"https://ai-art.tokyo/en",img:G("ai-art.tokyo")},
+{name:"Wombo Dream",cat:"image",desc:"فن رقمي من الكلمات بدقيقة",url:"https://dream.ai",img:G("dream.ai")},
+{name:"Image Creator",cat:"image",desc:"إنشاء صور بالوصف النصي",url:"https://imagecreator.alcove.io",img:G("alcove.io")},
+{name:"Stable Artisan",cat:"image",desc:"نماذج Stability AI للمحترفين",url:"https://stability.ai/stable-artisan",img:G("stability.ai")},
+// ══ EXTRA VIDEO ══
+{name:"Morph Studio",cat:"video",desc:"توليد فيديو سينمائي احترافي",url:"https://www.morphstudio.com",img:G("morphstudio.com")},
+{name:"Kaiber Video",cat:"video",desc:"تحويل الموسيقى والصور لفيديو",url:"https://kaiber.ai",img:G("kaiber.ai")},
+{name:"Genmo AI",cat:"video",desc:"توليد فيديوهات إبداعية بالنص",url:"https://genmo.ai",img:G("genmo.ai")},
+{name:"Irreversible AI",cat:"video",desc:"تحويل النص لفيديو قصير",url:"https://irreversible.ai",img:G("irreversible.ai")},
+{name:"Invideo Studio",cat:"video",desc:"استوديو فيديو ذكي متكامل",url:"https://invideo.io/studio",img:G("invideo.io")},
+{name:"Dumme AI",cat:"video",desc:"تحويل بودكاست لفيديو تلقائياً",url:"https://dumme.com",img:G("dumme.com")},
+{name:"Vizard AI",cat:"video",desc:"تقطيع الفيديو لكليبات قصيرة",url:"https://vizard.ai",img:G("vizard.ai")},
+{name:"Submagic",cat:"video",desc:"ترجمة وتعليق الفيديو تلقائياً",url:"https://submagic.co",img:G("submagic.co")},
+{name:"Filmora AI Copilot",cat:"video",desc:"مونتاج ذكي داخل Filmora",url:"https://filmora.wondershare.com",img:G("wondershare.com")},
+{name:"Decohere AI",cat:"video",desc:"تحريك الصور بشكل فني",url:"https://decohere.ai",img:G("decohere.ai")},
+// ══ EXTRA AUDIO ══
+{name:"Voicify AI",cat:"audio",desc:"غناء بصوت الفنانين المشهورين",url:"https://voicify.ai",img:G("voicify.ai")},
+{name:"Musicfy AI",cat:"audio",desc:"تغطية أغاني بصوتك المستنسخ",url:"https://musicfy.lol",img:G("musicfy.lol")},
+{name:"Suno Chirp",cat:"audio",desc:"توليد موسيقى قصيرة في ثوانٍ",url:"https://suno.com",img:G("suno.com")},
+{name:"Fadr AI",cat:"audio",desc:"عزل الأصوات وإنشاء ريمكس",url:"https://fadr.com",img:G("fadr.com")},
+{name:"Soundful Beats",cat:"audio",desc:"موسيقى beats مخصصة بالذكاء",url:"https://soundful.com",img:G("soundful.com")},
+{name:"Audiostrip",cat:"audio",desc:"إزالة المصاحبة الموسيقية",url:"https://audiostrip.co.uk",img:G("audiostrip.co.uk")},
+{name:"Adobe Enhance",cat:"audio",desc:"تحسين جودة الصوت بشكل سحري",url:"https://podcast.adobe.com/enhance",img:"https://www.adobe.com/favicon.ico"},
+{name:"Endel AI",cat:"audio",desc:"موسيقى علاجية تتكيف مع حالتك",url:"https://endel.io",img:G("endel.io")},
+{name:"Brain.fm",cat:"audio",desc:"موسيقى تعزز التركيز بالعلم",url:"https://brain.fm",img:G("brain.fm")},
+// ══ EXTRA CODING ══
+{name:"Tabnine Chat",cat:"coding",desc:"محادثة ذكية متخصصة في الكود",url:"https://tabnine.com",img:G("tabnine.com")},
+{name:"Cody AI",cat:"coding",desc:"مساعد كود لـ VS Code من Sourcegraph",url:"https://sourcegraph.com/cody",img:G("sourcegraph.com")},
+{name:"Blackbox AI",cat:"coding",desc:"بحث وإكمال كود بالذكاء",url:"https://blackbox.ai",img:G("blackbox.ai")},
+{name:"CodeGeeX",cat:"coding",desc:"إكمال كود متعدد اللغات من Tsinghua",url:"https://codegeex.cn",img:G("codegeex.cn")},
+{name:"Duet AI Google",cat:"coding",desc:"مساعد Google Cloud للمطورين",url:"https://cloud.google.com/duet-ai",img:G("cloud.google.com")},
+{name:"JetBrains AI",cat:"coding",desc:"ذكاء اصطناعي مدمج في IDEs",url:"https://jetbrains.com/ai",img:G("jetbrains.com")},
+{name:"Sourcery AI",cat:"coding",desc:"مراجعة وتحسين كود Python",url:"https://sourcery.ai",img:G("sourcery.ai")},
+{name:"Codiga AI",cat:"coding",desc:"تحليل الكود وقواعد الجودة",url:"https://codiga.io",img:G("codiga.io")},
+{name:"Stenography AI",cat:"coding",desc:"توثيق الكود تلقائياً بالذكاء",url:"https://stenography.dev",img:G("stenography.dev")},
+{name:"UseVerbose",cat:"coding",desc:"إنشاء README بالذكاء الاصطناعي",url:"https://useverbose.com",img:G("useverbose.com")},
+{name:"Dify AI",cat:"coding",desc:"منصة بناء تطبيقات LLM",url:"https://dify.ai",img:G("dify.ai")},
+{name:"Superagent AI",cat:"coding",desc:"بناء وكلاء AI بدون كود",url:"https://superagent.sh",img:G("superagent.sh")},
+{name:"E2B Dev",cat:"coding",desc:"بيئة تنفيذ كود لتطبيقات AI",url:"https://e2b.dev",img:G("e2b.dev")},
+{name:"Fixie AI",cat:"coding",desc:"بناء وكلاء AI تفاعلية",url:"https://fixie.ai",img:G("fixie.ai")},
+{name:"Mutable AI",cat:"coding",desc:"تسريع تطوير الكود بالذكاء",url:"https://mutable.ai",img:G("mutable.ai")},
+{name:"CodiumAI",cat:"coding",desc:"اختبارات الكود تلقائياً بالذكاء",url:"https://codium.ai",img:G("codium.ai")},
+{name:"Pieces AI",cat:"coding",desc:"حفظ وإدارة مقاطع الكود",url:"https://pieces.app",img:G("pieces.app")},
+{name:"AskCodi",cat:"coding",desc:"مساعد كود يجيب على أسئلة",url:"https://askcodi.com",img:G("askcodi.com")},
+{name:"Safurai AI",cat:"coding",desc:"مساعد برمجي للفرق المطورة",url:"https://safurai.com",img:G("safurai.com")},
+{name:"Codepal AI",cat:"coding",desc:"توليد كود وحل مشكلات البرمجة",url:"https://codepal.ai",img:G("codepal.ai")},
+// ══ EXTRA MARKETING ══
+{name:"Jasper Brand Voice",cat:"marketing",desc:"تسويق بصوت علامتك التجارية",url:"https://jasper.ai",img:G("jasper.ai")},
+{name:"Writer AI",cat:"marketing",desc:"محتوى تسويقي متسق للشركات",url:"https://writer.com",img:G("writer.com")},
+{name:"Phrasee AI",cat:"marketing",desc:"توليد عناوين إيميل محسنة",url:"https://phrasee.co",img:G("phrasee.co")},
+{name:"Smartwriter AI",cat:"marketing",desc:"بريد بارد مخصص بالذكاء",url:"https://smartwriter.ai",img:G("smartwriter.ai")},
+{name:"Copysmith AI",cat:"marketing",desc:"محتوى تجاري بالجملة بالذكاء",url:"https://copysmith.ai",img:G("copysmith.ai")},
+{name:"Personyze",cat:"marketing",desc:"تخصيص تجربة الويب بالذكاء",url:"https://personyze.com",img:G("personyze.com")},
+{name:"Optimove AI",cat:"marketing",desc:"تسويق موجه بالبيانات والذكاء",url:"https://optimove.com",img:G("optimove.com")},
+{name:"Exceed AI",cat:"marketing",desc:"أتمتة مبيعات بمحادثات ذكية",url:"https://exceed.ai",img:G("exceed.ai")},
+{name:"Regie AI",cat:"marketing",desc:"توليد محتوى مبيعات بالذكاء",url:"https://regie.ai",img:G("regie.ai")},
+{name:"Amplemarket AI",cat:"marketing",desc:"منصة مبيعات ذكية متكاملة",url:"https://amplemarket.com",img:G("amplemarket.com")},
+// ══ EXTRA 3D ══
+{name:"Shap-E",cat:"3d",desc:"نموذج OpenAI لتوليد نماذج 3D",url:"https://github.com/openai/shap-e",img:G("github.com")},
+{name:"GET3D",cat:"3d",desc:"توليد نماذج 3D من صور 2D",url:"https://nv-tlabs.github.io/GET3D",img:G("nvidia.com")},
+{name:"DreamFusion",cat:"3d",desc:"نماذج 3D من وصف نصي بالذكاء",url:"https://dreamfusion3d.github.io",img:G("github.com")},
+{name:"Magic3D",cat:"3d",desc:"تحويل النص لنماذج 3D عالية الدقة",url:"https://research.nvidia.com/labs/dir/magic3d",img:G("nvidia.com")},
+{name:"Blockade Labs",cat:"3d",desc:"عوالم 360 سريعة بالذكاء",url:"https://blockadelabs.com",img:G("blockadelabs.com")},
+// ══ EXTRA EDUCATION ══
+{name:"Khanmigo Tutor",cat:"education",desc:"مدرس ذكي متخصص من Khan",url:"https://khanacademy.org/khan-labs",img:G("khanacademy.org")},
+{name:"Perplexity Study",cat:"education",desc:"أداة بحث للطلاب والباحثين",url:"https://perplexity.ai",img:G("perplexity.ai")},
+{name:"Quizgecko",cat:"education",desc:"توليد اختبارات ذكية من محتواك",url:"https://quizgecko.com",img:G("quizgecko.com")},
+{name:"StudyFetch AI",cat:"education",desc:"تحويل الملاحظات لمواد دراسية",url:"https://studyfetch.com",img:G("studyfetch.com")},
+{name:"Edly AI",cat:"education",desc:"تعلم إلكتروني مخصص بالذكاء",url:"https://edly.io",img:G("edly.io")},
+{name:"Knowt AI",cat:"education",desc:"بطاقات دراسية وملخصات ذكية",url:"https://knowt.com",img:G("knowt.com")},
+{name:"Revision AI",cat:"education",desc:"مراجعة ذكية للامتحانات",url:"https://revision.ai",img:G("revision.ai")},
+{name:"Socrates AI",cat:"education",desc:"تعلم فلسفي تفاعلي بالمحادثة",url:"https://socrates.ai",img:G("socrates.ai")},
+{name:"Perplexity Labs",cat:"text",desc:"تجربة نماذج AI تجريبية جديدة",url:"https://labs.perplexity.ai",img:G("perplexity.ai")},
+{name:"Amazon Q",cat:"coding",desc:"مساعد ذكاء اصطناعي من AWS للمطورين",url:"https://aws.amazon.com/q",img:G("aws.amazon.com")},
+{name:"Google Gemma",cat:"coding",desc:"نموذج Google مفتوح المصدر الخفيف",url:"https://ai.google.dev/gemma",img:G("google.com")},
+{name:"CommandR Cohere",cat:"text",desc:"نموذج Cohere للبحث والاسترداد",url:"https://cohere.com/command",img:G("cohere.com")},
+{name:"Hume AI",cat:"audio",desc:"ذكاء عاطفي صوتي تفاعلي",url:"https://hume.ai",img:G("hume.ai")},
+{name:"Magnific AI",cat:"image",desc:"تكبير الصور بتفاصيل خارقة",url:"https://magnific.ai",img:G("magnific.ai")},
+{name:"Topaz AI",cat:"image",desc:"تحسين جودة الصور والفيديو بالذكاء",url:"https://topazlabs.com",img:G("topazlabs.com")}
 ];
 
-// أضف هنا باقي الـ 450 أداة التي وفرها لك كلود سابقاً بنفس الصيغة أعلاه لضمان عمل الصور
+// ─────────────────────────────────────────────────────────────
+// PROMPTS
+// ─────────────────────────────────────────────────────────────
+const PROMPTS = [
+{tool:"ChatGPT",cat:"سيرة ذاتية",title:"كتابة سيرة ذاتية احترافية",text:`اكتب لي سيرة ذاتية احترافية للوظيفة التالية: [اسم الوظيفة]. لديّ خبرة في [المجال] لمدة [عدد السنوات] سنوات. مهاراتي الرئيسية: [قائمة المهارات]. اجعل الأسلوب رسمياً ومختصراً في صفحة واحدة، مع تضمين ملخص مهني قوي في البداية.`},
+{tool:"ChatGPT",cat:"تسويق",title:"خطة تسويق رقمي 30 يوماً",text:`ضع لي خطة تسويق رقمي لمدة 30 يوماً لـ [اسم المنتج] الموجه لـ [الجمهور المستهدف]. الميزانية: [المبلغ]. القنوات: إنستجرام / يوتيوب / إيميل. اقسم الخطة أسبوعياً مع الأهداف والـ KPIs لكل أسبوع.`},
+{tool:"Midjourney",cat:"تصميم",title:"بورتريه فني خيالي",text:`/imagine a majestic fantasy portrait of [describe character], ethereal glowing light, intricate armor details, dramatic cinematic lighting, 8K resolution, hyper-realistic, painted by Greg Rutkowski and Artgerm --ar 2:3 --v 6 --style raw --q 2`},
+{tool:"Midjourney",cat:"معمار",title:"تصميم مبنى عصري",text:`/imagine stunning futuristic architecture building, [style: biophilic/minimalist/brutalist], glass and steel structure, surrounded by lush greenery, golden hour lighting, ultra-detailed, architectural visualization, photorealistic render --ar 16:9 --v 6 --q 2`},
+{tool:"Claude AI",cat:"برمجة",title:"مراجعة وتحسين الكود",text:`راجع الكود التالي وحسّنه من حيث: 1) الأداء والسرعة 2) الأمان 3) قابلية القراءة 4) أفضل الممارسات في [اللغة البرمجية]. أضف تعليقات توضيحية واقترح تحسينات مع شرح كل تغيير:\n\n[الصق الكود هنا]`},
+{tool:"ChatGPT",cat:"محتوى",title:"خطة محتوى يوتيوب شهرية",text:`ضع لي خطة محتوى شهرية لقناة يوتيوب في مجال [اسم المجال]. الجمهور: [وصف الجمهور]. اقترح 12 فيديو مع: عنوان جذاب، ملخص المحتوى في 3 نقاط، عنوان SEO، الـ thumbnail المقترح، وأفضل وقت للنشر.`},
+{tool:"DALL-E 3",cat:"منتجات",title:"صورة منتج احترافية",text:`A professional product photography of [product name], placed on a [white/marble/wood] surface, soft studio lighting from the left side, ultra clean background, commercial advertising style, high-end luxury feel, 4K quality, 85mm lens, f/2.8 aperture`},
+{tool:"ChatGPT",cat:"دراسة",title:"ملخص دراسي شامل",text:`لخّص الموضوع التالي تلخيصاً شاملاً لطالب [المرحلة الدراسية] في مادة [اسم المادة]:\n[الموضوع]\n\nاستخدم: خريطة ذهنية نصية، تعريفات مبسطة، أمثلة عملية، أسئلة مراجعة مع إجاباتها، وأبرز 5 نقاط يجب حفظها.`},
+{tool:"ChatGPT",cat:"استراتيجية",title:"تحليل SWOT كامل",text:`أجرِ تحليل SWOT شاملاً لـ [اسم الشركة/المشروع] في مجال [المجال] في السوق [البلد]. لكل محور (نقاط القوة، الضعف، الفرص، التهديدات) أعطِ 5 نقاط مفصلة مع توصيات استراتيجية للمرحلة القادمة.`},
+{tool:"ChatGPT",cat:"بريد إلكتروني",title:"بريد عمل احترافي",text:`اكتب بريداً إلكترونياً احترافياً إلى [المسمى الوظيفي] في شركة [الشركة] بخصوص [الموضوع]. المرسل: [اسمك ومنصبك]. النبرة: ودية ورسمية. الطول: لا يتجاوز 150 كلمة. أضف CTA واضح في النهاية.`},
+{tool:"Suno AI",cat:"موسيقى",title:"أمر توليد أغنية",text:`Style: [pop/arabic/hip-hop/cinematic]. Mood: [happy/sad/energetic/calm]. Tempo: [slow/medium/fast]. Instruments: [piano/guitar/oud/strings]. Lyrics theme: [write your theme here]. Duration: 3 minutes. Voice type: [male/female/instrumental]. Language: [Arabic/English].`},
+{tool:"ElevenLabs",cat:"صوت",title:"إعداد صوت بشري طبيعي",text:`Voice type: [male/female]. Age: [young/adult/elderly]. Accent: [neutral/Arabic/British/American]. Speaking pace: [slow/normal/fast]. Tone: [professional/friendly/dramatic/calm]. Emotion: [neutral/happy/serious/excited]. Use case: [podcast/advertisement/e-learning/audiobook]. Text:\n\n[أدخل النص هنا]`}
+];
 
+// ─────────────────────────────────────────────────────────────
+// COURSES
+// ─────────────────────────────────────────────────────────────
+const COURSES = [
+{provider:"Google",providerImg:WP("commons/thumb/2/2f/Google_2015_logo.svg/250px-Google_2015_logo.svg.png"),title:"Google AI Essentials",desc:"تعلم أساسيات الذكاء الاصطناعي وكيفية استخدامه في العمل اليومي من مهندسي Google.",level:"مبتدئ",duration:"5 ساعات",url:"https://grow.google/ai-essentials"},
+{provider:"IBM",providerImg:WP("commons/5/51/IBM_logo.svg"),title:"Introduction to Artificial Intelligence",desc:"مقدمة شاملة في الذكاء الاصطناعي من IBM تغطي المفاهيم والتطبيقات العملية.",level:"مبتدئ",duration:"3 ساعات",url:"https://www.coursera.org/learn/introduction-to-ai"},
+{provider:"Harvard",providerImg:WP("en/2/29/Harvard_shield_wreath.PNG"),title:"CS50's Introduction to AI with Python",desc:"دورة هارفارد الشهيرة لبناء نماذج ذكاء اصطناعي بلغة Python.",level:"متوسط",duration:"7 أسابيع",url:"https://pll.harvard.edu/course/cs50s-introduction-artificial-intelligence-python"},
+{provider:"Microsoft",providerImg:WP("commons/4/44/Microsoft_logo.svg"),title:"AI for Beginners — Microsoft",desc:"منهج مايكروسوفت الكامل للمبتدئين في الذكاء الاصطناعي مفتوح المصدر على GitHub.",level:"مبتدئ",duration:"24 درساً",url:"https://microsoft.github.io/AI-For-Beginners"},
+{provider:"DeepLearning.AI",providerImg:"https://www.deeplearning.ai/static/favicon/favicon.ico",title:"ChatGPT Prompt Engineering for Developers",desc:"تعلم هندسة البرومبتات من Andrew Ng وOpenAI لبناء تطبيقات LLM احترافية.",level:"متوسط",duration:"9 دروس",url:"https://www.deeplearning.ai/short-courses/chatgpt-prompt-engineering-for-developers"},
+{provider:"Meta AI",providerImg:WP("commons/7/7b/Meta_Platforms_Inc._logo.svg"),title:"Introduction to Generative AI — Meta",desc:"فهم الذكاء الاصطناعي التوليدي وأدوات Meta وكيفية تطبيقها في مشاريعك.",level:"مبتدئ",duration:"4 ساعات",url:"https://ai.meta.com/learn"},
+{provider:"Stanford",providerImg:"https://identity.stanford.edu/wp-content/uploads/sites/3/2020/07/stanford-university-stacked.png",title:"Machine Learning Specialization",desc:"المنهج الأصلي لـ Andrew Ng من ستانفورد في تعلم الآلة — الأشهر في العالم.",level:"متوسط",duration:"3 أشهر",url:"https://www.coursera.org/specializations/machine-learning-introduction"},
+{provider:"Anthropic",providerImg:"https://www.anthropic.com/favicon.ico",title:"Prompt Engineering Interactive Tutorial",desc:"الدليل الرسمي من Anthropic لإتقان كتابة البرومبتات لنموذج Claude.",level:"متوسط",duration:"تفاعلي",url:"https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/overview"},
+{provider:"OpenAI",providerImg:WP("commons/0/04/ChatGPT_logo.svg"),title:"OpenAI API Tutorials",desc:"تعلم استخدام OpenAI API لبناء تطبيقات GPT-4 وDALL-E احترافية.",level:"متقدم",duration:"ذاتي",url:"https://platform.openai.com/docs/tutorials"},
+{provider:"Fast.AI",providerImg:"https://www.fast.ai/favicon.ico",title:"Practical Deep Learning for Coders",desc:"أفضل دورة عملية في Deep Learning للمبرمجين بدون خلفية رياضية معقدة.",level:"متوسط",duration:"18 ساعة",url:"https://course.fast.ai"},
+{provider:"Hugging Face",providerImg:"https://huggingface.co/favicon.ico",title:"Hugging Face NLP Course",desc:"دورة شاملة في معالجة اللغة الطبيعية باستخدام مكتبة Transformers الشهيرة.",level:"متقدم",duration:"8 وحدات",url:"https://huggingface.co/learn/nlp-course"},
+{provider:"Google Cloud",providerImg:"https://www.gstatic.com/devrel-devsite/prod/v84e6f6a61298bbae5bb110c196e4acf8f13908f975b48e9a27d55a4467022fe/cloud/images/cloud-logo.svg",title:"Generative AI Learning Path",desc:"مسار تعلم متكامل من Google Cloud يغطي Generative AI وLLMs وResponsible AI.",level:"مبتدئ",duration:"مسار كامل",url:"https://cloud.google.com/learn/training/machinelearning-ai"}
+];
+
+// ─────────────────────────────────────────────────────────────
+// NEWS
+// ─────────────────────────────────────────────────────────────
+const NEWS = [
+{tag:"إطلاق جديد",tagType:"new",date:"يناير 2025",title:"OpenAI تطلق Sora رسمياً — توليد فيديو بجودة سينمائية مذهلة",body:"أصبح نموذج Sora متاحاً لمستخدمي ChatGPT Plus وPro، مع قدرة على توليد مقاطع فيديو تصل إلى 20 ثانية بجودة سينمائية من وصف نصي فقط. يُعدّ هذا أبرز إطلاق في صناعة الذكاء الاصطناعي التوليدي خلال 2025."},
+{tag:"نموذج ثوري",tagType:"hot",date:"فبراير 2025",title:"DeepSeek R1 يُحدث زلزالاً عالمياً ويضاهي GPT-4 بتكلفة أقل بـ 95%",body:"أطلقت الشركة الصينية DeepSeek نموذجها R1 المفتوح المصدر الذي يضاهي أداء GPT-4o. هبطت أسهم شركات التكنولوجيا الكبرى بعد هذا الإطلاق، مما يشير إلى تحول جذري في ديناميكيات سوق الذكاء الاصطناعي العالمي."},
+{tag:"تصميم",tagType:"",date:"يناير 2025",title:"Flux 1.1 Pro يتجاوز Midjourney في جودة الصور الواقعية",body:"أصدرت Black Forest Labs تحديثاً ضخماً لنموذج Flux مع دعم كامل للنصوص داخل الصور وجودة فوتوغرافية استثنائية. يرى كثير من المصممين أن Flux بات الخيار الأول للأعمال الإعلانية والتسويقية."},
+{tag:"موسيقى AI",tagType:"new",date:"ديسمبر 2024",title:"Suno v4 يُطلق أغاني بجودة استوديو مهنية في ثوانٍ معدودة",body:"وصل نموذج Suno للإصدار الرابع الذي يُنتج موسيقى بجودة استوديو احترافية مع صوت بشري طبيعي تماماً. النموذج يدعع أنماطاً موسيقية متعددة مع تحكم دقيق في المزاج والأسلوب."},
+{tag:"برمجة",tagType:"hot",date:"نوفمبر 2024",title:"Claude 3.5 Sonnet المحدث — الأقوى في البرمجة وتحليل الكود",body:"أصدرت Anthropic تحديثاً جوهرياً لـ Claude 3.5 Sonnet مع تحسينات ضخمة في البرمجة وتحليل الكود. النموذج يتفوق على GPT-4o في معظم المعايير البرمجية، ويدعم Computer Use للتفاعل مع سطح المكتب."},
+{tag:"نماذج اللغة",tagType:"",date:"أكتوبر 2024",title:"Gemini 2.0 من Google بنافذة سياق مليون رمز تاريخية",body:"كشفت Google عن Gemini 2.0 بنافذة سياق تبلغ مليون رمز، مما يسمح بتحليل ملفات PDF ضخمة وساعات من الفيديو دفعةً واحدة. قفزة نوعية في قدرات الذاكرة طويلة المدى."},
+{tag:"استثمار",tagType:"",date:"سبتمبر 2024",title:"OpenAI تجمع 6.6 مليار دولار في أكبر جولة تمويل في التاريخ",body:"أتمّت OpenAI أكبر جولة تمويل في تاريخ صناعة التكنولوجيا بقيمة 6.6 مليار دولار، رافعةً تقييمها إلى 157 مليار دولار. التمويل يموّل تطوير GPT-5 وبنية تحتية حوسبية ضخمة."}
+];
+
+// ─────────────────────────────────────────────────────────────
+// STATE
+// ─────────────────────────────────────────────────────────────
 let favs = JSON.parse(localStorage.getItem('aiu_favs')||'[]');
+let suggs = JSON.parse(localStorage.getItem('aiu_suggs')||'[]');
 
-function renderTools(data, targetId='toolsGrid') {
-  const container = document.getElementById(targetId);
-  container.innerHTML = data.map(t => {
-    const isFav = favs.includes(t.name);
-    return `
-      <div class="tool-card">
-        <button class="fav-btn ${isFav?'on':''}" onclick="toggleFav(event,'${t.name}')">★</button>
-        <a href="${t.url}" target="_blank" style="text-decoration:none">
-          <img src="${t.img}" alt="${t.name}">
-          <h3>${t.name}</h3>
-          <p>${t.desc}</p>
-        </a>
-      </div>
-    `;
+// ─────────────────────────────────────────────────────────────
+// RENDER TOOLS
+// ─────────────────────────────────────────────────────────────
+function renderTools(data){
+  const g=document.getElementById('toolsGrid');
+  if(!data.length){g.innerHTML='<div class="no-results">😕 لا توجد نتائج</div>';return;}
+  g.innerHTML=data.map(t=>{
+    const f=favs.includes(t.name);
+    const safe=t.name.replace(/'/g,"\\'");
+    // Use Google favicon service as reliable fallback
+    const fallback=`https://www.google.com/s2/favicons?domain=${encodeURIComponent(t.url)}&sz=64`;
+    return `<a href="${t.url}" target="_blank" class="tool-card">
+      <button class="fav-btn ${f?'on':''}" onclick="toggleFav(event,'${safe}')">★</button>
+      <img src="${t.img}" onerror="this.onerror=null;this.src='${fallback}'" loading="lazy" alt="${t.name}">
+      <h3>${t.name}</h3>
+      <p>${t.desc}</p>
+    </a>`;
   }).join('');
 }
 
-function toggleFav(e, name) {
-  e.preventDefault();
-  const idx = favs.indexOf(name);
-  if(idx === -1) favs.push(name); else favs.splice(idx,1);
-  localStorage.setItem('aiu_favs', JSON.stringify(favs));
-  e.target.classList.toggle('on');
-  document.getElementById('statFavs').textContent = favs.length;
+function toggleFav(e,name){
+  e.preventDefault();e.stopPropagation();
+  const i=favs.indexOf(name);
+  if(i===-1)favs.push(name);else favs.splice(i,1);
+  localStorage.setItem('aiu_favs',JSON.stringify(favs));
+  e.currentTarget.classList.toggle('on');
 }
 
-function showPage(page) {
-  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-  document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
-  document.getElementById('page-'+page).classList.add('active');
-  document.getElementById('nb-'+page).classList.add('active');
-  
-  if(page === 'tools') {
-    renderTools(DB); // Reset to ALL category
-    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+function filterCat(c,el){
+  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+  if(el)el.classList.add('active');
+  document.getElementById('mainSearch').value='';
+  renderTools(c==='all'?DB:DB.filter(t=>t.cat===c));
+}
+
+function doSearch(){
+  const q=document.getElementById('mainSearch').value.toLowerCase();
+  renderTools(DB.filter(t=>t.name.toLowerCase().includes(q)||t.desc.toLowerCase().includes(q)));
+  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+  document.querySelector('.tab').classList.add('active');
+}
+
+// ─────────────────────────────────────────────────────────────
+// RENDER SECTIONS
+// ─────────────────────────────────────────────────────────────
+function renderPrompts(){
+  document.getElementById('promptsList').innerHTML=PROMPTS.map((p,i)=>`
+    <div class="prompt-card">
+      <div class="prompt-top">
+        <span class="p-badge p-badge-tool">🤖 ${p.tool}</span>
+        <span class="p-badge p-badge-cat">🏷 ${p.cat}</span>
+      </div>
+      <div class="prompt-title">📝 ${p.title}</div>
+      <div class="prompt-body">${p.text.replace(/\n/g,'<br>')}</div>
+      <button class="copy-btn" onclick="copyP(${i},this)">📋 نسخ الأمر</button>
+    </div>`).join('');
+}
+
+function copyP(i,btn){
+  navigator.clipboard.writeText(PROMPTS[i].text).then(()=>{
+    btn.textContent='✅ تم النسخ!';btn.classList.add('done');
+    setTimeout(()=>{btn.textContent='📋 نسخ الأمر';btn.classList.remove('done');},2200);
+  });
+}
+
+function renderCourses(){
+  document.getElementById('coursesList').innerHTML=COURSES.map(c=>`
+    <a href="${c.url}" target="_blank" class="course-card">
+      <div class="course-provider">
+        <img src="${c.providerImg}" onerror="this.style.display='none'" alt="${c.provider}">
+        <span>${c.provider}</span>
+      </div>
+      <div class="course-title">${c.title}</div>
+      <div class="course-meta">
+        <span class="badge b-free">✅ مجاني</span>
+        <span class="badge b-level">📊 ${c.level}</span>
+        <span class="badge b-dur">⏱ ${c.duration}</span>
+      </div>
+      <div class="course-desc">${c.desc}</div>
+      <div class="course-btn">🚀 ابدأ مجاناً</div>
+    </a>`).join('');
+}
+
+function renderNews(){
+  document.getElementById('newsList').innerHTML=NEWS.map(n=>`
+    <div class="news-card">
+      <div class="news-top">
+        <span class="news-tag nt-${n.tagType||'default'}">${n.tag}</span>
+        <span class="news-date">${n.date}</span>
+      </div>
+      <div class="news-title">${n.title}</div>
+      <div class="news-body">${n.body}</div>
+    </div>`).join('');
+}
+
+// ─────────────────────────────────────────────────────────────
+// SUGGESTIONS
+// ─────────────────────────────────────────────────────────────
+function sendSuggestion(){
+  const txt=document.getElementById('suggestInput').value.trim();
+  if(!txt)return;
+  const now=new Date();
+  const ts=now.toLocaleDateString('ar-MA')+' — '+now.toLocaleTimeString('ar-MA',{hour:'2-digit',minute:'2-digit'});
+  suggs.unshift({text:txt,time:ts});
+  localStorage.setItem('aiu_suggs',JSON.stringify(suggs));
+  const btn=document.getElementById('sendBtn');
+  btn.textContent='✅ تم الإرسال — شكراً!';btn.classList.add('sent');
+  document.getElementById('suggestInput').value='';
+  setTimeout(()=>{btn.textContent='📤 إرسال الاقتراح';btn.classList.remove('sent');},3000);
+}
+
+function clearSugg(){
+  if(confirm('هل أنت متأكد من حذف جميع الاقتراحات؟')){
+    suggs=[];localStorage.removeItem('aiu_suggs');
+    renderAdmin();
+  }
+}
+
+// ─────────────────────────────────────────────────────────────
+// ADMIN
+// ─────────────────────────────────────────────────────────────
+function checkAdmin(val){
+  if(val==='HATIM_20052026'){
+    document.getElementById('admin-panel').style.display='block';
+    document.getElementById('adminInput').value='';
+    renderAdmin();
+    setTimeout(()=>document.getElementById('admin-panel').scrollIntoView({behavior:'smooth'}),120);
+  }
+}
+
+function renderAdmin(){
+  document.getElementById('statTools').textContent=DB.length;
+  document.getElementById('statFavs').textContent=favs.length;
+  document.getElementById('statSugg').textContent=suggs.length;
+  const inbox=document.getElementById('suggestionsList');
+  if(!suggs.length){inbox.innerHTML='<div class="empty-inbox">📭 لا توجد اقتراحات بعد</div>';return;}
+  inbox.innerHTML=suggs.map(s=>`
+    <div class="suggestion-item">
+      <div class="s-text">${s.text}</div>
+      <div class="s-time">📅 ${s.time}</div>
+    </div>`).join('');
+}
+
+// ─────────────────────────────────────────────────────────────
+// NAVIGATION
+// ─────────────────────────────────────────────────────────────
+function showPage(page){
+  document.getElementById('page-tools').style.display='none';
+  document.getElementById('searchWrap').style.display='none';
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.nav-btn').forEach(b=>b.classList.remove('active'));
+  const nb=document.getElementById('nb-'+page);
+  if(nb)nb.classList.add('active');
+
+  if(page==='tools'){
+    document.getElementById('page-tools').style.display='block';
+    document.getElementById('searchWrap').style.display='block';
+    document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
     document.querySelector('.tab').classList.add('active');
+    document.getElementById('mainSearch').value='';
+    renderTools(DB);
+  } else if(page==='fav'){
+    document.getElementById('page-fav').classList.add('active');
+    renderFavs();
+  } else {
+    document.getElementById('page-'+page).classList.add('active');
   }
-  if(page === 'fav') {
-    renderTools(DB.filter(t => favs.includes(t.name)), 'favGrid');
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+function renderFavs(){
+  const g=document.getElementById('favGrid');
+  const data=DB.filter(t=>favs.includes(t.name));
+  if(!data.length){
+    g.innerHTML='<div class="no-results" style="grid-column:1/-1">لم تضف أي أداة للمفضلة بعد<br><small style="font-size:12px;margin-top:8px;display:block;color:#2a5a78">اضغط ★ على أي أداة لإضافتها</small></div>';
+    return;
   }
+  g.innerHTML=data.map(t=>{
+    const safe=t.name.replace(/'/g,"\\'");
+    const fallback=`https://www.google.com/s2/favicons?domain=${encodeURIComponent(t.url)}&sz=64`;
+    return `<a href="${t.url}" target="_blank" class="tool-card">
+      <button class="fav-btn on" onclick="toggleFav(event,'${safe}');setTimeout(renderFavs,60)">★</button>
+      <img src="${t.img}" onerror="this.onerror=null;this.src='${fallback}'" loading="lazy" alt="${t.name}">
+      <h3>${t.name}</h3>
+      <p>${t.desc}</p>
+    </a>`;
+  }).join('');
 }
 
-function toggleLegal() {
-  const box = document.getElementById('legalBox');
-  box.style.display = box.style.display === 'block' ? 'none' : 'block';
-}
-
-function checkAdmin(val) {
-  if(val === 'HATIM_20052026') {
-    document.getElementById('admin-panel').style.display = 'block';
-    updateAdminStats();
-  }
-}
-
-function updateAdminStats() {
-  // محاكاة ذكية للزوار والزيارات
-  document.getElementById('liveUsers').textContent = Math.floor(Math.random() * 10) + 1;
-  let visits = localStorage.getItem('aiu_total_v') || 450;
-  visits = parseInt(visits) + 1;
-  localStorage.setItem('aiu_total_v', visits);
-  document.getElementById('totalVisits').textContent = visits;
-  document.getElementById('statFavs').textContent = favs.length;
-}
-
-function doSearch() {
-  const q = document.getElementById('mainSearch').value.toLowerCase();
-  const filtered = DB.filter(t => t.name.toLowerCase().includes(q) || t.desc.toLowerCase().includes(q));
-  renderTools(filtered);
-}
-
-function filterCat(cat, el) {
-  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
-  el.classList.add('active');
-  const filtered = cat === 'all' ? DB : DB.filter(t => t.cat === cat);
-  renderTools(filtered);
-}
-
-// Initialize
+// ─────────────────────────────────────────────────────────────
+// INIT
+// ─────────────────────────────────────────────────────────────
 renderTools(DB);
+renderPrompts();
+renderCourses();
+renderNews();
 </script>
 </body>
 </html>
